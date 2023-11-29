@@ -7,6 +7,7 @@ function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [age, setAge] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -14,7 +15,9 @@ function SignupPage() {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
-
+  const handlePic = (e) => setPic(e.target.value);
+  const handleRole = (e) => setRole(e.target.value);
+  const handleAge = (e) => setAge(e.target.value);
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
@@ -63,6 +66,25 @@ function SignupPage() {
 
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
+
+{/*         <label>Upload Photo:</label>
+        <input type='file' name="userPicture" value={name} onChange={handlePic} /> */}
+
+        <label>Age:</label>
+        <input type='number' name="age" value={age} onChange={handleAge} />
+
+
+        <label>Role:</label>
+        <select type='text' name="role" value={name} onChange={handleRole}>
+          {
+            (age < 18) ? <option value="Child">Child</option>
+            :
+            <option value="Parent">Parent</option>
+          }
+         
+          </select>
+
+
 
         <button type="submit">Sign Up</button>
       </form>

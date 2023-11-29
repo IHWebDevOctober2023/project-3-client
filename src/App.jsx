@@ -64,7 +64,7 @@ function App() {
         />
 
         <Route
-          path="/CreateFamily"
+          path="/createfamily"
           element={
             <IsPrivate>
               <CreateFamily />
@@ -73,7 +73,7 @@ function App() {
         />
 
         <Route
-          path="/CreateTask"
+          path="/createtask"
           element={
             <IsPrivate>
               <CreateTask />
