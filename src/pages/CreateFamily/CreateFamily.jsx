@@ -1,7 +1,11 @@
 import "./CreateFamily.css";
-function CreateFamily () {
+function CreateFamily() {
     return (
-        <h1>TESTED</h1>
+        <form>
+            <label>Family name:</label>
+            <input type="text" name="name" />
+            <button type="submit">Create family</button>
+        </form>
     )
 }
 export default CreateFamily;
