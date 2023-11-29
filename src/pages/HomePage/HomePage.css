@@ -1,0 +1,28 @@
+.family-member-card {
+    background-color: blue;
+    width: 100px;
+    height: 140px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.task-container {
+    background-color: green;
+
+}
+.family-member-img{
+    width: 60px;
+}
+
+.family-member-container{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
+
+.task{
+    background-color: brown;
+}
