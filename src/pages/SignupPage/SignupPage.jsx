@@ -21,7 +21,7 @@ function SignupPage() {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    age >18 ?  setRole("Parent"): setRole("Child")
+    Number(age) >18 ?  setRole("Parent"): setRole("Child")
     const requestBody = { email, password, name, role, age: Number(age) };
     console.log(requestBody);
     // Send a request to the server using axios
@@ -75,7 +75,7 @@ function SignupPage() {
         <input type='number' name="age" value={age} onChange={handleAge} />
 
 
-     {/*    <label>Role:</label>
+{/*          <label>Role:</label>
         <select type='text' name="role" value={role} onChange={handleRole}>
           {
             (age < 18) ? <option value="Child">Child</option>
@@ -83,7 +83,7 @@ function SignupPage() {
             <option value="Parent">Parent</option>
           }
          
-          </select> */}
+          </select>  */}
 
 
 
