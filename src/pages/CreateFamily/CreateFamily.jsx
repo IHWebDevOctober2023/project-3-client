@@ -9,6 +9,7 @@ function CreateFamily() {
     const { user } = useContext(AuthContext);
     const [familyName, setFamilyName] = useState("")
     const [familyCode, setFamilyCode] = useState("")
+    
     const familySubmit = async (event) => {
         event.preventDefault()
         console.log("createFamily page: ",familyName)
@@ -32,9 +33,9 @@ function CreateFamily() {
         event.preventDefault()
         try {
             await fetch(`${import.meta.env.VITE_SERVER_URL}/family/join`, {
-                method:"POST",
+                method:'POST',
                 headers: {
-                    'content-type': 'aplication/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({familyCode: familyCode, userId: user._id})
             })
