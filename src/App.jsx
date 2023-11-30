@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import CreateTestimonyPage from "./pages/CreateTestimonyPage/CreateTestimonyPage";
 
 function App() {
   return (
@@ -41,6 +42,15 @@ function App() {
             <IsAnon>
               <LoginPage />
             </IsAnon>
+          }
+          
+        />
+        <Route
+          path="/createtestimony"
+          element={
+            <IsPrivate>
+              <CreateTestimonyPage />
+            </IsPrivate>
           }
         />
       </Routes>
