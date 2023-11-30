@@ -18,6 +18,14 @@ function App() {
 
       <Routes>
         <Route path="/" element={
+          <IsAnon>
+             <LandingPage /> 
+          </IsAnon> 
+        
+        
+        } />
+      
+        <Route path="/home" element={
           <IsPrivate>
              <HomePage /> 
           </IsPrivate> 
