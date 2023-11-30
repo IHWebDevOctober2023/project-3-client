@@ -1,5 +1,8 @@
+import { Link, Navigate } from "react-router-dom";
 import "./CreateFamily.css";
 import {useState} from'react'
+
+
 function CreateFamily() {
     const [familyName, setFamilyName] = useState("")
     const handleSubmit = async (event) =>{
@@ -7,7 +10,7 @@ function CreateFamily() {
         console.log(familyName)
 
 try {
-     await fetch(`${import.meta.env.VITE_SERVER_URL}/fam/create`, {
+     await fetch(`${import.meta.env.VITE_SERVER_URL}/family/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -29,8 +32,7 @@ try {
             <label htmlFor="familyPicture">family pic</label>
             <input type="text" />
 
-
-            <button type="submit">Create family</button>
+            <Link to="/">create a family</Link>
         </form>
     )
 }
