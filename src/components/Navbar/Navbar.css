@@ -55,3 +55,15 @@
     right: 10px;
     top: 10px;
 }
+
+nav .home{
+    border: 0;
+}
+
+.logo{
+max-width: 30px;
+}
+
+.menu-icon{
+    color: white;
+}
