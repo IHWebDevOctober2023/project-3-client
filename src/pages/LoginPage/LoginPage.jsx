@@ -34,6 +34,7 @@ function LoginPage() {
         // after the token is stored authenticate the user
         // and at last navigate to the home page
         storeToken(response.data.authToken);
+        console.log(response.data.authToken)
         authenticateUser();
         navigate("/");
       })
