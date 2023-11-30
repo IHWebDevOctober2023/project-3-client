@@ -12,7 +12,7 @@ function Navbar() {
     const sideBar = document.querySelector(".navbar .sidebar");
 
     sideBar.classList.toggle("hidden");
-    if(sideBar.style.right === "0px") {
+    if (sideBar.style.right === "0px") {
 
       sideBar.style.right = "-400px"
 
@@ -32,17 +32,17 @@ function Navbar() {
             </Link>
 
 
-            <Link to="/profile">
-              <button onClick={handleSidebar}>Profile</button>
-              {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-            </Link>
+
+            <button onClick={handleSidebar}>Profile</button>
+            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+
 
             <div className="sidebar hidden">
 
-
-              <button onClick={handleSidebar} className="sidebar-profile">Profile</button>
-              {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-
+              <Link to="/profile">
+                <button onClick={handleSidebar} className="sidebar-profile">Profile</button>
+                {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+              </Link>
 
               <div className="sidebar-content ">
                 <ul className="side-list">

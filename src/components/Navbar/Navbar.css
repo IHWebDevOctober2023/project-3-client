@@ -25,7 +25,7 @@
 
 .navbar .sidebar.hidden {
     right: -100% !important;
-    transition: 500ms ease;
+    transition: 500ms ease-in-out;
   }
 
 .sidebar .sidebar-content{
