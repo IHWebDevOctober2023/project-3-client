@@ -21,11 +21,13 @@
     background-color: rgb(21, 116, 110);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
     transition: 500ms ease;
+    z-index: 2;
 }
 
 .navbar .sidebar.hidden {
     right: -100% !important;
     transition: 500ms ease-in-out;
+    
   }
 
 .sidebar .sidebar-content{
