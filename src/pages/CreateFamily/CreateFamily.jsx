@@ -8,9 +8,10 @@ import { Navigate } from "react-router-dom";
 function CreateFamily() {
     const { user } = useContext(AuthContext);
     const [familyName, setFamilyName] = useState("")
-    const handleSubmit = async (event) => {
+    const [familyCode, setFamilyCode] = useState("")
+    const familySubmit = async (event) => {
         event.preventDefault()
-        console.log(familyName)
+        console.log("createFamily page: ",familyName)
 
         try {
             await fetch(`${import.meta.env.VITE_SERVER_URL}/family/create`, {
@@ -27,12 +28,26 @@ function CreateFamily() {
             console.log(error)
         }
     }
+    const joinFamily = async (event) =>{
+        event.preventDefault()
+        try {
+            await fetch(`${import.meta.env.VITE_SERVER_URL}/family/join`, {
+                method:"POST",
+                headers: {
+                    'content-type': 'aplication/json'
+                },
+                body: JSON.stringify({familyCode: familyCode, userId: user._id})
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <>
         {
             (user.role === "Parent") &&
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={familySubmit}>
             <label>Family name:</label>
             <input type="text" name="familyName" onChange={(event) => setFamilyName(event.target.value)} /><br></br>
 
@@ -43,9 +58,9 @@ function CreateFamily() {
 
         </form>
         }
-        <form>
+        <form onSubmit={joinFamily}>
             <label htmlFor=""></label>
-            <input type="number" name="familyCode" />
+            <input type="number" name="familyCode" value={familyCode} onChange={(event) => setFamilyCode(event.target.value)}/>
             <button>join a family</button>
         </form>
         </>
