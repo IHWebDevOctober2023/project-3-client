@@ -7,6 +7,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [family, setFamily] = useState(null)
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -66,6 +67,8 @@ function AuthProviderWrapper(props) {
         isLoggedIn,
         isLoading,
         user,
+        family,
+        setFamily,
         storeToken,
         authenticateUser,
         logOutUser,

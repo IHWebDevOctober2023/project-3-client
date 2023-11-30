@@ -11,17 +11,18 @@ const familyMembersData = [
   { _id: 2454, name: "Lisa", img: "https://gravatar.com/avatar/865fdc42701e4d2f15599a6f1d34df6e?s=400&d=robohash&r=x" }
 ]
 function HomePage() {
-  const { user } = useContext(AuthContext);
+  const { user, family } = useContext(AuthContext);
   console.log("home page",user);
   const [familyMember, setfamilyMember] = useState(familyMembersData)
   const [task, setTask] = useState(tasksData)
 
   return (
   <>
-      { user.family? <div>
+      { user.family || family? <div>
      
       <h1>FAMILY NAME</h1>
-      <Link to='/createfamily'>create a Family</Link>
+      <Link to='/createfamily'>create a Family</Link><br></br>
+      <Link to='/createtask'>create a task</Link>
       <div className="family-member-container">
       {familyMember.map((eachFamilyMember, index) => {
         return (
