@@ -31,7 +31,7 @@ function CreateFamily() {
     return (
         <>
         {
-            (role === "Parent") &&
+            (user.role === "Parent") &&
         <form onSubmit={handleSubmit}>
             <label>Family name:</label>
             <input type="text" name="familyName" onChange={(event) => setFamilyName(event.target.value)} /><br></br>
