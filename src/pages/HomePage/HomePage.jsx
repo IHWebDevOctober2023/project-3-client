@@ -13,6 +13,7 @@ function HomePage() {
   return (
     <div>
       <h1>FAMILY NAME</h1>
+      <Link to='/createfamily'>create a Family</Link>
       <div className="family-member-container">
       {familyMember.map((eachFamilyMember, index) => {
         return (
