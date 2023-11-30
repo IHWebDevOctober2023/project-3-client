@@ -34,9 +34,9 @@ function HomePage() {
       })
     }
       </div>
-      <div className="task-container">
+      <div className="task-container">{/* maybe we dont need this div if we keep the next one */}
       {task.map((eachTask, index) => {
-        return ( <div className="task">
+        return ( <div className="task">{/* maybe we dont need this div if we keep the prev one */}
           <p>{eachTask.taskDescription}</p>
           <p>{eachTask.taskTime}</p>
           <p>{eachTask.taskWeekDay}</p>
