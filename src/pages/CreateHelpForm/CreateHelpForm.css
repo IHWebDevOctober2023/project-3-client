@@ -15,7 +15,8 @@
     align-items: center;
     z-index: 0;
     margin: 0 auto;
-    gap: 15px;
+    gap: 5px;
+    
     
 }
 h1{
@@ -24,5 +25,12 @@ h1{
     margin-bottom: 40px;
 }
 
+.create-help-container > label{
+    margin-top: 20px;
+}
+
+.create-help-container button{
+    margin-top: 20px;
+}
 
   

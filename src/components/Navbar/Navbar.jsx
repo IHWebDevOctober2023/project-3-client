@@ -28,12 +28,12 @@ function Navbar() {
         {isLoggedIn && (
           <>
             <Link to="/home">
-              <button>Home</button>
+              <img className="logo" src="./images/4H logo round white2.svg" alt="" />
             </Link>
 
 
 
-            <button onClick={handleSidebar}>Profile</button>
+             <img className="menu-icon" onClick={handleSidebar}src="./images/menu_FILL0_wght400_GRAD0_opsz24.svg" alt="" />
             {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
 
 
