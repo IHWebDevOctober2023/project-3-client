@@ -39,19 +39,36 @@ function Navbar() {
 
             <div className="sidebar hidden">
 
-              <Link to="/profile">
-                <button onClick={handleSidebar} className="sidebar-profile">Profile</button>
-                {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-              </Link>
+
+              <button onClick={handleSidebar} className="sidebar-profile">Profile</button>
+              {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+
 
               <div className="sidebar-content ">
                 <ul className="side-list">
+
+
                   <li className="side-element">
-                    <button onClick={logOutUser}>Logout</button>
+                    <Link to="/profile">
+                      <button onClick={handleSidebar} className="side-element">Profile</button>
+                      {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+                    </Link>
                   </li>
+                  <li className="side-element">
+                  <Link to="/createhelp">
+                    <button>Create Help request</button>
+                    </Link>
+                  </li>
+
+
                   <li className="side-element">
                     <button>Testimonies</button>
                   </li>
+
+                  <li className="side-element">
+                    <button onClick={logOutUser}>Logout</button>
+                  </li>
+
                 </ul>
               </div>
 

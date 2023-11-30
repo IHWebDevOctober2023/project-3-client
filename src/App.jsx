@@ -11,6 +11,7 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import CreateTestimonyPage from "./pages/CreateTestimonyPage/CreateTestimonyPage";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import CreateHelpForm from "./pages/CreateHelpForm/CreateHelpForm";
 
 function App() {
   return (
@@ -33,8 +34,6 @@ function App() {
 
 
         } />
-
-
 
         <Route
           path="/profile"
@@ -67,6 +66,14 @@ function App() {
           element={
             <IsPrivate>
               <CreateTestimonyPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/createhelp"
+          element={
+            <IsPrivate>
+              <CreateHelpForm/>
             </IsPrivate>
           }
         />
