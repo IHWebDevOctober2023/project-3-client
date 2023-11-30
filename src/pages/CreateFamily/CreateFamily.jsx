@@ -51,7 +51,7 @@ function CreateFamily() {
     return (
         <>
             {
-                (user.role === "Parent") &&
+                (user.role === "Parent") && /* with this "middleware" we can avoid users under 18 to create a new family */
                 <form onSubmit={familySubmit}>
                     <label>Family name:</label>
                     <input type="text" name="familyName" onChange={(event) => setFamilyName(event.target.value)} /><br></br>
@@ -63,6 +63,7 @@ function CreateFamily() {
 
                 </form>
             }
+            {/* create a new form for the user to be part os a family */}
             <form onSubmit={joinFamily}>
                 <label htmlFor=""></label>
                 <input type="number" name="familyCode" value={familyCode} onChange={(event) => setFamilyCode(event.target.value)} />

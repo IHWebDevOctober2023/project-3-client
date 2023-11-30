@@ -12,7 +12,7 @@ const familyMembersData = [
 ]
 function HomePage() {
   const { user, family } = useContext(AuthContext);
-  console.log("home page",user);
+  console.log("home page",user.family.familyName);
   const [familyMember, setfamilyMember] = useState(familyMembersData)
   const [task, setTask] = useState(tasksData)
 
@@ -20,9 +20,10 @@ function HomePage() {
   <>
       { user.family || family? <div>
      
-      <h1>FAMILY NAME</h1>
+      <h1>welcome family:</h1>
+      <h3>{user.family.familyName}</h3>{/* import the family name from backend */}
       <Link to='/createfamily'>create a Family</Link><br></br>
-      <Link to='/createtask'>create a task</Link>
+      
       <div className="family-member-container">
       {familyMember.map((eachFamilyMember, index) => {
         return (
@@ -43,7 +44,7 @@ function HomePage() {
           <p>{eachTask.taskComments}</p>
         </div>)})}
       </div>
-      <Link to="/CreateTask">
+      <Link to="/createtask">
         <button>New Task</button>
       </Link>
     </div >
