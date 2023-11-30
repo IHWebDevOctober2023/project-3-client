@@ -7,7 +7,7 @@ const Testimony = (props) => {
         <article className="testimony">
             <p>text: {text}</p>
             <p>rating: {rating}</p>
-            <p>user: {creator}</p>
+            <p>user: {creator.name}</p>
         </article>
     );
 };

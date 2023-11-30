@@ -1,4 +1,5 @@
 .testimony {
-    width: 250;
-    height: 200;
+    width: 180px;
+    background-color: antiquewhite;
+    border-radius: 8px;
 }

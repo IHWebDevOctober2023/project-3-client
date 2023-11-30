@@ -7,7 +7,6 @@ const LandingPage = () => {
 
     return (
         <div className="landing-wrapper">
-        <h3>LANDING</h3>
             <section id="landing-upper">
                 <div id="landing-cta">
                     <h2>Do you need help? 3 helps for you are on us.</h2>
@@ -16,8 +15,10 @@ const LandingPage = () => {
             </section>
         {/* In backend I need to populate creator and send it populated to frontend */}
             <section id="landing-testimonies">
+                <Testimony text="My Random Text" rating={5} creator={{name: "Alicia"}}/>
+                <Testimony text="Lorem Ipsum dolor sit amet lalalalalalala" rating={5} creator={{name: "Jose"}}/>
                 <Testimony text="My Random Text" rating={5} creator={{name: "Pepito"}}/>
-
+                <Testimony text="Lorem Ipsum dolor sit amet lalalalalalala" rating={2} creator={{name: "Mireia"}}/>
             </section>
         </div>
     );
