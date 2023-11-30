@@ -3,7 +3,8 @@ import "./CreateHelpForm.css";
 function CreateHelpForm() {
     return (
         <div>
-            <h1>User Profile</h1>
+            <h1>Create Help Resquest Post</h1>
+            
         </div>
     );
 }

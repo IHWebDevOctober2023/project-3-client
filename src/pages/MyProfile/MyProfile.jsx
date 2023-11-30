@@ -1,11 +1,11 @@
-import "./UserProfile.css";
+import "./MyProfile.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 
 
-function UserProfile() {
+function MyProfile() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { userId } = useParams();
     console.log(user._id);
@@ -38,4 +38,4 @@ function UserProfile() {
     );
 }
 
-export default UserProfile;
+export default MyProfile;
