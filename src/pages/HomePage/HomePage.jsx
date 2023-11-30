@@ -12,7 +12,7 @@ const familyMembersData = [
 ]
 function HomePage() {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  console.log("home page",user);
   const [familyMember, setfamilyMember] = useState(familyMembersData)
   const [task, setTask] = useState(tasksData)
 

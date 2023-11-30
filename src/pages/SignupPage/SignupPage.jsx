@@ -21,7 +21,7 @@ function SignupPage() {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    age <18 ?  setRole("Parent"): setRole("Child")
+    age >18 ?  setRole("Parent"): setRole("Child")
     const requestBody = { email, password, name, role, age: Number(age) };
     console.log(requestBody);
     // Send a request to the server using axios
