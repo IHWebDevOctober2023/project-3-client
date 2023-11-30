@@ -1,7 +1,7 @@
 .family-member-card {
     background-color: blue;
     width: 100px;
-    height: 140px;
+    height: 100px;
     border-radius: 20px;
     padding: 10px;
 }
@@ -11,7 +11,7 @@
 
 }
 .family-member-img{
-    width: 60px;
+    width: 40px;
 }
 
 .family-member-container{

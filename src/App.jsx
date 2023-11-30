@@ -24,7 +24,7 @@ function App() {
           path="/"
           element={
             <IsPrivate>
-              <HomePage />
+              <HomePage/>
             </IsPrivate>
           }
         />
