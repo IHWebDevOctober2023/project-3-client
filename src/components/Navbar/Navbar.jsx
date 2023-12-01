@@ -70,7 +70,7 @@ function Navbar() {
 
 
                   <li className="side-element">
-                    <Link to="/profile">
+                    <Link to="/myprofile">
                       <button onClick={handleSidebar} className="side-element">Profile</button>
                       {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
                     </Link>
