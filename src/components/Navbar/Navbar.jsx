@@ -7,11 +7,11 @@ function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  /* const userIdFromAuth = user._id */
+
   const [userData, setUserData] = useState('')
   const {userId} = useParams()
-  /* const userID = user._id */
-  console.log("user",user);
+  
+ /*  console.log("user",user._id); */
 
   const handleSidebar = () => {
     const sideBar = document.querySelector(".navbar .sidebar");
@@ -33,7 +33,7 @@ function Navbar() {
               .then((response) => response.json())
               .then ((responseJson) => {
                 setUserData(responseJson);
-                console.log("response",responseJson)
+                /* console.log("response",responseJson) */
                   
               })     
               .catch((err)=> console.log(err));
@@ -51,7 +51,7 @@ function Navbar() {
         {isLoggedIn && (
           <>
             <Link to="/home">
-              <img className="logo" src="./images/4H logo round white2.svg" alt="" />
+              <img className="logo" src="/images/4H-2.svg" alt="" />
             </Link>
 
             <img className="right-button" onClick={handleSidebar} src={userData.profilePicture} alt="profile picture" />
@@ -77,13 +77,13 @@ function Navbar() {
                   </li>
                   <li className="side-element">
                     <Link to="/createhelp">
-                      <button>Create Help request</button>
+                      <button onClick={handleSidebar}>Create Help request</button>
                     </Link>
                   </li>
 
 
                   <li className="side-element">
-                    <button>Testimonies</button>
+                    <button onClick={handleSidebar}>Testimonies</button>
                   </li>
 
                   <li className="side-element">
