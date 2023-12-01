@@ -1,7 +1,10 @@
 import "./CreateHelpForm.css";
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { AuthContext } from "../../context/auth.context";
+
 
 function CreateHelpForm() {
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const [helpPosts, setHelpPosts] = useState([])
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
@@ -23,7 +26,7 @@ function CreateHelpForm() {
             location,
             description,
             helpImageUrl,
-            creator,
+            creator: user._id,
             category,
             volunteers,
             isCompleted
