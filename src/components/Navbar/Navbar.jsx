@@ -16,12 +16,12 @@ function Navbar() {
 
       sideBar.style.right = "-400px"
 
-      /* sideBar.classList.add("hidden") */
     }
   }
 
   return (
     <div className="navbar-container">
+
       <nav className="navbar">
 
 
@@ -31,18 +31,15 @@ function Navbar() {
               <img className="logo" src="./images/4H logo round white2.svg" alt="" />
             </Link>
 
-
-
-             <img className="menu-icon" onClick={handleSidebar}src="./images/menu_FILL0_wght400_GRAD0_opsz24.svg" alt="" />
+            <img className="right-button" onClick={handleSidebar} src="../public/images/profile-pic-default.svg" alt="" />
             {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
 
 
             <div className="sidebar hidden">
 
-
-              <button onClick={handleSidebar} className="sidebar-profile">Profile</button>
-              {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-
+              <div onClick={handleSidebar} className="center">
+                <div></div>
+              </div>
 
               <div className="sidebar-content ">
                 <ul className="side-list">
@@ -55,8 +52,8 @@ function Navbar() {
                     </Link>
                   </li>
                   <li className="side-element">
-                  <Link to="/createhelp">
-                    <button>Create Help request</button>
+                    <Link to="/createhelp">
+                      <button>Create Help request</button>
                     </Link>
                   </li>
 
