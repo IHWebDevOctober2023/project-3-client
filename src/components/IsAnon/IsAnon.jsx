@@ -13,10 +13,12 @@ function IsAnon({ children }) {
 
   if (isLoggedIn) {
     // If the user is logged in, navigate to home page ❌
+    console.log("isloggedin => going to /");
     return <Navigate to="/" />;
   }
 
   // If the user is not logged in, allow to see the page ✅
+  console.log("is anonymous => display children (LandingPage)");
   return children;
 }
 
