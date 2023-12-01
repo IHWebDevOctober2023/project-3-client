@@ -12,7 +12,7 @@ const LandingPage = () => {
             .then((response) => response.json())
             .then ((responseJson) => {
                 setTestimoniesArray(responseJson);
-                // console.log("RESPONSE: ", testimoniesArray);
+                console.log("RESPONSE: ", responseJson);
             })     
             .catch((err)=> console.log(err));
     }, []);
@@ -32,7 +32,7 @@ const LandingPage = () => {
                         const {text, rating, creator} = eachTestimony;
                         console.log("USER", creator)
                         return (
-                            <Testimony key={index} text={text} rating={rating} creator={creator}/>
+                            <Testimony key={index} text={text} rating={rating} creator={creator[0]}/>
                         )
                     })
                 }

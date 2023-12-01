@@ -2,6 +2,8 @@ import "./Testimony.css";
 
 const Testimony = (props) => {
     const {text, rating, creator} = props;
+    console.log("CREATOR:", creator);
+
 
     return (
         <article className="testimony">
