@@ -7,11 +7,11 @@ function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-  const userIdFromAuth = user._id
+  /* const userIdFromAuth = user._id */
   const [userData, setUserData] = useState('')
   const {userId} = useParams()
   /* const userID = user._id */
-  console.log("userfromauth",userIdFromAuth);
+  console.log("user",user);
 
   const handleSidebar = () => {
     const sideBar = document.querySelector(".navbar .sidebar");
@@ -23,19 +23,23 @@ function Navbar() {
 
     }
   }
+  /* fetch(`${BACKEND_ROOT}/user/${userIdFromAuth}`, {mode: 'cors'}) */
 
-  /* useEffect(() => {
-    const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+   useEffect(() => {
+    if(user){
+      const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+  
+          fetch(`http://localhost:5005/user/${user._id}`)
+              .then((response) => response.json())
+              .then ((responseJson) => {
+                setUserData(responseJson);
+                console.log("response",responseJson)
+                  
+              })     
+              .catch((err)=> console.log(err));
 
-        fetch(`${BACKEND_ROOT}/user/${userIdFromAuth}`, {mode: 'cors'})
-            .then((response) => response.json())
-            .then ((responseJson) => {
-              setUserData(responseJson);
-              console.log("response",responseJson)
-                
-            })     
-            .catch((err)=> console.log(err));
-  }, []) */
+    }
+  }, [user])
   
 
   return (
@@ -50,7 +54,7 @@ function Navbar() {
               <img className="logo" src="./images/4H logo round white2.svg" alt="" />
             </Link>
 
-            <img className="right-button" onClick={handleSidebar} src={userData.profiePicture} alt="profile picture" />
+            <img className="right-button" onClick={handleSidebar} src={userData.profilePicture} alt="profile picture" />
             {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
 
 

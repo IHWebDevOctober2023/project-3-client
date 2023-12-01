@@ -7,7 +7,7 @@ import { useContext } from "react";
 function MyProfile() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const userIdFromAuth = user._id
-    console.log("myprofile", userIdFromAuth);
+    
     const [userData, setUserData] = useState('')
 
 
