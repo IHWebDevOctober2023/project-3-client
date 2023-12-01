@@ -39,7 +39,7 @@ function CreateHelpForm() {
                 body: JSON.stringify(helpPosts),
             });
             const newHelpPost = await response.json();
-            setRobots((previousHelpPosts) => [newHelpPost, ...previousHelpPosts])
+            setHelpPosts((previousHelpPosts) => [newHelpPost, ...previousHelpPosts])
 
         } catch (err) {
             console.log(err);
