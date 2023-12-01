@@ -17,10 +17,11 @@ function HomePage() {
   // console.log("home page", user.family.familyName);
   const [familyMember, setfamilyMember] = useState(familyMembersData)
   const [task, setTask] = useState(tasksData)
+  console.log(family);
 
   return (
     <>
-      {user.family || family ?
+      {(user.family || family) ?
         <div>
 
           <h1>welcome family:</h1>

@@ -29,6 +29,7 @@ function AuthProviderWrapper(props) {
           setIsLoggedIn(true);
           setIsLoading(false);
           setUser(user);
+          setFamily(user.family)
         })
         .catch(() => { 
           // If the server sends an error response (invalid token) ❌
@@ -53,6 +54,7 @@ function AuthProviderWrapper(props) {
     // Upon logout, remove the token from the localStorage
     removeToken();
     authenticateUser();
+    setFamily(null)
   };
 
   useEffect(() => {

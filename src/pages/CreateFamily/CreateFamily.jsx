@@ -23,10 +23,11 @@ function CreateFamily() {
                 },
                 body: JSON.stringify({ familyName: familyName, userId: user._id })
             });
-            setFamily(family)
+            const jsonFamily = await family.json()
+            setFamily(jsonFamily)
             navigate("/")
-
-
+            
+            
         } catch (error) {
             console.log(error)
         }
@@ -41,7 +42,8 @@ function CreateFamily() {
                 },
                 body: JSON.stringify({ familyCode: familyCode, userId: user._id })
             })
-            setFamily(family)
+            const jsonFamily = await family.json()
+            setFamily(jsonFamily)
             navigate('/')
         } catch (error) {
             console.log(error)
