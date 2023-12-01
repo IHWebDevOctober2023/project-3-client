@@ -55,12 +55,11 @@ function CreateFamily() {
             {
                 (user.role === "Parent") && /* with this "middleware" we can avoid users under 18 to create a new family */
                 <form onSubmit={familySubmit}>
-                    <label>Family name:</label>
-                    <input type="text" name="familyName" onChange={(event) => setFamilyName(event.target.value)} /><br></br>
+                    <button>Create family</button>
+                    <input type="text" placeholder="choose a name" name="familyName" onChange={(event) => setFamilyName(event.target.value)} /><br></br>
 
                     {/*             <label htmlFor="familyPicture">family pic</label>
             <input type="text" /> */}
-                    <button>create family</button>
 
 
                 </form>
@@ -68,8 +67,8 @@ function CreateFamily() {
             {/* create a new form for the user to be part os a family */}
             <form onSubmit={joinFamily}>
                 <label htmlFor=""></label>
-                <input type="number" name="familyCode" value={familyCode} onChange={(event) => setFamilyCode(event.target.value)} />
-                <button>join a family</button>
+                <button>Join family</button>
+                <input type="number" placeholder="type your code family" name="familyCode" value={familyCode} onChange={(event) => setFamilyCode(event.target.value)} />
             </form>
         </>
     )
