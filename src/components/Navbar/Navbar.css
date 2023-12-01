@@ -7,7 +7,7 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(29, 29, 93);
+    background-color: rgb(111, 111, 172);
     padding: 10px;
 }
 
@@ -16,7 +16,7 @@
     top: 0;
     right: 0;
     height: 100%;
-    width: 200px;
+    width: 300px;
     padding: 20px 30px;
     background-color: rgb(21, 116, 110);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
@@ -62,8 +62,46 @@ nav .home{
 
 .logo{
 max-width: 30px;
+margin-left: 10px;
+margin-top: 5px;
+
 }
 
-.menu-icon{
+.right-button{
     color: white;
+    background-color: aliceblue;
+    border-radius: 15px;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+
 }
+
+  .center {
+    
+    width: 20px;
+  }
+  
+  /* Hamburguer menu */
+  .center:before,
+  .center:after,
+  .center div {
+    background: #fff;
+    content: "";
+    display: block;
+    height: 3px;
+    border-radius: 3px;
+    margin: 7px 0;
+    transition: 0.5s;
+  }
+  .center:hover:before {
+    transform: translateY(8px) rotate(130deg);
+  }
+  .center:hover:after {
+    transform: translateY(-8px) rotate(-130deg);
+  }
+  .center:hover div {
+    transform: scale(0);
+  }
+  
