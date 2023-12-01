@@ -6,47 +6,44 @@ import { AuthContext } from "../../context/auth.context";
 
 
 function CreateTask() {
-    const {task} = useContext(AuthContext);
-    const [taskName, setTaskName] = useState()
-    const taskSubmit = async (event) =>{
-        event.preventDefault()
-        console.log("creating task: ", taskSubmit)
-        try {
-            const submitTask = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/createtask`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({taskName: taskName})
-            })
-            setTaskName()
-            
-        } catch (error) {
-            
-        }
+    const [taskFamily, setTaskFamily] = useState("");
+    const [taskOwner, setTaskOwner] = useState("");
+    const [taskIcon, setTaskIcon] = useState("");
+    const [taskName, setTaskName] = useState("");
+    const [taskDescription, setTaskDescription] = useState("");
+    const [taskTime, setTaskTime] = useState("");
+    const [taskWeekDay, setTaskWeekDay] = useState("");
+    const [taskAssignedTo, setTaskAssignedTo] = useState("");
+    const [taskIsDone, setTaskIsDone] = useState("");
+    const [taskImgUploaded, setTaskImgUploaded] = useState("");
+    const [taskComments, setTaskComments] = useState("");
+
+
+
+    const handleTaskFamily = (e) => setTaskFamily(e.target.value);
+    const handleTaskOwner = (e) => setTaskOwner(e.target.value);
+    const handleTaskIcon = (e) => setTaskIcon(e.target.value);
+    const handleTaskName = (e) => setTaskName(e.target.value);
+    const handleTaskDescription = (e) => setTaskDescription(e.target.value);
+    const handleTaskTime = (e) => setTaskTime(e.target.value);
+    const handleTaskWeekDay = (e) => setTaskWeekDay(e.target.value);
+
+    const navigate = useNavigate();
+
+    const handleSubmitTask = (e) => {///after you create a task you will redirect to HomePage
+        e.preventDefault()
+        navigate('/')
     }
+    
     return (
         <>
-        <form action="" method="post">
-            <label htmlFor="">Name:</label>
-            <input type="text" />
-            <button>add new task</button>
-            </form>
-        </>
-    )
-}
-export default CreateTask;
-
-
-
-/* 
-<form className="form-conteiner">
-            <<<COMENT>>>falta and task icon, falta taskindone, falta assigned to, falta taskImgUploaded, falta task comments 
+<form className="form-conteiner" onSubmit={handleSubmitTask}>
+           {/*  falta and task icon, falta taskindone, falta assigned to, falta taskImgUploaded, falta task comments  */}
             <label>Description:</label>
-            <textarea id="content" name="description" required></textarea>
+            <textarea id="content" name="description" required onChange={handleTaskDescription}></textarea>
             <br/>
             <label for="dayMoment"><b>When? Choose a timing interval to finish the task</b></label>
-            <select id="timing-interval" name="timingInterval">
+            <select id="timing-interval" name="timingInterval" onChange={handleTaskTime}>
                 <option value="On Wake Up">On Wake Up</option>
                 <option value="Before Breakfast">Before Breakfast</option>
                 <option value="After Breakfast">After Breakfast</option>
@@ -59,19 +56,7 @@ export default CreateTask;
             </select>
             <br/>
             <label for="dayMoment"><b>Choose a day of the week</b></label>
-            <select id="day-moment" name="dayMoment">
-                <option value="Everyday">Everyday</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-            </select>
-            <br/>
-            <label for="dayMoment"><b>Choose a day of the week</b></label>
-            <select id="day-moment" name="dayMoment">
+            <select id="day-moment" name="dayMoment" onChange={handleTaskWeekDay}>
                 <option value="Everyday">Everyday</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
@@ -86,4 +71,42 @@ export default CreateTask;
             <button type="submit">Create task</button>
             </Link>
         </form>
+        </>
+    )
+}
+export default CreateTask;
+
+
+
+/* 
+ <label for="dayMoment"><b>Choose a day of the week</b></label>
+<select id="day-moment" name="dayMoment">
+    <option value="Everyday">Everyday</option>
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+</select>
+<br/>
+
+const taskSubmit = async (event) =>{
+        event.preventDefault()
+        console.log("creating task: ", taskSubmit)
+        try {
+            const submitTask = await fetch(`${import.meta.env.VITE_SERVER_URL}/createtask`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({taskName: taskName})
+            })
+            setTaskName()
+            
+        } catch (error) {
+            
+        }
+    }
 */
