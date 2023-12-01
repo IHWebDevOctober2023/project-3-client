@@ -13,8 +13,8 @@ const errorHandler = (err) => {
 };
 
 // Configuring of USER - uploadUserImage
-const uploadUserImage = (file) => {
-  return api.post("/uploaduserpicture", file)
+const uploadUserImage = (userPicture) => {
+  return api.post("/uploaduserpicture", userPicture)
     .then(res => res.data)
     .catch(errorHandler);
 };
