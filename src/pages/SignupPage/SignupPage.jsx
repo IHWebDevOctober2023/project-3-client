@@ -8,7 +8,6 @@ function SignupPage() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-  const [role, setRole] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -17,11 +16,15 @@ function SignupPage() {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
   const handlePic = (e) => setPic(e.target.value);
-  const handleAge = (e) => setAge(e.target.value);
+  const handleAge = (e) => {
+    setAge(e.target.value)
+  };
   const handleSignupSubmit = (e) => {
     e.preventDefault();
+    let role;
+    console.log(role);
+    Number(age) > 18 ? role = "Parent" : role = "Child";
     // Create an object representing the request body
-    Number(age) >18 ?  setRole("Parent"): setRole("Child")
     const requestBody = { email, password, name, role, age: Number(age) };
     console.log(requestBody);
     // Send a request to the server using axios
@@ -68,14 +71,14 @@ function SignupPage() {
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
-{/*         <label>Upload Photo:</label>
+        {/*         <label>Upload Photo:</label>
         <input type='file' name="userPicture" value={name} onChange={handlePic} /> */}
 
         <label>Age:</label>
         <input type='number' name="age" value={age} onChange={handleAge} />
 
 
-{/*          <label>Role:</label>
+        {/*          <label>Role:</label>
         <select type='text' name="role" value={role} onChange={handleRole}>
           {
             (age < 18) ? <option value="Child">Child</option>
