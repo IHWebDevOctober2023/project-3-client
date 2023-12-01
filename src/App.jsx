@@ -11,6 +11,7 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import CreateTestimonyPage from "./pages/CreateTestimonyPage/CreateTestimonyPage";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import MyProfile from "./pages/MyProfile/MyProfile";
 
 function App() {
   return (
@@ -75,6 +76,14 @@ function App() {
           element={
             <IsPrivate>
               <UserProfile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/MyProfile"
+          element={
+            <IsPrivate>
+              <MyProfile />
             </IsPrivate>
           }
         />
