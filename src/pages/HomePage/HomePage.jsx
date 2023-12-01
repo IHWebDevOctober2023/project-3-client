@@ -4,7 +4,8 @@ import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import tasksData from "./task.json"
-import Task from "../../components/task/Task";
+import Task from "../../components/Task/Task";
+import FamilyMember from "../../components/FamilyMember/FamilyMember";
 
 
 const familyMembersData = [
@@ -29,10 +30,11 @@ function HomePage() {
           <div className="family-member-container">
             {familyMember.map((eachFamilyMember, index) => {
               return (
-                < div className="family-member-card" key={eachFamilyMember._id} >
-                  <img className="family-member-img" src={eachFamilyMember.img} alt={eachFamilyMember.name} />
-                  <h2>{eachFamilyMember.name}</h2>
-                </div>)
+                <FamilyMember
+                _id={eachFamilyMember._id}
+                img={eachFamilyMember.img}
+                name={eachFamilyMember.name}
+                />)
             })
             }
           </div>
