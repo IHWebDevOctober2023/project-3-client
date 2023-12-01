@@ -12,7 +12,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
 }
 
 #landing-cta {
@@ -35,6 +34,7 @@
 #landing-testimonies {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
     padding: 30px 15px 0 15px;
 }
