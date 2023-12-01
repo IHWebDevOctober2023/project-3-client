@@ -13,29 +13,25 @@ import CreateTestimonyPage from "./pages/CreateTestimonyPage/CreateTestimonyPage
 import UserProfile from "./pages/UserProfile/UserProfile";
 import CreateHelpForm from "./pages/CreateHelpForm/CreateHelpForm";
 import MyProfile from "./pages/MyProfile/MyProfile";
+import { useContext } from "react";
+import { AuthContext } from "./context/auth.context";
 
 function App() {
+  const { isLoggedIn, isLoading } = useContext(AuthContext);
   return (
     <div className="App">
       <Navbar />
-
       <Routes>
         <Route path="/" element={
-          <IsAnon>
-            <LandingPage />
-          </IsAnon>
-
-
+          <>
+            {!isLoggedIn?<LandingPage />: <MyProfile/>}
+          </>
         } />
-
         <Route path="/home" element={
           <IsPrivate>
             <HomePage />
           </IsPrivate>
-
-
         } />
-
         <Route
           path="/profile"
           element={
@@ -44,7 +40,6 @@ function App() {
             </IsPrivate>
           }
         />
-
         <Route
           path="/signup"
           element={
@@ -60,7 +55,6 @@ function App() {
               <LoginPage />
             </IsAnon>
           }
-
         />
         <Route
           path="/createtestimony"
