@@ -12,13 +12,13 @@ function CreateHelpForm() {
     const [volunteers, setVolunteers] = useState('')
     const [isCompleted, setIsCompleted] = useState('')
 
-    useEffect(() => {
+    /* useEffect(() => {
         postHelp()
-    }, [])
+    }, []) */
 
     const postHelp = async (event) => {
-        event.preventDefault()
-        const helpPost = {
+        event.preventDefault();
+        const helpPosts = {
             title,
             location,
             description,
@@ -28,23 +28,25 @@ function CreateHelpForm() {
             volunteers,
             isCompleted
         };
-        console.log(helpPost);
+        console.log(helpPosts);
 
         try {
-            const response = await fetch("mongodb+srv://tesmon:mongodomingo@undefined.hnl6vfy.mongodb.net/project-3/createhelp", {
+            const response = await fetch("http://localhost:5005/help-post/createhelp", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(helpPost),
+                body: JSON.stringify(helpPosts),
             });
             const newHelpPost = await response.json();
-            setRobots((previousHelpPosts) => [newHelpPost, ...previousHelpPosts])
+            setHelpPosts((previousHelpPosts) => [newHelpPost, ...previousHelpPosts])
 
         } catch (err) {
             console.log(err);
         }
     }
+
+    
 
     return (
         <div>
@@ -61,10 +63,9 @@ function CreateHelpForm() {
                 <textarea value={description} onChange={(event) => setDescription(event.target.value)} type="text" name="description" />
 
                 <label htmlFor="helpImageUrl">Image</label>
-                <input value={helpImageUrl} onChange={(event) => setImage(event.target.value)} type="text" name="helpImageUrl" />
+                <input value={helpImageUrl} onChange={(event) => setHelpImage(event.target.value)} type="text" name="helpImageUrl" />
 
-                <label htmlFor="creator">Creator</label>
-                <input value={creator} onChange={(event) => setCreator(event.target.value)} type="text" name="creator" />
+               
 
                 <label htmlFor="category">Category</label>
                 <select value={category} onChange={(event) => setCategory(event.target.value)} type="text" name="category" >
