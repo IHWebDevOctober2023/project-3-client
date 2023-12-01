@@ -14,7 +14,7 @@ function HomePage() {
 
   const getTasks = async (event) => {
     try {
-      const getTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/task`)
+      const getTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks`)
       const getTasks = await getTasksResponse.json()
       console.log(getTasks);
       setTask(getTasks)

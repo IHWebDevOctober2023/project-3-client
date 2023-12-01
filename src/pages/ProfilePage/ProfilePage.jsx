@@ -29,6 +29,7 @@ function ProfilePage() {
     <div>
       {console.log(user, family)}
       <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
+      <img src={user.userPicture} alt={user.name} />
       <h2>These are the members of the {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h2>
       <div className="family-member-container">
         {familyMember.map((eachFamilyMember, index) => {
