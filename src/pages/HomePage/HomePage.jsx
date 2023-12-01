@@ -4,6 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import tasksData from "./task.json"
+import Task from "../../components/task/Task";
 
 
 const familyMembersData = [
@@ -37,13 +38,15 @@ function HomePage() {
           </div>
           <div className="task-container">{/* maybe we dont need this div if we keep the next one */}
             {task.map((eachTask, index) => {
-              return (<div className="task">{/* maybe we dont need this div if we keep the prev one */}
-                <p>{eachTask.taskDescription}</p>
-                <p>{eachTask.taskTime}</p>
-                <p>{eachTask.taskWeekDay}</p>
-                <p>{eachTask.taskAssignedTo}</p>
-                <p>{eachTask.taskComments}</p>
-              </div>)
+              return (
+                <Task
+                  taskDescription={eachTask.taskDescription}
+                  taskTime={eachTask.taskTime}
+                  taskWeekDay={eachTask.taskWeekDay}
+                  taskAssignedTo={eachTask.taskAssignedTo}
+                  taskComments={eachTask.taskComments}
+                />
+              )
             })}
           </div>
           <Link to="/createtask">
