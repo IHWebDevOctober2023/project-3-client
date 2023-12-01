@@ -9,10 +9,9 @@ function UserProfile() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { userId } = useParams();
     const userIdFromAuth = user._id
-    console.log(user._id);
+   
     const [userData, setUserData] = useState('')
     
-    console.log(userId === userIdFromAuth);
     
     
     useEffect(() => {
@@ -25,9 +24,6 @@ function UserProfile() {
         })
         .catch((err)=>console.log(err))
 
-        
-        console.log(userId===userIdFromAuth);
-        console.log(userIdFromAuth);
     },[])
 
     return (

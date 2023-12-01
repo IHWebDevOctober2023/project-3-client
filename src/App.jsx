@@ -15,6 +15,8 @@ import CreateHelpForm from "./pages/CreateHelpForm/CreateHelpForm";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import { useContext } from "react";
 import { AuthContext } from "./context/auth.context";
+import EditProfile from "./pages/EditProfile/EditProfile";
+import PostDetails from "./pages/PostDetails/PostDetails";
 
 function App() {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
@@ -73,6 +75,14 @@ function App() {
           }
         />
         <Route
+          path="/help-post/:helpId"
+          element={
+            <IsPrivate>
+              <PostDetails/>
+            </IsPrivate>
+          }
+        />
+        <Route
           path="/user/:userId"
           element={
             <IsPrivate>
@@ -85,6 +95,14 @@ function App() {
           element={
             <IsPrivate>
               <MyProfile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/editprofile"
+          element={
+            <IsPrivate>
+              <EditProfile />
             </IsPrivate>
           }
         />
