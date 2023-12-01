@@ -1,18 +1,18 @@
 import "./MyProfile.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 
 
 function MyProfile() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-    const { userId } = useParams();
-    console.log(user._id);
+    const userIdFromAuth = user._id
+    console.log(userIdFromAuth);
     const [userData, setUserData] = useState('')
 
+
     useEffect(() => {
-        fetch(`http://localhost:5005/user/${userId}`)
+        fetch(`http://localhost:5005/user/${userIdFromAuth}`)
             .then((response) => {
                 return response.json();
             })
@@ -25,8 +25,9 @@ function MyProfile() {
 
     return (
         <div>
-            <h1>User Profile</h1>
-            <h2>{userData.name}</h2>
+            <h1>My Profile</h1>
+            <h2>Name: {userData.name}</h2>
+            <h2>user ID:{userData._id}</h2>
             <img className="user-profilepicture" src={userData.profilePicture} alt={userData.name} />
             <p>Location: {userData.location}</p>
             <p>Skills: {userData.skills}</p>
