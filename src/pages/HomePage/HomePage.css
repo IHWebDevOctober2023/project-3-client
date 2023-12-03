@@ -1,0 +1,11 @@
+* {
+	text-decoration: none;
+	color: black;
+}
+#home-content-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
+	margin-top: 30px;
+	justify-content: center;
+}
