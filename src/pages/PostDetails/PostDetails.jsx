@@ -8,14 +8,17 @@ function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
-    console.log("user", user._id)
+    console.log("datahelp", helpData.creator)
+    console.log("user", user)
 
     useEffect(() => {
-        fetch(`http://localhost:5005/help-post/${helpId}`)
+        const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+        fetch(`${BACKEND_ROOT}/help-post/${helpId}`, { mode: 'cors' })
             .then((response) => {
                 return response.json();
             })
             .then((jsonData) => {
+                console.log(jsonData);
                 setHelpData(jsonData);
             })
             .catch((err) => console.log(err))
@@ -23,20 +26,36 @@ function PostDetails() {
     }, [])
 
     return (
-        <div>
-            <h1>Post Details</h1>
-            <h3>{helpData.title}</h3>
-            <p>{helpData.location}</p>
-            <p>{helpData.description}</p>
-            <img className="help-image" src={helpData.helpImageUrl} alt="" />
+        <div className="post-details-container">
+            <div className="help-container">
+                <p className="post-details">POST DETAILS</p>
+            </div>
+            <div className="info-post-container">
 
-            <p>{user.name}</p>
-            <p>{helpData.catergory}</p>
-            {user._id !== helpData.creator &&
+                <h3 className="info-title">{helpData.title}</h3>
 
-                <button>I CAN HELP</button>
+                <p className="details-location">{helpData.location}      <i class="fa fa-map-marker"></i></p>
 
-            }
+                <p className="description-title">Description:</p>
+                <p className="info-description"> {helpData.description}</p>
+
+                    <p className="creator-title">Creator: </p>
+                <div className="post-creator-container">
+                    <p className="name-creator">{user.name}</p>
+                    <img className="creator-picture" src={helpData.creator.profilePicture} alt="" />
+                </div>
+                <p className="creator-title">Category:</p>
+                <p className="details-category"> {helpData.category}</p>
+
+                <p className="volunteer"></p>
+                <p className="details-volunteer">{helpData.volunteer} volunteered!</p>
+
+                {user._id !== helpData.creator._id &&
+
+                    <button>I CAN HELP</button>
+
+                }
+            </div>
         </div>
     );
 }

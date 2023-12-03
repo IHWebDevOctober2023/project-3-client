@@ -7,3 +7,8 @@
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
 }
+
+body{
+  background-color: rgb(9, 9, 9);
+  color: rgb(246, 251, 255);
+}

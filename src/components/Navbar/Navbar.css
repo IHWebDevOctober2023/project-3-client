@@ -7,8 +7,8 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(111, 111, 172);
     padding: 10px;
+    box-shadow: 1px 1px 7px whitesmoke;
 }
 
 .navbar .sidebar {
@@ -18,10 +18,11 @@
     height: 100%;
     width: 300px;
     padding: 20px 30px;
-    background-color: rgb(21, 116, 110);
+    background-color: rgb(21, 48, 116);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
     transition: 500ms ease;
     z-index: 2;
+    border-radius: 10px 0 0 10px;
 }
 
 .navbar .sidebar.hidden {
@@ -35,10 +36,24 @@
     padding: 30px 0px;
 }
 
-.sidebar-content .side-element {
+.side-list{
     list-style-type: none;
 
 }
+
+.side-element{
+    margin-bottom: 30px;
+    padding: 5px;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.side-element:hover{
+background-color: rgb(137, 182, 224);
+}
+
+
 
 .sidebar-content .side-element button {
     list-style-type: none;
@@ -46,11 +61,7 @@
     margin-bottom: 30px;
 }
 
-.sidebar-content .side-element button:hover {
-    background-color: rgb(155, 197, 77);
-    list-style-type: none;
-    margin-bottom: 30px;
-}
+
 
 .sidebar-profile {
     position: absolute;
@@ -61,6 +72,8 @@
 nav .home {
     border: 0;
 }
+
+
 
 .logo {
     height: 30px;
@@ -93,20 +106,21 @@ nav .home {
     background: #fff;
     content: "";
     display: block;
-    height: 3px;
+    height: 2px;
     border-radius: 3px;
     margin: 7px 0;
     transition: 0.5s;
 }
 
 .center:hover:before {
-    transform: translateY(8px) rotate(130deg);
+    transform: translateY(9px) rotate(140deg);
 }
 
 .center:hover:after {
-    transform: translateY(-8px) rotate(-130deg);
+    transform: translateY(-9px) rotate(-140deg);
 }
 
 .center:hover div {
     transform: scale(0);
 }
+
