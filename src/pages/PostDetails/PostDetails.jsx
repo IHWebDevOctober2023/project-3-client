@@ -50,7 +50,7 @@ function PostDetails() {
                 <p className="volunteer"></p>
                 <p className="details-volunteer">{helpData.volunteer} volunteered!</p>
 
-                {user._id !== helpData.creator._id &&
+                {user._id !== helpData.creator &&
 
                     <button>I CAN HELP</button>
 
