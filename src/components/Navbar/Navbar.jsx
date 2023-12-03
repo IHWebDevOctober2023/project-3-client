@@ -9,9 +9,9 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   const [userData, setUserData] = useState('')
-  const {userId} = useParams()
-  
- /*  console.log("user",user._id); */
+  const { userId } = useParams()
+
+  /*  console.log("user",user._id); */
 
   const handleSidebar = () => {
     const sideBar = document.querySelector(".navbar .sidebar");
@@ -25,22 +25,22 @@ function Navbar() {
   }
   /* fetch(`${BACKEND_ROOT}/user/${userIdFromAuth}`, {mode: 'cors'}) */
 
-   useEffect(() => {
-    if(user){
+  useEffect(() => {
+    if (user) {
       const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
-  
-          fetch(`http://localhost:5005/user/${user._id}`)
-              .then((response) => response.json())
-              .then ((responseJson) => {
-                setUserData(responseJson);
-                /* console.log("response",responseJson) */
-                  
-              })     
-              .catch((err)=> console.log(err));
+
+      fetch(`http://localhost:5005/user/${user._id}`)
+        .then((response) => response.json())
+        .then((responseJson) => {
+          setUserData(responseJson);
+          /* console.log("response",responseJson) */
+
+        })
+        .catch((err) => console.log(err));
 
     }
   }, [user])
-  
+
 
   return (
     <div className="navbar-container">
@@ -71,23 +71,23 @@ function Navbar() {
 
                   <li >
                     <Link to="/myprofile">
-                      <button onClick={handleSidebar} className="side-element">Profile</button>
+                      <p onClick={handleSidebar} className="side-element">Profile</p>
                       {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
                     </Link>
                   </li>
                   <li >
                     <Link to="/createhelp">
-                      <button onClick={handleSidebar} className="side-element">Create Help request</button>
+                      <p onClick={handleSidebar} className="side-element">Create Help request</p>
                     </Link>
                   </li>
 
 
                   <li >
-                    <button onClick={handleSidebar}className="side-element">Testimonies</button>
+                    <p onClick={handleSidebar} className="side-element">Testimonies</p>
                   </li>
 
                   <li >
-                    <button onClick={logOutUser}className="side-element">Logout</button>
+                    <p onClick={logOutUser} className="side-element">Logout</p>
                   </li>
 
                 </ul>
@@ -99,19 +99,25 @@ function Navbar() {
 
         {!isLoggedIn && (
           <>
-            <div className="logo">
-              <Link to="/">
-                {" "} <button>Landing</button>{" "}
-              </Link>
-            </div>
-            <Link to="/signup">
-              {" "}
-              <button>Sign Up</button>{" "}
-            </Link>
-            <Link to="/login">
-              {" "}
-              <button>Login</button>{" "}
-            </Link>
+                  <Link to="/">
+                    <img className="logo" src="/images/4H-2.svg" alt="" />
+                  </Link>
+                
+
+                <div className="nav-landing-left">
+                  <Link to="/signup">
+                    <p className="nav-b-left">Sign Up</p>
+                  </Link>
+               
+
+                  <Link to="/login">
+                    <p className="nav-b-left">Login</p>
+                  </Link>
+                </div>
+
+         
+
+           
           </>
         )}
       </nav>

@@ -8,8 +8,8 @@ function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
-    console.log("datahelp", helpData.creator)
-    console.log("user", user)
+    console.log("datahelp", helpData)
+   // console.log("user", user)
 
     useEffect(() => {
         const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
@@ -18,7 +18,7 @@ function PostDetails() {
                 return response.json();
             })
             .then((jsonData) => {
-                console.log(jsonData);
+                console.log("jsondata",jsonData);
                 setHelpData(jsonData);
             })
             .catch((err) => console.log(err))
@@ -32,25 +32,25 @@ function PostDetails() {
             </div>
             <div className="info-post-container">
 
-                <h3 className="info-title">{helpData.title}</h3>
+                <h3 className="info-title">{helpData.helpPost.title}</h3>
 
-                <p className="details-location">{helpData.location}      <i class="fa fa-map-marker"></i></p>
+                <p className="details-location">{helpData.helpPost.location}      <i className="fa fa-map-marker"></i></p>
 
                 <p className="description-title">Description:</p>
-                <p className="info-description"> {helpData.description}</p>
+                <p className="info-description"> {helpData.helpPost.description}</p>
 
                     <p className="creator-title">Creator: </p>
                 <div className="post-creator-container">
                     <p className="name-creator">{user.name}</p>
-                    <img className="creator-picture" src={helpData.creator.profilePicture} alt="" />
+                    {/* <img className="creator-picture" src={helpData.creator.profilePicture} alt="" /> */}
                 </div>
                 <p className="creator-title">Category:</p>
-                <p className="details-category"> {helpData.category}</p>
+                <p className="details-category"> {helpData.helpPost.category}</p>
 
                 <p className="volunteer"></p>
                 <p className="details-volunteer">{helpData.volunteer} volunteered!</p>
 
-                {user._id !== helpData.creator &&
+                {user._id !== helpData.helpPost.creator &&
 
                     <button>I CAN HELP</button>
 

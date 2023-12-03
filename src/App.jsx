@@ -75,7 +75,7 @@ function App() {
           }
         />
         <Route
-          path="/help-post/:helpId"
+          path="help-post/:helpId"
           element={
             <IsPrivate>
               <PostDetails/>

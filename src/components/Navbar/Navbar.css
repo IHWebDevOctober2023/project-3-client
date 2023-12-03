@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    box-shadow: 1px 1px 7px whitesmoke;
+    box-shadow: 1px 1px 7px rgb(71, 71, 71);
 }
 
 .navbar .sidebar {
@@ -36,32 +36,55 @@
     padding: 30px 0px;
 }
 
-.side-list{
+.side-list {
     list-style-type: none;
 
 }
 
-.side-element{
+.side-element {
+    color: whitesmoke;
     margin-bottom: 30px;
     padding: 5px;
     border: 0;
     border-radius: 30px;
     cursor: pointer;
+    min-width: 100px;
+
 }
 
-.side-element:hover{
-background-color: rgb(137, 182, 224);
+.side-element:hover {
+    color: rgb(255, 166, 70)
 }
 
 
 
 .sidebar-content .side-element button {
+
     list-style-type: none;
-    background-color: rgb(207, 207, 207);
     margin-bottom: 30px;
 }
 
+.nav-landing-left {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
 
+}
+
+.nav-b-left{
+    color: rgb(240, 243, 247);
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.nav-b-left:hover{
+    background-color: rgb(255, 166, 70);
+
+}
 
 .sidebar-profile {
     position: absolute;
@@ -85,7 +108,7 @@ nav .home {
 
 .right-button {
     color: white;
-    background-color: aliceblue;
+
     border-radius: 15px;
     margin-right: 10px;
     width: 30px;
@@ -123,4 +146,3 @@ nav .home {
 .center:hover div {
     transform: scale(0);
 }
-
