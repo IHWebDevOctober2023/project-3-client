@@ -69,25 +69,25 @@ function Navbar() {
                 <ul className="side-list">
 
 
-                  <li className="side-element">
+                  <li >
                     <Link to="/myprofile">
                       <button onClick={handleSidebar} className="side-element">Profile</button>
                       {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
                     </Link>
                   </li>
-                  <li className="side-element">
+                  <li >
                     <Link to="/createhelp">
-                      <button onClick={handleSidebar}>Create Help request</button>
+                      <button onClick={handleSidebar} className="side-element">Create Help request</button>
                     </Link>
                   </li>
 
 
-                  <li className="side-element">
-                    <button onClick={handleSidebar}>Testimonies</button>
+                  <li >
+                    <button onClick={handleSidebar}className="side-element">Testimonies</button>
                   </li>
 
-                  <li className="side-element">
-                    <button onClick={logOutUser}>Logout</button>
+                  <li >
+                    <button onClick={logOutUser}className="side-element">Logout</button>
                   </li>
 
                 </ul>
