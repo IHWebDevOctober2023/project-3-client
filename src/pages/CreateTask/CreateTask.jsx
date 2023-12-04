@@ -57,7 +57,7 @@ function CreateTask() {
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify({ taskDescription: taskDescription, taskTime: taskTime, taskWeekDay: taskWeekDay, taskAssignedTo: taskAssignedTo })
+                body: JSON.stringify({ taskDescription: taskDescription, taskTime: taskTime, taskWeekDay: taskWeekDay, taskAssignedTo: taskAssignedTo, taskFamily: family._id })
             })
             setTaskDescription("");
             setTaskTime("");
@@ -102,7 +102,7 @@ function CreateTask() {
             <br/>
             <label htmlFor="personAssigned"><b>Chose a person of the family to assign the task:</b></label>
                 <select id="person-assigned" name="personAssigned" onChange={handleTaskAssignedTo}>
-                    {familyMember.map((eachFamilyMember, index) => {
+                    {familyMember?.map((eachFamilyMember, index) => {
                         return (<option value={eachFamilyMember.name}>{eachFamilyMember.name}</option>)
                     })
                     }

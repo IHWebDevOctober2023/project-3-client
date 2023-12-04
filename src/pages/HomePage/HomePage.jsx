@@ -23,7 +23,7 @@ console.log("Today is " + dayName);
 
   const getTasks = async (event) => {
     try {
-      const getTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks`)
+      const getTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks/${family._id}`)
       const getTasks = await getTasksResponse.json()
       console.log(getTasks);
       setTask(getTasks)
@@ -41,7 +41,7 @@ console.log("Today is " + dayName);
           <h2>Today is: {dayName} </h2>
           {/* <h3>{user.family.familyName}</h3> import the family name from backend */}
           <div className="task-container">{/* maybe we dont need this div if we keep the next one */}
-            {task.map((eachTask, index) => {
+            {task?.map((eachTask, index) => {
               return (
                 <Task
                   taskDescription={eachTask.taskDescription}
