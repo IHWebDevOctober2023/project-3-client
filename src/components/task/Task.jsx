@@ -56,9 +56,7 @@ export default Task
 
 {/*     <p className="assinged-to">{props.taskAssignedTo}</p>
   <p className="comments">{props.taskComments}</p> */}
-
-
-{/* <p>{props.taskAssignedTo}</p>
+    <p>{props.taskAssignedTo?.name}</p>
     <p>Change the persona in charge</p>
     <select id="person-assigned" name="personAssigned" onChange={handleTaskAssignedTo}>
       {familyMember.map((eachFamilyMember, index) => {
