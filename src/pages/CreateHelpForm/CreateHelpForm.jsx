@@ -1,6 +1,7 @@
 import "./CreateHelpForm.css";
 import { useEffect, useState, useContext } from 'react'
 import { AuthContext } from "../../context/auth.context";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function CreateHelpForm() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -13,6 +14,7 @@ function CreateHelpForm() {
     const [category, setCategory] = useState('')
     const [volunteers, setVolunteers] = useState('')
     const [isCompleted, setIsCompleted] = useState('')
+    const navigate = useNavigate();
 
     const postHelp = async (event) => {
         event.preventDefault();
@@ -39,8 +41,8 @@ function CreateHelpForm() {
                 body: JSON.stringify(helpPosts),
             });
             const newHelpPost = await response.json();
-            setHelpPosts((previousHelpPosts) => [newHelpPost, ...previousHelpPosts])
-
+            setHelpPosts((previousHelpPosts) => [newHelpPost, ...previousHelpPosts]);
+            navigate("/myprofile");
         } catch (err) {
             console.log(err);
         }
