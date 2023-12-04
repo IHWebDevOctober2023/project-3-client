@@ -21,7 +21,7 @@ function ProfilePage() {
   }
   useEffect(() => {
     getFamilyId()
-  }, [])
+  }, [imageUrl])
 
 
   // ******** this method handles the file upload ********
