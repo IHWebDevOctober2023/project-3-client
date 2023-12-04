@@ -11,10 +11,12 @@ function MyProfile() {
     const userIdFromAuth = user._id
 
     const [userData, setUserData] = useState('')
-    const helpPostsArray= userData.helpPosts
-    const [userPosts, setUserPosts] = useState([])
-    const HelpPostIVolunteeredArray = userPosts.allHelpPostsIVolunteered
-    const HelpPostIHaveBeenChosenArray = userPosts.allHelpPostsIWasChosen
+    let helpPostsArray = userData.helpPosts
+    const [HelpPostIVolunteered, setHelpPostIVolunteered] = useState([])
+    const [HelpPostIHaveBeenChosen, setHelpPostIHaveBeenChosen] = useState([])
+    //console.log(userPosts);
+    //let HelpPostIVolunteeredArray = userPosts.allHelpPostsIVolunteered
+    //let HelpPostIHaveBeenChosenArray = userPosts.allHelpPostsIWasChosen
 
 
 
@@ -27,21 +29,23 @@ function MyProfile() {
                 setUserData(jsonData);
             })
             .catch((err) => console.log(err))
-        }, []);
+    }, []);
 
     useEffect(() => {
         fetch(`http://localhost:5005/help-post/volunteered/${userIdFromAuth}`)
-        .then((response2) => {
-            return response2.json();
-            console.log(response2)
-        })
-        .then((jsonData2) => {
-            setUserPosts(jsonData2);
-            //console.log('Este es el jsonData2',jsonData2);
-            //console.log(userPosts.allHelpPostsIVolunteered[0]);
-            //console.log(userPosts.allHelpPostsIWasChosen);
-        })
-        .catch((err) => console.log(err))
+            .then((response2) => {
+                return response2.json();
+            })
+            .then((jsonData2) => {
+                //console.log(jsonData2);
+                setHelpPostIVolunteered(jsonData2.allHelpPostsIVolunteered)
+                setHelpPostIHaveBeenChosen(jsonData2.allHelpPostsIWasChosen)
+
+                //console.log('Este es el jsonData2',jsonData2);
+                //console.log(userPosts.allHelpPostsIVolunteered[0]);
+                //console.log(userPosts.allHelpPostsIWasChosen);
+            })
+            .catch((err) => console.log(err))
     }, []);
 
 
@@ -69,44 +73,44 @@ function MyProfile() {
                             </div>
 
                             {/* show all posts you have created */}
-                            {helpPostsArray.length > 0 ? 
-                            <div>
+                            {helpPostsArray.length > 0 ?
                                 <div>
-                                    <h3>My posts:</h3>
-                                    {
-                                        helpPostsArray.map((eachPost, index) => {
-                                            return (<PostCard key={index} post={eachPost} />);
-                                        })
-                                    }
-                                </div>
-                            </div>: <p>You have no posts yet</p>}
+                                    <div>
+                                        <h3>My posts:</h3>
+                                        {
+                                            helpPostsArray.map((eachPost, index) => {
+                                                return (<PostCard key={index} post={eachPost} />);
+                                            })
+                                        }
+                                    </div>
+                                </div> : <p>You have no posts yet</p>}
 
                             {/* show all post that you have been chosen as volunteer */}
-                            {HelpPostIHaveBeenChosenArray.length > 0 ?
-                            <div>
+                            {HelpPostIHaveBeenChosen.length > 0 ?
                                 <div>
-                                    <h3>I have've been chosen as volunteered:</h3>
-                                    {
-                                        HelpPostIHaveBeenChosenArray.map((eachPost, index) => {
-                                            return (<PostCard key={index} post={eachPost} />);
-                                        })
-                                    }
-                                </div>
-                            </div>: <p>You have not been chosen for volunteer yet</p>}
+                                    <div>
+                                        <h3>I have've been chosen as volunteered:</h3>
+                                        {
+                                            HelpPostIHaveBeenChosen.map((eachPost, index) => {
+                                                return (<PostCard key={index} post={eachPost} />);
+                                            })
+                                        }
+                                    </div>
+                                </div> : <p>You have not been chosen for volunteer yet</p>}
 
                             {/* show all post you have volunteered to do */}
-                            {HelpPostIVolunteeredArray.length > 0 ?
-                            <div>
+                            {HelpPostIVolunteered.length > 0 ?
                                 <div>
-                                    <h3>I have volunteered to:</h3>
-                                    {
-                                        HelpPostIVolunteeredArray.map((eachPost, index) => {
-                                            //console.log("post ", eachPost);
-                                            return (<PostCard key={index} post={eachPost} />);
-                                        })
-                                    }
-                                </div>
-                            </div>: <p>You have no pending volunteer </p>}
+                                    <div>
+                                        <h3>I have volunteered to:</h3>
+                                        {
+                                            HelpPostIVolunteered.map((eachPost, index) => {
+                                                //console.log("post ", eachPost);
+                                                return (<PostCard key={index} post={eachPost} />);
+                                            })
+                                        }
+                                    </div>
+                                </div> : <p>You have no pending volunteer </p>}
                         </div>
                     </div>
                 </div>
