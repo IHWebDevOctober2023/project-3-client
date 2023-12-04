@@ -7,6 +7,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [family, setFamily] = useState(null) /* update the Token */
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -28,6 +29,7 @@ function AuthProviderWrapper(props) {
           setIsLoggedIn(true);
           setIsLoading(false);
           setUser(user);
+          setFamily(user.family)
         })
         .catch(() => { 
           // If the server sends an error response (invalid token) ❌
@@ -52,6 +54,7 @@ function AuthProviderWrapper(props) {
     // Upon logout, remove the token from the localStorage
     removeToken();
     authenticateUser();
+    setFamily(null)
   };
 
   useEffect(() => {
@@ -66,9 +69,12 @@ function AuthProviderWrapper(props) {
         isLoggedIn,
         isLoading,
         user,
+        family, /* export family already update */
+        setFamily, /* export family already update */
         storeToken,
         authenticateUser,
         logOutUser,
+        setUser
       }}
     >
       {props.children}

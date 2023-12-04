@@ -1,0 +1,33 @@
+.body-homepage{
+    width: 300px;
+    margin-top: 20px;
+}
+.task-container{
+    margin-top: 20px;
+}
+/* .family-member-card {
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    padding: 10px;
+}
+.family-member-img{
+    width: 40px;
+}
+
+.family-member-container{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+} */
+.new-task{
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 50px;
+    padding: 0 5px;
+}

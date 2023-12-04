@@ -5,6 +5,9 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import Permission from "./pages/Permission/Permission";
+import CreateFamily from "./pages/CreateFamily/CreateFamily";
+import CreateTask from "./pages/CreateTask/CreateTask";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -16,7 +19,15 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+
+        <Route
+          path="/"
+          element={
+            <IsPrivate>
+              <HomePage/>
+            </IsPrivate>
+          }
+        />
 
         <Route
           path="/profile"
@@ -43,7 +54,35 @@ function App() {
             </IsAnon>
           }
         />
+        <Route
+          path="/permission"
+          element={
+            <IsPrivate>
+              <Permission />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/createfamily"
+          element={
+            <IsPrivate>
+              <CreateFamily />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/createtask"
+          element={
+            <IsPrivate>
+              <CreateTask />
+            </IsPrivate>
+          }
+        />
+
       </Routes>
+
     </div>
   );
 }
