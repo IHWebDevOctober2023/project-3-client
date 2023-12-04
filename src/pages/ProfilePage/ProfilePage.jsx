@@ -26,18 +26,19 @@ function ProfilePage() {
 
   // ******** this method handles the file upload ********
   const handleFileUpload = (e) => {
-    // console.log("The file to be uploaded is: ", e.target.files[0]);
+    /* console.log("The file to be uploaded is: ", e.target.files[0]); */
 
     const uploadData = new FormData();
 
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new movie in '/api/movies' POST route
     uploadData.append("userPicture", e.target.files[0]);
-
+    uploadData.append("userId", user._id); // Adding el userId al FormData   
+    /* console.log("userId", user._id); */
     service
       .uploadUserImage(uploadData)
       .then(response => {
-        // console.log("response is: ", response);
+        /* console.log("response is: ", response); */
         // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
         setUser({ ...user, userPicture: response.fileUrl })
@@ -58,7 +59,9 @@ function ProfilePage() {
       <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
       <img src={imageUrl} alt={user.name} />
       <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
-      <h2>These are the members of the {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h2>
+      <h2> Hero Level: {user.rewards} Super Kid</h2>
+      <h2> Week Perfomance: {user.kpi} 34,5 % </h2>
+      <h1> Your {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family members: </h1>
       <div className="family-member-container">
         {familyMember.map((eachFamilyMember, index) => {
           return (
