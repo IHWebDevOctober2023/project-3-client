@@ -17,6 +17,7 @@ import { useContext } from "react";
 import { AuthContext } from "./context/auth.context";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import PostDetails from "./pages/PostDetails/PostDetails";
+import EditHelpForm from "./pages/EditHelpPage/EditHelpPage";
 
 function App() {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
@@ -96,6 +97,14 @@ function App() {
           element={
             <IsPrivate>
               <EditProfile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/edithelp/:helpId"
+          element={
+            <IsPrivate>
+              <EditHelpForm />
             </IsPrivate>
           }
         />
