@@ -44,11 +44,13 @@ function HomePage() {
             {task?.map((eachTask, index) => {
               return (
                 <Task
+                key={eachTask.taskId}
                   taskDescription={eachTask.taskDescription}
                   taskTime={eachTask.taskTime}
                   taskWeekDay={eachTask.taskWeekDay}
                   taskAssignedTo={eachTask.taskAssignedTo}
                   taskComments={eachTask.taskComments}
+                  taskId={eachTask._id}
                 />
               )
             })}
