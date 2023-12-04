@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    color: rgb(252, 254, 255);
 }
 
 
@@ -75,5 +76,37 @@
 }
 .creator-picture{
     max-width: 40px;
+}
+
+.I-can-help{
+    color: rgb(240, 243, 247);
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    width: 120px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 0 auto;
+}
+
+.edit-help-buttons{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit-button{
+    color: rgb(240, 243, 247);
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    width: 130px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 0 auto;
 }
 

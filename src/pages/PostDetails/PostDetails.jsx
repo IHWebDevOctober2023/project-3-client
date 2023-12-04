@@ -1,6 +1,6 @@
 import "./PostDetails.css";
 import { useEffect, useState } from "react";
-import { Navigate, redirect, useParams } from "react-router-dom";
+import { Link, Navigate, redirect, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 
@@ -19,7 +19,7 @@ function PostDetails() {
             .then((jsonData) => {
                 //console.log("jsondata",jsonData);
                 setHelpData(jsonData);
-                console.log("datahelp", helpData.foundHelpPost)
+                console.log("datahelp", helpData)
             })
             .catch((err) => console.log(err))
 
@@ -30,6 +30,7 @@ function PostDetails() {
             <div className="help-container">
                 <p className="post-details">POST DETAILS</p>
             </div>
+
             {helpData && <div className="info-post-container">
 
                 <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
@@ -48,11 +49,21 @@ function PostDetails() {
                 <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
                 <p className="volunteer"></p>
-                <p className="details-volunteer">{helpData.foundHelpPost.volunteer} volunteered!</p>
+                <p className="details-volunteer">USER: {helpData.foundHelpPost.volunteer} volunteered!</p>
 
-                {user._id !== helpData.creator &&
+                {user._id === helpData.foundHelpPost.creator._id &&
+                    <div className="edit-help-buttons">
+                        <Link to={`/edithelp/${helpId}`}>
+                    <p className="edit-button">EDIT POST</p>
+                    </Link>
+                    <p className="edit-button">DELETE POST</p>
+                    </div>
 
-                    <button>I CAN HELP</button>
+                }
+
+                {user._id !== helpData.foundHelpPost.creator._id &&
+
+                    <p className="I-can-help">I CAN HELP</p>
 
                 }
             </div>}
