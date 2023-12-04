@@ -4,14 +4,12 @@ import { useState } from 'react'
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import { useEffect } from "react";
+import service from "../../services/file-upload.service";
 
-const familyMembersData = [
-  { _id: 1234, name: "Mario", img: "https://gravatar.com/avatar/865fdc42701e4d2f15599a6f1d34df6e?s=400&d=robohash&r=x" },
-  { _id: 2454, name: "Lisa", img: "https://gravatar.com/avatar/865fdc42701e4d2f15599a6f1d34df6e?s=400&d=robohash&r=x" }
-]
 function ProfilePage() {
   const [familyMember, setfamilyMember] = useState([])
-  const { user, family } = useContext(AuthContext);
+  const { user, family, setUser } = useContext(AuthContext);
+  const [imageUrl, setImageUrl] = useState(user.userPicture);
 
   const getFamilyId = async (event) => {
     try {
@@ -19,11 +17,35 @@ function ProfilePage() {
       const familyMembers = await familyMembersResponse.json()
       console.log(familyMembers);
       setfamilyMember(familyMembers)
-    } catch (error) { console.log(error);}
+    } catch (error) { console.log(error); }
   }
-  useEffect(()=>{
+  useEffect(() => {
     getFamilyId()
-  },[])
+  }, [])
+
+
+  // ******** this method handles the file upload ********
+  const handleFileUpload = (e) => {
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new movie in '/api/movies' POST route
+    uploadData.append("userPicture", e.target.files[0]);
+
+    service
+      .uploadUserImage(uploadData)
+      .then(response => {
+        // console.log("response is: ", response);
+        // response carries "fileUrl" which we can use to update the state
+        setImageUrl(response.fileUrl);
+        setUser({ ...user, userPicture: response.fileUrl })
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
+  };
+
+
 
   return (
     <div>
@@ -32,6 +54,12 @@ function ProfilePage() {
       <img src={user.userPicture} alt={user.name} />
       <h3 className="text-profile">These are the members of the {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h3>
       <div className="profile-page-container">
+      {console.log("text", user.userPicture)}
+      <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
+      <img src={imageUrl} alt={user.name} />
+      <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
+      <h2>These are the members of the {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h2>
+      <div className="family-member-container">
         {familyMember.map((eachFamilyMember, index) => {
           return (
             <FamilyMember
@@ -43,7 +71,7 @@ function ProfilePage() {
         }
       </div>
     </div>
-  );
-}
-
+    </div>
+    )
+      }
 export default ProfilePage;
