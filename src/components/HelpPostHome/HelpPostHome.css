@@ -1,0 +1,22 @@
+.help-post-home {
+	width: 360px;
+    background-color: antiquewhite;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.help-post-home .title {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.help-post-home .location {
+
+	margin-bottom: 10px;
+}
+
+.help-post-home .description {
+	font-style: italic;
+
+}
