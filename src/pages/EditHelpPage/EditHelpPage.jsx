@@ -1,5 +1,5 @@
 import "./EditHelpPage.css";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from 'react'
 import { AuthContext } from "../../context/auth.context";
 
@@ -16,7 +16,7 @@ function EditHelpForm() {
     const [isCompleted, setIsCompleted] = useState('')
 
     const { helpId } = useParams()
-
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -64,6 +64,7 @@ function EditHelpForm() {
 
             const responseJson = await response.json();
             setHelpPut(responseJson)
+            navigate(`/help-post/${helpId}`)
             console.log("helpPutjson", responseJson);
 
         } catch (err) {
@@ -108,8 +109,9 @@ function EditHelpForm() {
 
                     </select>
 
-
-                    <p onClick={(event) => putHelp(event)} className="create-help-button" type="submit">SAVE CHANGES</p>
+                 
+                        <p onClick={(event) => putHelp(event)} className="create-help-button" type="submit">SAVE CHANGES</p>
+                   
                 </form>
             </div>
 
