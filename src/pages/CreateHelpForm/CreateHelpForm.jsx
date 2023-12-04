@@ -32,15 +32,17 @@ function CreateHelpForm() {
             isCompleted
         };
         console.log(helpPosts);
-
+    
         try {
-            const response = await fetch("http://localhost:5005/help-post/createhelp", {
+            const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+            const response = await fetch(`${BACKEND_ROOT}/help-post/${helpId}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(helpPosts),
-            });
+            }
+            , { mode: 'cors' });
             const newHelpPost = await response.json();
             setHelpPosts((previousHelpPosts) => [newHelpPost, ...previousHelpPosts])
 
@@ -83,7 +85,7 @@ function CreateHelpForm() {
                 </select>
 
 
-                <button type="submit">CREATE</button>
+                <p className="create-help-button" type="submit">CREATE</p>
             </form>
             </div>
 
