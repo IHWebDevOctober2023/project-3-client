@@ -16,26 +16,26 @@ function Task(props) {
 
   try {
     const changeOnCharge = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/task/changeOncharge`, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify({ taskAssignedTo: taskAssignedTo })
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ taskAssignedTo: taskAssignedTo })
     })
     setTaskAssignedTo("")
-    
-}
-catch (error) { console.log(error) }
-}
 
+  }
+  catch (error) { console.log(error) }
   useEffect(() => {
     getFamilyId()
   }, [])
 
   return (<div className="task">
-    <p>{props.taskDescription}</p>
-    <p>{props.taskTime}</p>
-    <p>{props.taskWeekDay}</p>
+    <p className="description">{props.taskDescription}</p>
+    <p className="time">{props.taskTime}</p>
+    <p className="weekday">{props.taskWeekDay}</p>
+    {/*     <p className="assinged-to">{props.taskAssignedTo}</p>
+  <p className="comments">{props.taskComments}</p> */}
     <p>{props.taskAssignedTo}</p>
     <p>Change the persona in charge</p>
     <select id="person-assigned" name="personAssigned" onChange={handleTaskAssignedTo}>

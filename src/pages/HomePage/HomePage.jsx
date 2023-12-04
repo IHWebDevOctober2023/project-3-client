@@ -27,11 +27,10 @@ function HomePage() {
   return (
     <>
       {(user.family || family) ?
-        <div>
+        <div className="body-homepage">
 
-          <h1>welcome family:</h1>
+          <h2>welcome family:</h2>
           {/* <h3>{user.family.familyName}</h3> import the family name from backend */}
-          <Link to='/createfamily'>create a Family</Link><br></br>
           <div className="task-container">{/* maybe we dont need this div if we keep the next one */}
             {task.map((eachTask, index) => {
               return (
@@ -46,7 +45,7 @@ function HomePage() {
             })}
           </div>
           <Link to="/createtask">
-            <button>New Task</button>
+            <button className="new-task"><i class="fa-solid fa-circle-plus"></i></button>
           </Link>
         </div >
         : <Navigate to="/createfamily" />
