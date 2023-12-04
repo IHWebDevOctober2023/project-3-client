@@ -53,10 +53,10 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
+    <div className="signup-page">
       <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form className="form-container" onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -90,7 +90,7 @@ function SignupPage() {
 
 
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="btn-navbar"><i class="fa-solid fa-door-open"></i></button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

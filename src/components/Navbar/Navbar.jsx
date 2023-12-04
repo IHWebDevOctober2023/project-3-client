@@ -10,25 +10,25 @@ function Navbar() {
   return (
     <nav>
       <Link to="/">
-        <button>Home</button>
+        <button className="btn-navbar"><i class="fa-solid fa-house"></i></button>
       </Link>
       {isLoggedIn && (
         <>
           <Link to="/profile">
-            <button>My profile </button>           
+            <button className="btn-navbar"><i class="fa-solid fa-user-gear"></i></button>           
           </Link>
-          <button onClick={logOutUser}>Logout</button>
+          <button onClick={logOutUser} className="btn-navbar"><i class="fa-solid fa-right-from-bracket"></i></button>
         </>
       )}
       {!isLoggedIn && (
         <>
           <Link to="/signup">
             {" "}
-            <button>Sign Up</button>{" "}
+            <button className="btn-navbar"><i class="fa-solid fa-door-open"></i></button>{" "}
           </Link>
           <Link to="/login">
             {" "}
-            <button>Login</button>{" "}
+            <button className="btn-navbar"><i class="fa-solid fa-user-lock"></i></button>{" "}
           </Link>
         </>
       )}

@@ -53,13 +53,13 @@ function CreateTask() {
     
     return (
         <>
-<form className="form-container" onSubmit={handleSubmitTask}>
+<form className="form-createtask-container" onSubmit={handleSubmitTask}>
            {/*  falta and task icon, falta taskindone, falta assigned to, falta taskImgUploaded, falta task comments  */}
-            <label>Description:</label>
-            <textarea id="content" name="description" required onChange={handleTaskDescription}></textarea>
+            <label className="label-createtask">To do:</label>
+            <input id="content" name="description" required onChange={handleTaskDescription}></input>
             <br/>
-            <label HtmlFor="dayMoment"><b>When? Choose a timing interval to finish the task</b></label>
-            <select id="timing-interval" name="timingInterval" onChange={handleTaskTime}>
+            <label className="label-createtask" HtmlFor="dayMoment"><b>When? Choose a timing interval to finish the task</b></label>
+            <select className="select-createtask" id="timing-interval" name="timingInterval" onChange={handleTaskTime}>
                 <option value="On Wake Up">On Wake Up</option>
                 <option value="Before Breakfast">Before Breakfast</option>
                 <option value="After Breakfast">After Breakfast</option>
@@ -71,8 +71,8 @@ function CreateTask() {
                 <option value="Before Sleep">In the Afternoon</option>
             </select>
             <br/>
-            <label htmlFor="dayMoment"><b>Choose a day of the week</b></label>
-            <select id="day-moment" name="dayMoment" onChange={handleTaskWeekDay}>
+            <label className="label-createtask" htmlFor="dayMoment"><b>Choose a day of the week</b></label>
+            <select className="select-createtask" id="day-moment" name="dayMoment" onChange={handleTaskWeekDay}>
                 <option value="Everyday">Everyday</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
@@ -84,7 +84,7 @@ function CreateTask() {
             </select>
             <br/>
 
-            <button type="submit">Create task</button>
+            <button type="submit" className="new-task"><i class="fa-solid fa-circle-plus"></i></button>
 
         </form>
         </>
