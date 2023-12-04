@@ -1,17 +1,18 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import HomePage from "./pages/HomePage/HomePage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import Permission from "./pages/Permission/Permission";
-import CreateFamily from "./pages/CreateFamily/CreateFamily";
-import CreateTask from "./pages/CreateTask/CreateTask";
-
 import Navbar from "./components/Navbar/Navbar";
+import HomePage from "./pages/HomePage/HomePage";
+import CreateFamily from "./pages/CreateFamily/CreateFamily";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Permission from "./pages/Permission/Permission";
+import CreateTask from "./pages/CreateTask/CreateTask";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import SubmitWeek from"./pages/SubmitWeek/SubmitWeek";
+
 
 function App() {
   return (
@@ -77,6 +78,14 @@ function App() {
           element={
             <IsPrivate>
               <CreateTask />
+            </IsPrivate>
+          }
+        />
+         <Route
+          path="/submitweek"
+          element={
+            <IsPrivate>
+              <SubmitWeek />
             </IsPrivate>
           }
         />

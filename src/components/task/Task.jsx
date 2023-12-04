@@ -43,7 +43,10 @@ function Task(props) {
     <p>Change the persona in charge</p>
     <select id="person-assigned" name="personAssigned" onChange={handleTaskAssignedTo}>
       {familyMember.map((eachFamilyMember, index) => {
-        return (<option value={eachFamilyMember.name}>{eachFamilyMember.name}</option>)
+        return (
+        
+                  <option value={eachFamilyMember.name}>{eachFamilyMember.name}</option>
+                  )
       })
       }
     </select>
