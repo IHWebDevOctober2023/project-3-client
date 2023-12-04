@@ -2,34 +2,37 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from "../../context/auth.context";
 // Import Task or define it appropriately
 
-function SubmitWeek() {
+function SubmitWeek(props) {
     const [familyMember, setFamilyMember] = useState([]);
+    const[tasksFamily, settaskFamily] = useState(0);
+    const[tasksDoneFamily, settaskDoneFamily] = useState(0);
     const { user, family, setUser } = useContext(AuthContext);   
+    const [taskAssignedTo, setTaskAssignedTo] = useState("");
+    const handleTaskAssignedTo = (e) => setTaskAssignedTo(e.target.value);
+    
+    const getFamilyId = async (event) => {
+    try {
+      const familyMembersResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/familymembers/${family._id}`)
+      const familyMembers = await familyMembersResponse.json()
+      console.log(familyMembers);
+      setfamilyMember(familyMembers)
+    } catch (error) { console.log(error); }
+  }
 
-    // Calculate the score of the week according to the role.
-    function ScoringWeek() {
-        // Step1: Calculate Family's KPI based on tasks assigned to the family
-        // Step2: Calculate individual KPI for the child based on their assigned tasks
-        // Step3: Check if family's KPI is more than 90% and update rewards
-        // Step4: Handle other roles if needed
-        // Step5: Update user's average kpi
-        // Step6: Get a superhero only if the KPI is greater than 90
-        // Step7:  Function to fetch a random superhero
-    }
+// here we have to connect with backend, find all tasks and filter by family._id and setTaskFamily in the variable with the number rendered.
+// the same with taskFamily and the taskisDone as true.
 
-    // Function to reset tasks.isDone to the default value
-    const resetWeek = () => {
-        const resetTasks = Task.taskfamily.map(task => ({ ...task, isDone: false }));
-        // Logic to apply the resetTasks if needed
-    };
+useEffect(()=> {
+}, [])
 
     return (
         <>
-            <h2>🎓 Family Weekly Score </h2>
-            {/* <img src={family.familyPicture} alt="Family" /> */}
-            <p> User: {user.name}</p>
-            <p> Your Family: {family.familyName} </p>
-            <p> Weekly Tasks: {family.tasksWeekly}</p>
+            <h2>🎓 Weekly Score 🎓</h2>
+            {<img width="60px" src={family.familyPicture} alt="Family" />}
+            {/* <p> User: {user.name}</p>
+            <p> Your Family: {family.familyName} </p> */}
+            <p> {tasksFamily} tasks created</p>
+            <p> {tasksDoneFamily} tasks done </p>
             <button>Reset Week</button>
         </>
     );
