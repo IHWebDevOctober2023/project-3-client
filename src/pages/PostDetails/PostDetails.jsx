@@ -8,8 +8,7 @@ function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
-    console.log("datahelp", helpData)
-   // console.log("user", user)
+    // console.log("user", user)
 
     useEffect(() => {
         const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
@@ -18,8 +17,9 @@ function PostDetails() {
                 return response.json();
             })
             .then((jsonData) => {
-                console.log("jsondata",jsonData);
+                //console.log("jsondata",jsonData);
                 setHelpData(jsonData);
+                console.log("datahelp", helpData.foundHelpPost)
             })
             .catch((err) => console.log(err))
 
@@ -30,32 +30,32 @@ function PostDetails() {
             <div className="help-container">
                 <p className="post-details">POST DETAILS</p>
             </div>
-            <div className="info-post-container">
+            {helpData && <div className="info-post-container">
 
-                <h3 className="info-title">{helpData.helpPost.title}</h3>
+                <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
 
-                <p className="details-location">{helpData.helpPost.location}      <i className="fa fa-map-marker"></i></p>
+                <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
 
                 <p className="description-title">Description:</p>
-                <p className="info-description"> {helpData.helpPost.description}</p>
+                <p className="info-description"> {helpData.foundHelpPost.description}</p>
 
-                    <p className="creator-title">Creator: </p>
+                <p className="creator-title">Creator: </p>
                 <div className="post-creator-container">
                     <p className="name-creator">{user.name}</p>
-                    {/* <img className="creator-picture" src={helpData.creator.profilePicture} alt="" /> */}
+                    <img className="creator-picture" src={helpData.foundHelpPost.creator.profilePicture} alt="" />
                 </div>
                 <p className="creator-title">Category:</p>
-                <p className="details-category"> {helpData.helpPost.category}</p>
+                <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
                 <p className="volunteer"></p>
-                <p className="details-volunteer">{helpData.volunteer} volunteered!</p>
+                <p className="details-volunteer">{helpData.foundHelpPost.volunteer} volunteered!</p>
 
-                {user._id !== helpData.helpPost.creator &&
+                {user._id !== helpData.creator &&
 
                     <button>I CAN HELP</button>
 
                 }
-            </div>
+            </div>}
         </div>
     );
 }
