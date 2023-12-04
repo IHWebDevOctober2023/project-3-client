@@ -12,3 +12,7 @@ body{
   background-color: rgb(9, 9, 9);
   color: rgb(246, 251, 255);
 }
+
+.pointer {
+  cursor: pointer;
+}
