@@ -18,7 +18,8 @@ function HomePage() {
   const [dayName, setDayName] = useState(daysOfWeek[dayOfWeek])
   console.log(family);
   const nextday = () => { const indexOfTheDay=daysOfWeek.indexOf(dayName)
-    setDayName(daysOfWeek[indexOfTheDay+1]) }
+    setDayName(daysOfWeek[(indexOfTheDay+1)% daysOfWeek.length]) 
+  }
   const getTasks = async (event) => {
     try {
       const getTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks/${family._id}/${dayName}`)
