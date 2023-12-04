@@ -2,7 +2,6 @@ import "./CreateHelpForm.css";
 import { useEffect, useState, useContext } from 'react'
 import { AuthContext } from "../../context/auth.context";
 
-
 function CreateHelpForm() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const [helpPosts, setHelpPosts] = useState([])
@@ -14,10 +13,6 @@ function CreateHelpForm() {
     const [category, setCategory] = useState('')
     const [volunteers, setVolunteers] = useState('')
     const [isCompleted, setIsCompleted] = useState('')
-
-    /* useEffect(() => {
-        postHelp()
-    }, []) */
 
     const postHelp = async (event) => {
         event.preventDefault();
@@ -35,14 +30,14 @@ function CreateHelpForm() {
     
         try {
             const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
-            const response = await fetch(`${BACKEND_ROOT}/help-post/${helpId}`, {
+            const response = await fetch(`${BACKEND_ROOT}/help-post/createhelp`, {
                 method: "POST",
+                mode: "cors",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(helpPosts),
-            }
-            , { mode: 'cors' });
+            });
             const newHelpPost = await response.json();
             setHelpPosts((previousHelpPosts) => [newHelpPost, ...previousHelpPosts])
 
@@ -51,29 +46,25 @@ function CreateHelpForm() {
         }
     }
 
-    
-
     return (
         <div>
             <h1>Create Help Request</h1>
             <div >
-            <form className="create-help-container" onSubmit={(event) => postHelp(event)}>
+            <form className="create-help-container">
                 <label htmlFor="title">Title</label>
-                <input placeholder="Name your help request" value={title} onChange={(event) => setTitle(event.target.value)} type="text" name="title" />
+                <input placeholder="Name your help request" value={title} onChange={(event) => setTitle(event.target.value)} type="text" name="title" id="title"/>
 
                 <label htmlFor="location">Location</label>
-                <textarea value={location} onChange={(event) => setLocation(event.target.value)} type="text" name="location" />
+                <textarea value={location} onChange={(event) => setLocation(event.target.value)} type="text" name="location" id="location" />
 
-                <label htmlFor="Description">Description</label>
-                <textarea value={description} onChange={(event) => setDescription(event.target.value)} type="text" name="description" />
+                <label htmlFor="description">Description</label>
+                <textarea value={description} onChange={(event) => setDescription(event.target.value)} type="text" name="description" id="description"/>
 
                 <label htmlFor="helpImageUrl">Image</label>
-                <input value={helpImageUrl} onChange={(event) => setHelpImage(event.target.value)} type="text" name="helpImageUrl" />
-
-               
+                <input value={helpImageUrl} onChange={(event) => setHelpImage(event.target.value)} type="text" name="helpImageUrl" id="helpImageUrl"/>
 
                 <label htmlFor="category">Category</label>
-                <select value={category} onChange={(event) => setCategory(event.target.value)} type="text" name="category" >
+                <select value={category} onChange={(event) => setCategory(event.target.value)} type="text" name="category" id="category">
                     <option value="learning">Learning</option>
                     <option value="transport">Transport</option>
                     <option value="tech">Tech</option>
@@ -81,14 +72,10 @@ function CreateHelpForm() {
                     <option value="furniture">Furniture</option>
                     <option value="house-repairs">House-repairs</option>
                     <option value="chat-sessions">Chat-sessions</option>
-
                 </select>
-
-
-                <p className="create-help-button" type="submit">CREATE</p>
+                <p onClick={(event) => postHelp(event)} className="create-help-button">CREATE</p>
             </form>
             </div>
-
         </div>
     );
 }
