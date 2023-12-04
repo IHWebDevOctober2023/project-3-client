@@ -1,4 +1,7 @@
 import "./Task.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
+import { useState, useEffect} from "react";
 
 function Task(props) {
   const { family } = useContext(AuthContext);
@@ -14,18 +17,18 @@ function Task(props) {
     } catch (error) { console.log(error); }
   }
 
-  try {
-    const changeOnCharge = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/task/changeOncharge`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({ taskAssignedTo: taskAssignedTo })
-    })
-    setTaskAssignedTo("")
+  //try {
+    //const changeOnCharge = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/task/changeOncharge`, {
+      //method: 'PUT',
+      //headers: {
+        //'Content-type': 'application/json'
+      //},
+      //body: JSON.stringify({ taskAssignedTo: taskAssignedTo })
+    //})
+    //setTaskAssignedTo("")
 
-  }
-  catch (error) { console.log(error) }
+  //}
+  //catch (error) { console.log(error) }
   useEffect(() => {
     getFamilyId()
   }, [])
