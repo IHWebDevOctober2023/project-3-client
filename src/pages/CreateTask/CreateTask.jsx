@@ -83,9 +83,9 @@ function CreateTask() {
                 <option value="Before Lunch">Before Lunch</option>
                 <option value="After Lunch">After Lunch</option>
                 <option value="In the afternoon">In the Afternoon</option>
-                <option value="Before Dinner">In the Afternoon</option>
-                <option value="After Dinner">In the Afternoon</option>
-                <option value="Before Sleep">In the Afternoon</option>
+                <option value="Before Dinner">Before Dinner</option>
+                <option value="After Dinner">After Dinner</option>
+                <option value="Before Sleep">Before Sleep</option>
             </select>
             <br/>
             <label className="label-createtask" htmlFor="dayMoment"><b>Choose a day of the week</b></label>

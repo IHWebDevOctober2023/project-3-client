@@ -59,9 +59,10 @@ function ProfilePage() {
       <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
       <img src={imageUrl} alt={user.name} />
       <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
-      <h2> Hero Level: {user.rewards} Super Kid</h2>
-      <h2> Week Perfomance: {user.kpi} 34,5 % </h2>
+     {/*  <h2> Hero Level: {user.rewards} Super Kid</h2>
+      <h2> Week Perfomance: {user.kpi} 34,5 % </h2> */}
       <h1> Your {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family members: </h1>
+      <p> Your Family Code: {family.familyCode} </p>
       <div className="family-member-container">
         {familyMember.map((eachFamilyMember, index) => {
           return (
