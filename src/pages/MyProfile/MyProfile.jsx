@@ -11,9 +11,11 @@ function MyProfile() {
     const userIdFromAuth = user._id
 
     const [userData, setUserData] = useState('')
-    //console.log(userData);
-    //console.log(userData.helpPost);
     const helpPostsArray= userData.helpPosts
+    const [userPosts, setUserPosts] = useState([])
+    const HelpPostIVolunteeredArray = userPosts.allHelpPostsIVolunteered
+    const HelpPostIHaveBeenChosenArray = userPosts.allHelpPostsIWasChosen
+
 
 
     useEffect(() => {
@@ -25,7 +27,22 @@ function MyProfile() {
                 setUserData(jsonData);
             })
             .catch((err) => console.log(err))
-    }, [])
+        }, []);
+
+    useEffect(() => {
+        fetch(`http://localhost:5005/help-post/volunteered/${userIdFromAuth}`)
+        .then((response2) => {
+            return response2.json();
+            console.log(response2)
+        })
+        .then((jsonData2) => {
+            setUserPosts(jsonData2);
+            //console.log('Este es el jsonData2',jsonData2);
+            //console.log(userPosts.allHelpPostsIVolunteered[0]);
+            //console.log(userPosts.allHelpPostsIWasChosen);
+        })
+        .catch((err) => console.log(err))
+    }, []);
 
 
     return (
@@ -51,19 +68,45 @@ function MyProfile() {
                                 <p className="tokens-number">{userData.tokens}</p>
                             </div>
 
+                            {/* show all posts you have created */}
                             {helpPostsArray.length > 0 ? 
                             <div>
                                 <div>
                                     <h3>My posts:</h3>
                                     {
                                         helpPostsArray.map((eachPost, index) => {
-                                            //console.log("post ", eachPost);
                                             return (<PostCard key={index} post={eachPost} />);
                                         })
                                     }
                                 </div>
                             </div>: <p>You have no posts yet</p>}
 
+                            {/* show all post that you have been chosen as volunteer */}
+                            {HelpPostIHaveBeenChosenArray.length > 0 ?
+                            <div>
+                                <div>
+                                    <h3>I have've been chosen as volunteered:</h3>
+                                    {
+                                        HelpPostIHaveBeenChosenArray.map((eachPost, index) => {
+                                            return (<PostCard key={index} post={eachPost} />);
+                                        })
+                                    }
+                                </div>
+                            </div>: <p>You have not been chosen for volunteer yet</p>}
+
+                            {/* show all post you have volunteered to do */}
+                            {HelpPostIVolunteeredArray.length > 0 ?
+                            <div>
+                                <div>
+                                    <h3>I have volunteered to:</h3>
+                                    {
+                                        HelpPostIVolunteeredArray.map((eachPost, index) => {
+                                            //console.log("post ", eachPost);
+                                            return (<PostCard key={index} post={eachPost} />);
+                                        })
+                                    }
+                                </div>
+                            </div>: <p>You have no pending volunteer </p>}
                         </div>
                     </div>
                 </div>
