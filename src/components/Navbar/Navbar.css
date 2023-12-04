@@ -1,0 +1,148 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 1px 1px 7px rgb(71, 71, 71);
+}
+
+.navbar .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    padding: 20px 30px;
+    background-color: rgb(21, 48, 116);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    transition: 500ms ease;
+    z-index: 2;
+    border-radius: 10px 0 0 10px;
+}
+
+.navbar .sidebar.hidden {
+    right: -100% !important;
+    transition: 500ms ease-in-out;
+
+}
+
+.sidebar .sidebar-content {
+    margin-top: 60px;
+    padding: 30px 0px;
+}
+
+.side-list {
+    list-style-type: none;
+
+}
+
+.side-element {
+    color: whitesmoke;
+    margin-bottom: 30px;
+    padding: 5px;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    min-width: 100px;
+
+}
+
+.side-element:hover {
+    color: rgb(255, 166, 70)
+}
+
+
+
+.sidebar-content .side-element button {
+
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+
+.nav-landing-left {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+
+}
+
+.nav-b-left{
+    color: rgb(240, 243, 247);
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.nav-b-left:hover{
+    background-color: rgb(255, 166, 70);
+
+}
+
+.sidebar-profile {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+nav .home {
+    border: 0;
+}
+
+
+
+.logo {
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
+    margin-top: 5px;
+
+}
+
+.right-button {
+    color: white;
+
+    border-radius: 15px;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+
+}
+
+.center {
+
+    width: 20px;
+}
+
+/* Hamburguer menu */
+.center:before,
+.center:after,
+.center div {
+    background: #fff;
+    content: "";
+    display: block;
+    height: 2px;
+    border-radius: 3px;
+    margin: 7px 0;
+    transition: 0.5s;
+}
+
+.center:hover:before {
+    transform: translateY(9px) rotate(140deg);
+}
+
+.center:hover:after {
+    transform: translateY(-9px) rotate(-140deg);
+}
+
+.center:hover div {
+    transform: scale(0);
+}

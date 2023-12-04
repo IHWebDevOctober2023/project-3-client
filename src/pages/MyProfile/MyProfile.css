@@ -1,0 +1,52 @@
+.profile-card {
+    padding: 10px;
+    border-radius: 15px;
+    margin: 15px;
+    background: linear-gradient(180deg, rgb(1, 0, 26) 0%, rgb(30, 38, 78) 75%, rgb(23, 90, 86) 89%, rgb(175, 119, 66) 100%);
+}
+
+.profile-picture-container {
+    width: 80vw;
+    max-height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.user-profilepicture {
+    width: 50vw;
+    border-radius: 4em;
+    left: 15px;
+    
+
+}
+
+
+.user-details-container {
+    padding: 15px;
+    line-height: 30px;
+}
+
+.location-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.skills-container {
+    margin-bottom: 15px;
+    border-top: 1px solid whitesmoke;
+}
+
+.tokens-container {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.tokens-number {
+    font-size: 20px;
+    font-weight: 500;
+}
