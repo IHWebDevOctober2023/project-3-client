@@ -48,16 +48,18 @@ function ProfilePage() {
 
 
   return (
+    <>
+    <Navbar/>
     <div className="form-createtask-container">
-      <Navbar/>
       <div className="user-profile-container">
 
       <h2 className="text-profile">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
-      <p>Mail: {user.email} </p>
-      <p>Age: {user.age} </p>
-      <p>Role: {user.role} </p>
+      <p><span> <i class="fa-solid fa-envelope"></i></span> : {user.email} </p>
+      <p><span><i class="fa-solid fa-poo"></i></span> : {user.role} </p>
       <img src={user.userPicture} alt={user.name} />
-      <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
+      <div className="upload" >
+      <form> <input onChange={(e) => handleFileUpload(e)} type="file"/>  </form>
+      </div>
       </div>
       <div className="family-container">
       <p> 🤫 {family.familyName} Secret Code: {family.familyCode} </p>
@@ -81,6 +83,7 @@ function ProfilePage() {
       </div>
     
     </div>
+    </>
     )
       }
 export default ProfilePage;
