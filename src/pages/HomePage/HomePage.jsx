@@ -33,13 +33,12 @@ function HomePage() {
 			helpPostsArr.map((eachPost, index) => {
 				console.log("post ", eachPost);
 				return ( 
-					<div className="posts-container">
-						 
+					<div key="index" className="posts-container">
 				<HelpPostHome  key={index} post={eachPost}/>
 				</div>
 				);
 			})
-	 	}
+		}
     </div>
   );
 }
