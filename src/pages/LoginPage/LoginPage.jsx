@@ -34,6 +34,7 @@ function LoginPage() {
         // after the token is stored authenticate the user
         // and at last navigate to the home page
         storeToken(response.data.authToken);
+        console.log(response.data.au)
         authenticateUser();
         navigate("/");
       })
@@ -45,10 +46,10 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="login-page">
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
+      <form className="form-container" onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -60,7 +61,7 @@ function LoginPage() {
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <button type="submit" className="btn-navbar"><i class="fa-solid fa-user-lock"></i></button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

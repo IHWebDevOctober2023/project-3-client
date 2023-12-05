@@ -1,0 +1,32 @@
+.form-createtask-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    width: 90%;
+}
+.select-createtask{
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: rgb(124, 100, 234);
+    color: rgb(255, 255, 255);
+}
+.label-createtask{
+    margin-bottom: 10px;
+}
+.new-task{
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 50px;
+    padding: 0 5px;
+}
+input{
+    background-color: rgb(124, 100, 234);
+    border: none; 
+    padding: 10px;
+    border-radius: 10px;
+}
