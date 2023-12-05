@@ -40,9 +40,9 @@ function HomePage() {
       {(user.family || family) ?
         <div className="body-homepage">
           <div className="homepage-upper-container">
-          <button onClick={nextday}><i class="fa-solid fa-arrow-left-long"></i></button>
+          <button onClick={nextday} className="btn-icon"><i class="fa-solid fa-arrow-left-long"></i></button>
             <h2 className="app-name"> {dayName} </h2>
-            <button onClick={nextday}><i class="fa-solid fa-arrow-right-long"></i></button>
+            <button onClick={nextday} className="btn-icon" ><i class="fa-solid fa-arrow-right-long"></i></button>
           </div>
           {/* <h3>{user.family.familyName}</h3> import the family name from backend */}
           <div className="task-container">{/* maybe we dont need this div if we keep the next one */}
@@ -63,7 +63,7 @@ function HomePage() {
             })}
           </div>
           <Link to="/createtask">
-            <button className="new-task"><i class="fa-solid fa-circle-plus"></i></button>
+            <button className="add-task"><i class="fa-solid fa-circle-plus"></i></button>
           </Link>
         </div >
         : <Navigate to="/createfamily" />

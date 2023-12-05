@@ -66,3 +66,11 @@ button:focus-visible {
   padding: 10px;
   border-radius: 10px;
 }
+
+.add-task{
+  border-radius: 50%;
+  color: #593EFF;
+  background-color: transparent;
+  font-size: 60px;
+  padding: 0 5px;
+}
