@@ -1,6 +1,6 @@
 import "./PostDetails.css";
 import { useEffect, useState } from "react";
-import { Link, Navigate, redirect, useParams } from "react-router-dom";
+import { Link, useNavigate, redirect, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 
@@ -8,7 +8,7 @@ function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
-    // console.log("user", user)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
@@ -24,6 +24,28 @@ function PostDetails() {
             .catch((err) => console.log(err))
 
     }, [])
+
+    const deleteHelp = () => {
+        const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+        fetch(`${BACKEND_ROOT}/help-post/edithelp/${helpId}`, 
+
+        {method: "DELETE", 
+
+        headers:{
+        'Content-Type': 'application/json'
+        }},
+
+        { mode: 'cors' })
+
+            .then((response) => {
+                if (response.ok){
+                    //throw new Error('Could not delete help')
+                    navigate("/home")
+                };
+            })
+            .catch((err) => console.log(err))
+        
+    }
 
     return (
         <div className="general-post-container">
@@ -57,7 +79,9 @@ function PostDetails() {
                             <Link to={`/edithelp/${helpId}`}>
                                 <p className="edit-button">EDIT POST</p>
                             </Link>
-                            <p className="edit-button">DELETE POST</p>
+                           
+                            <p onClick={deleteHelp} className="edit-button">DELETE POST</p>
+                            
                         </div>
 
                     }
