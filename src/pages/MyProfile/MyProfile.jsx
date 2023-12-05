@@ -11,7 +11,8 @@ function MyProfile() {
     const userIdFromAuth = user._id
 
     const [userData, setUserData] = useState('')
-    let helpPostsArray = userData.helpPosts
+    const [helpPostsArray, setHelpPostsArray] = useState([])
+    
     const [HelpPostIVolunteered, setHelpPostIVolunteered] = useState([])
     const [HelpPostIHaveBeenChosen, setHelpPostIHaveBeenChosen] = useState([])
     //console.log(userPosts);
@@ -27,6 +28,7 @@ function MyProfile() {
             })
             .then((jsonData) => {
                 setUserData(jsonData);
+                setHelpPostsArray(jsonData.helpPosts)
             })
             .catch((err) => console.log(err))
     }, []);
