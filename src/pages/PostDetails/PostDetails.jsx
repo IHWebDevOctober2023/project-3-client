@@ -9,6 +9,7 @@ function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
+    const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
 
     const navigate = useNavigate()
 
@@ -50,7 +51,7 @@ function PostDetails() {
             volunteerId: user._id,
             postId: helpData.foundHelpPost._id
         }
-        const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+        
         fetch(`${BACKEND_ROOT}/help-post/addvolunteer`, {
             method: "POST",
             mode: "cors",
@@ -69,7 +70,7 @@ function PostDetails() {
     }
 
     useEffect(() => {
-        const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+        
         fetch(`${BACKEND_ROOT}/help-post/${helpId}`, { mode: 'cors' })
             .then((response) => {
                 return response.json();
@@ -90,7 +91,7 @@ function PostDetails() {
     }, [])
 
     const deleteHelp = () => {
-        const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+        
         fetch(`${BACKEND_ROOT}/help-post/edithelp/${helpId}`,
 
             {
