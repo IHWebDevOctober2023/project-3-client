@@ -81,6 +81,7 @@ function PostDetails() {
     }, [])
 
     return (
+        <div className="general-post-container">
         <div className="post-details-container">
             <div className="help-container">
                 <p className="post-details">POST DETAILS</p>
@@ -128,6 +129,7 @@ function PostDetails() {
                     <p>YOU ARE VOLUNTEER HERE</p>
                 }
             </div>}
+        </div>
         </div>
     );
 }
