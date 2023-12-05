@@ -71,7 +71,6 @@ function CreateTask() {
 
     return (
         <>
-            <Navbar />
             <form className="form-createtask-container" onSubmit={handleSubmitTask}>
                 {/*  falta and task icon, falta taskindone, falta assigned to, falta taskImgUploaded, falta task comments  */}
                 <label className="label-createtask">To do:</label>
@@ -113,41 +112,12 @@ function CreateTask() {
                 <button type="submit" className="new-task"><i class="fa-solid fa-circle-plus"></i></button>
             </form>
         </>
-    )
-}
-export default CreateTask;
-
-
-
-/* 
- <label for="dayMoment"><b>Choose a day of the week</b></label>
-<select id="day-moment" name="dayMoment">
-    <option value="Everyday">Everyday</option>
-    <option value="Monday">Monday</option>
-    <option value="Tuesday">Tuesday</option>
-    <option value="Wednesday">Wednesday</option>
-    <option value="Thursday">Thursday</option>
-    <option value="Friday">Friday</option>
-    <option value="Saturday">Saturday</option>
-    <option value="Sunday">Sunday</option>
-</select>
-<br/>
-
-const taskSubmit = async (event) =>{
-        event.preventDefault()
-        console.log("creating task: ", taskSubmit)
-        try {
-            const submitTask = await fetch(`${import.meta.env.VITE_SERVER_URL}/createtask`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({taskName: taskName})
-            })
-            setTaskName()
-            
-        } catch (error) {
-            
-        }
+      );
     }
-*/
+    
+    export default CreateTask;
+
+
+
+
+
