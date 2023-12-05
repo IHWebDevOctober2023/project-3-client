@@ -53,6 +53,7 @@ useEffect(() => {
         <>
             <h2>🎓 Weekly Score 🎓</h2>
            <br></br>
+           <br></br>
             {<img width="60px" src={family.familyPicture} alt="Family" />}
             <br></br>
             <p> <i class="fa-solid fa-chart-simple"></i> {family.familyName} family performance : </p>
