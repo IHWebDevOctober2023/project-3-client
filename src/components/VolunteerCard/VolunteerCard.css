@@ -1,0 +1,33 @@
+.volunteerCard-link {
+	width: 100%;
+    background-color: antiquewhite;
+    border-radius: 8px;
+    padding: 14px;
+	display: flex;
+	margin-bottom: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+
+
+
+.title-volunteerCard {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.name-volunteerCard{
+
+	margin-bottom: 10px;
+}
+
+.email-volunteerCard {
+	font-style: italic;
+
+}
+
+.image-volunteerCard{
+    width: 60px;
+}
