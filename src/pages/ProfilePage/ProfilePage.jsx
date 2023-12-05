@@ -49,41 +49,41 @@ function ProfilePage() {
 
   return (
     <>
-    <Navbar/>
-    <div className="form-createtask-container">
-      <div className="user-profile-container">
+      <Navbar />
+      <div className="form-createtask-container">
+        <div className="user-profile-container">
 
-      <h2 className="text-profile">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
-      <p><span> <i class="fa-solid fa-envelope"></i></span> : {user.email} </p>
-      <p><span><i class="fa-solid fa-poo"></i></span> : {user.role} </p>
-      <img src={user.userPicture} alt={user.name} />
-      <div className="upload" >
-      <form> <input onChange={(e) => handleFileUpload(e)} type="file"/>  </form>
-      </div>
-      </div>
-      <div className="family-container">
-      <p> 🤫 {family.familyName} Secret Code: {family.familyCode} </p>
-      <p>ℹ️ Send this code to join new member</p>
-      { <img src={family.familyPicture} alt="Family" /> }
-      <h2 className="text-profile">Your {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} parents: </h2>
-      <div className="family-members-container">
-        {familyMember.map((eachFamilyMember, index) => {
-          return (
-            <FamilyMember
-            key={eachFamilyMember._id}
-            img={eachFamilyMember.userPicture}
-            name={eachFamilyMember.name}
-            age={eachFamilyMember.age}
-            role={eachFamilyMember.role}
-
-            />)
-          })
-        }
+          <h2 className="text-h2">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
+          <p className="text-p"><span> <i class="fa-solid fa-envelope"></i></span> : {user.email} </p>
+          <p className="text-p"><span><i class="fa-solid fa-poo"></i></span> : {user.role} </p>
+          <img src={user.userPicture} alt={user.name} />
+          <div className="upload" >
+            <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
+          </div>
         </div>
+        <div className="family-container">
+          <p className="text-p">{family.familyName} Secret Code: {family.familyCode} </p>
+          <p className="text-p">Send this code to join new member</p>
+          {<img src={family.familyPicture} alt="Family" />}
+          <p className="text-p">Your {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} parents: </p>
+          <div className="family-members-container">
+            {familyMember.map((eachFamilyMember, index) => {
+              return (
+                <FamilyMember
+                  key={eachFamilyMember._id}
+                  img={eachFamilyMember.userPicture}
+                  name={eachFamilyMember.name}
+                  age={eachFamilyMember.age}
+                  role={eachFamilyMember.role}
+
+                />)
+            })
+            }
+          </div>
+        </div>
+
       </div>
-    
-    </div>
     </>
-    )
-      }
+  )
+}
 export default ProfilePage;

@@ -41,3 +41,18 @@
     font-size: 30px;
 
 }
+
+@media only screen and (min-width:400px) { 
+	.form-createtask-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        width: 100%;
+        background-color:#7509f9;
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+}

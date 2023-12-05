@@ -48,7 +48,7 @@ function HomePage() {
         <div className="body-homepage">
           <div className="homepage-upper-container">
           <button onClick={prevDay} class="btn-icon"><i class="fa-solid fa-arrow-left-long"></i></button>
-            <h2 className="task-title"> {dayName} </h2>
+            <h2 className="text-h2"> {dayName} </h2>
             <button onClick={nextDay} class="btn-icon"><i class="fa-solid fa-arrow-right-long"></i></button>
           </div>
           {/* <h3>{user.family.familyName}</h3> import the family name from backend */}

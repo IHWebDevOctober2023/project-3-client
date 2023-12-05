@@ -1,7 +1,4 @@
-.text-profile{
-    margin: 10px;
-    background-color: green;
-}
+
 
 .user-profile-container{
     display: flex;
@@ -33,10 +30,6 @@ img{
     width: 100px;
 }
 
-p{
-color: brown;
-
-}
 .fa-envelope{
 
     color: blue;

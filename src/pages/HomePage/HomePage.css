@@ -38,3 +38,21 @@
     font-size: 60px;
     padding: 0 5px;
 }
+
+/* UNIVERSAL */
+.text-h2{
+    margin: 10px;
+    color: #FF6C52;
+    font-size: 30px;
+}
+.text-p{
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+@media only screen and (min-width:400px) { 
+	.body-homepage{
+        width: 900px;
+        margin-top: 20px;
+    }
+}

@@ -68,15 +68,19 @@ function Task(props) {
   return (
     <div className="task">
       <input type="checkbox" checked={taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
-      <p className="description">{props.taskDescription}</p>
-      <p className="time">{props.taskTime}</p>
-
-      <p className="weekday">{props.taskWeekDay}</p>
+      <span>|</span>
+      <p className="text-p">{props.taskDescription}</p>
+      <span>|</span>
+      <p className="text-p">{props.taskTime}</p>
+      <span>|</span>
+      <p className="text-p">{props.taskWeekDay}</p>
 
       
       {user.role === "Parent" &&
-      
+      <>
+      <span>|</span>
       <button class="btn-icon" onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
+      </>
       }
 
 
