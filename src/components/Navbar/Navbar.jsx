@@ -13,6 +13,8 @@ function Navbar() {
 
   /*  console.log("user",user._id); */
 
+ 
+
   const handleSidebar = () => {
     const sideBar = document.querySelector(".navbar .sidebar");
 
@@ -83,10 +85,18 @@ function Navbar() {
 
 
                   <li >
+                  <Link to="/alltestimonies">
                     <p onClick={handleSidebar} className="side-element">Testimonies</p>
+                    </Link>
+                  </li>
+                  <li >
+                  <Link to="/editprofile">
+                    <p onClick={handleSidebar} className="side-element">Edit profile</p>
+                    </Link>
                   </li>
 
                   <li >
+                  
                     <p onClick={logOutUser} className="side-element">Logout</p>
                   </li>
 

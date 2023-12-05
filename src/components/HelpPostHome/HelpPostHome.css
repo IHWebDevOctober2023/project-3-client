@@ -1,22 +1,42 @@
 .help-post-home {
-	width: 360px;
-    background-color: antiquewhite;
+	width: 300px;
+	height: 300px;
     border-radius: 8px;
-    padding: 14px;
+    padding: 24px;
+	background-color: rgb(41, 41, 107);
+	color: rgb(246, 246, 246);
 }
 
 .help-post-home .title {
 	font-size: 1.2em;
 	font-weight: bold;
 	margin-bottom: 10px;
+	padding: 5px;
 }
 
 .help-post-home .location {
 
-	margin-bottom: 10px;
+	margin-top: 20px;
 }
 
 .help-post-home .description {
 	font-style: italic;
+	margin-top: 20px;
+
 
 }
+
+.home-creator-picture{
+	width: 40px;
+    height: 40px;
+    border-radius: 25px;
+}
+.image-location-container{
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+
+
