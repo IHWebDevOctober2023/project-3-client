@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 
 function Task(props) {
-  const { family } = useContext(AuthContext);
+  const { family, user } = useContext(AuthContext);
   const [taskIsDone, setTaskIsDone] = useState(props.taskIsDone)
   const [deleteTask, setDeleteTask] = useState([])
   const [familyMember, setfamilyMember] = useState([])
@@ -71,8 +71,11 @@ function Task(props) {
       <p className="time">{props.taskTime}</p>
       <p className="weekday">{props.taskWeekDay}</p>
       <input type="checkbox" checked={taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
-
+      
+      {user.role === "Parent" &&
+      
       <button onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
+      }
 
 
 
