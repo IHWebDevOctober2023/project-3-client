@@ -123,10 +123,12 @@ function CreateTask() {
               <b>Chose a person of the family to assign the task:</b>
             </label>
             <select
+            className="select-createtask"
               id="person-assigned"
               name="personAssigned"
               onChange={handleTaskAssignedTo}
             >
+              <option>select a member ...</option>
               {familyMember?.map((eachFamilyMember, index) => {
                 return (
                   <option value={eachFamilyMember._id}>
