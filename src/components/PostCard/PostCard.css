@@ -21,16 +21,14 @@
 	font-size: 14px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 
 }
 
-.location{
-	border-top: 1px solid whitesmoke;
 
-}
 
 .title {
+	border-bottom: 1px solid whitesmoke;
 	font-weight: 400;
 	font-size: 16px;
 }

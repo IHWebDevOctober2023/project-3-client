@@ -18,6 +18,7 @@ import { AuthContext } from "./context/auth.context";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import EditHelpForm from "./pages/EditHelpPage/EditHelpPage";
+import TestimonialPage from "./pages/TestimonialPage/TestimonialPage";
 
 function App() {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
@@ -61,6 +62,14 @@ function App() {
           }
         />
         <Route
+          path="/alltestimonies"
+          element={
+            <IsPrivate>
+              <TestimonialPage/>
+            </IsPrivate>
+          }
+        /> 
+        <Route
           path="/createhelp"
           element={
             <IsPrivate>
@@ -69,7 +78,7 @@ function App() {
           }
         />
         <Route
-          path="help-post/:helpId"
+          path="/help-post/:helpId"
           element={
             <IsPrivate>
               <PostDetails/>
