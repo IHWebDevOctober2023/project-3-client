@@ -133,16 +133,20 @@ nav .home {
     border-radius: 3px;
     margin: 7px 0;
     transition: 0.5s;
+    transition-delay: 500ms;
 }
 
-.center:hover:before {
-    transform: translateY(9px) rotate(140deg);
+.center:before {
+    transform: translateY(9px) rotate(138deg);
+    transition-delay: 500ms;
 }
 
-.center:hover:after {
-    transform: translateY(-9px) rotate(-140deg);
+.center:after {
+    transition-delay: 500ms;
+    transform: translateY(-9px) rotate(-138deg);
 }
 
-.center:hover div {
+.center div {
     transform: scale(0);
+    
 }

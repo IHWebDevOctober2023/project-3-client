@@ -14,13 +14,26 @@
 
 .help-post-home .location {
 
-	margin-bottom: 10px;
+	margin-top: 20px;
 }
 
 .help-post-home .description {
 	font-style: italic;
+	margin-top: 20px;
 
 
+}
+
+.home-creator-picture{
+	width: 40px;
+    height: 40px;
+    border-radius: 25px;
+}
+.image-location-container{
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
 }
 
 
