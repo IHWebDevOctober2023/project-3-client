@@ -67,9 +67,12 @@ function Task(props) {
 
   return (
     <div className="task">
+      <input type="checkbox" checked={taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
       <p className="description">{props.taskDescription}</p>
       <p className="time">{props.taskTime}</p>
-      <input type="checkbox" checked={taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
+
+      <p className="weekday">{props.taskWeekDay}</p>
+
       
       {user.role === "Parent" &&
       
