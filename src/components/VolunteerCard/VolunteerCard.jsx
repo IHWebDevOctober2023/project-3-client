@@ -1,18 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./VolunteerCard.css";
+import { useState } from "react";
 
 const VolunteerCard = (props) => {
+    const navigate = useNavigate();
     const { _id, location, email, name, profilePicture } = props.volunteer;
-    const postId = props.helpId;
+    const postId = props.postId;
+    const setStuff = props.setStuff
+    console.log(props);
+    //const setReload = props.setReload;
     //console.log(_id);
 
 
-    const chooseVolunter = () => {
+    const chooseVolunteer = () => {
+        navigate(`/help-post/${postId}`);
         const reqBody = {
             volunteerId: _id,
             postId
         }
+        console.log(reqBody);
         const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
         fetch(`${BACKEND_ROOT}/help-post/selectvolunteer`, {
             method: "POST",
@@ -21,7 +28,19 @@ const VolunteerCard = (props) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(reqBody),
+
         })
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                setStuff();
+            })
+            .catch((error) => (console.error(error)));
+
+        
+
+
+
     }
 
     return (
@@ -35,7 +54,7 @@ const VolunteerCard = (props) => {
                         <img className="image-volunteerCard" src={profilePicture} alt="" />
                     </div>
                 </Link>
-                <button onClick={chooseVolunter}>Choose this volunteer!!</button>
+                <button onClick={chooseVolunteer}>Choose this volunteer!!</button>
             </div>
         </>
     );

@@ -9,7 +9,9 @@ function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
+    const [reload, setReload] = useState();
     const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+    
 
     const navigate = useNavigate()
 
@@ -65,13 +67,10 @@ function PostDetails() {
                 setMessage(resJson.message);
                 //console.log("MESSAGE: ", resJson.message);
             })
-
-
     }
 
-    useEffect(() => {
-
-        fetch(`${BACKEND_ROOT}/help-post/${helpId}`, { mode: 'cors' })
+const setStuff = () =>{
+    fetch(`${BACKEND_ROOT}/help-post/${helpId}`, { mode: 'cors' })
             .then((response) => {
                 return response.json();
             })
@@ -87,7 +86,10 @@ function PostDetails() {
                 //console.log("IS VOLUNTEER?: ", isVolunteer());
             })
             .catch((err) => console.log(err))
+}
 
+    useEffect(() => {
+        setStuff()
     }, [])
 
     const deleteHelp = () => {
@@ -111,7 +113,21 @@ function PostDetails() {
                 };
             })
             .catch((err) => console.log(err))
+    }
 
+    const complete = () => {
+        const reqBody = {
+            volunteerId: _id,
+            postId
+        }
+        fetch(`${BACKEND_ROOT}/help-post/selectvolunteer`, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(reqBody),
+        })
     }
 
     return (
@@ -163,7 +179,8 @@ function PostDetails() {
                             <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
                             {volunteersArray.map((eachVolunteer, index) => {
                                 //console.log(eachVolunteer);
-                                return (<VolunteerCard key={index} volunteer={eachVolunteer} postId={helpId} />)
+                                console.log(helpId)
+                                return (<VolunteerCard key={index} volunteer={eachVolunteer} postId={helpId} setStuff={setStuff} />)
                             })}
                         </div> : <p>No one volunteered yet</p>
                     }
@@ -171,7 +188,10 @@ function PostDetails() {
                     {
                         selectedVolunteer === null ?
                             <p></p> :
-                            <p>`The user ${selectedVolunteer} was chosen`</p>
+                            <>
+                            <p>{`The user ${selectedVolunteer} was chosen`}</p>
+                            <button onClick={complete}>Complete Task!</button>
+                            </>
                     }
 
 
