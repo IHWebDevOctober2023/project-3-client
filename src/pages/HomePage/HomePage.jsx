@@ -24,16 +24,17 @@ function HomePage() {
   return (
     <div id="home-content-wrapper">
 		<p className="home-title">How can I help today?</p>
+		<div className="search-bar">
+                <input onChange={(event)=>handleSearch(event.target.value)} type="text" name="search-input" id="search-input" />
+                <span> {''} {''}   🔍</span>
+                
+            </div>
 		{ 
 			helpPostsArr.map((eachPost, index) => {
 				console.log("post ", eachPost);
 				return ( 
 					<div className="posts-container">
-						 <div className="search-bar">
-                <input onChange={(event)=>handleSearch(event.target.value)} type="text" name="search-input" id="search-input" />
-                <span>🔍</span>
-                
-            </div>
+						 
 				<HelpPostHome  key={index} post={eachPost}/>
 				</div>
 				);
