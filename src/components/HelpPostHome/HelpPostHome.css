@@ -4,12 +4,14 @@
     border-radius: 8px;
     padding: 24px;
 	background-color: rgb(41, 41, 107);
+	color: rgb(246, 246, 246);
 }
 
 .help-post-home .title {
 	font-size: 1.2em;
 	font-weight: bold;
 	margin-bottom: 10px;
+	padding: 5px;
 }
 
 .help-post-home .location {
