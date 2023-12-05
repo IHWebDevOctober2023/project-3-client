@@ -53,9 +53,8 @@ function Task(props) {
 }
 export default Task
 
-
-{/*     <p className="assinged-to">{props.taskAssignedTo}</p>
-  <p className="comments">{props.taskComments}</p> */}
+  /*  <p className="assinged-to">{props.taskAssignedTo}</p>
+  <p className="comments">{props.taskComments}</p>
     <p>{props.taskAssignedTo?.name}</p>
     <p>Change the persona in charge</p>
     <select id="person-assigned" name="personAssigned" onChange={handleTaskAssignedTo}>
@@ -66,7 +65,8 @@ export default Task
                   )
       })
       }
-    </select> */}
+    </select> 
+ */
 
 //try {
 //const changeOnCharge = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/task/changeOncharge`, {
