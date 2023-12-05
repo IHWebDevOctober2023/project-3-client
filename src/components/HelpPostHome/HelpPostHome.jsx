@@ -7,13 +7,16 @@ const HelpPostHome = (props) => {
 
 	return (
 		
-		<Link to={`/help-post/${_id}`} className="help-post-home">
-		<div >
+		
+		
+		<Link to={`/help-post/${_id}`} >
+		<div  className="help-post-home">
 			<p className="title">{title}</p>
 			<p className="location">Location: {location}</p>
 			<p className="description">{description}</p>
 		</div>
 		</Link>
+		
 		
 	);
 };

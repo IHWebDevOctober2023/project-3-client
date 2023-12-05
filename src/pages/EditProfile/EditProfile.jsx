@@ -1,4 +1,5 @@
 import './EditProfile.css'
+//import service from "../../services/file-upload.service";
 import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/auth.context';
 
@@ -8,29 +9,50 @@ function EditProfile() {
   const [profilePicture, setProfilePicture] = useState('')
   const [skills, setSkills] = useState('')
   const [description, setDescription] = useState('')
+  const [helpImageUrl, setHelpImageUrl] = useState("");
+
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const userIdFromAuth = user._id
 
   useEffect(() => {
-    fetch(`http://localhost:5005/user/${userIdFromAuth}`)
-        .then((response) => {
-            return response.json();
-        })
-        .then((responsejson)=>{
-          console.log("este es el responsejson",responsejson)
-          setLocation(responsejson.location)
-          setProfilePicture(responsejson.profilePicture)
-          setSkills(responsejson.skills)
-          setDescription(responsejson.description)
-          })
-        .catch((err)=>console.log(err))
-},[])
+    /* service. */fetch(`http://localhost:5005/user/${userIdFromAuth}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((responsejson) => {
+        console.log("este es el responsejson", responsejson)
+        setLocation(responsejson.location)
+        setProfilePicture(responsejson.profilePicture)
+        setSkills(responsejson.skills)
+        setDescription(responsejson.description)
+      })
+      .catch((err) => console.log(err))
+  }, [])
 
-
+ /*  const handleFileUpload = (e) => {
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
+ 
+    const uploadData = new FormData();
+ 
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new movie in '/api/movies' POST route
+    uploadData.append("helpImageUrl", e.target.files[0]);
+ 
+    service
+      .uploadImage(uploadData)
+      .then(response => {
+        console.log("response is: ", response);
+        // response carries "fileUrl" which we can use to update the state
+        setHelpImageUrl(response.fileUrl);
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
+  }; */
 
   const putData = (event) => {
     event.preventDefault();
-    const userPut = {
+   
+
+    service.userPut = {
       location,
       profilePicture,
       skills,
@@ -39,7 +61,8 @@ function EditProfile() {
     };
 
 
-    fetch("http://localhost:5005/user/edituser", {
+    const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+    fetch(`${BACKEND_ROOT}/user/edituser`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -48,13 +71,17 @@ function EditProfile() {
     })
       .then((response) => {
         return response.json();
-      })
+      },
+
+        { mode: 'cors' })
+
       .then((editedUser) => {
         setUserPut(editedUser)
-        console.log(editedUser)
+        console.log( editedUser)
       })
       .catch((err) => (console.log(err)));
   }
+
 
   return (
     <div>
@@ -63,8 +90,16 @@ function EditProfile() {
         <label htmlFor="location">Location: </label>
         <textarea placeholder="location" value={location} onChange={(event) => setLocation(event.target.value)} type="textarea" name="location" />
         <br />
+
+
         <label htmlFor="profilePicture">Profile Picture: </label>
-        <textarea value={profilePicture} onChange={(event) => setProfilePicture(event.target.value)} type="textarea" name="profilePicture" />
+        <input type="file" name="profilePicture" onChange={(event)=>setHelpImageUrl(event.target.value)} />
+        <p>Selected file: {fileName}</p>
+
+
+
+        {/* <input value={profilePicture} onChange={(event) => setProfilePicture(event.target.value)} type="file" name="profilePicture" /> */}
+
         <br />
         <label htmlFor="skills">Skills: </label>
         <textarea value={skills} onChange={(event) => setSkills(event.target.value)} type="textarea" name="skills" />

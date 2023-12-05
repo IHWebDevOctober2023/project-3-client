@@ -7,6 +7,12 @@
     font-family: 'Raleway', sans-serif;
 }
 
+.create-help-container input,
+.create-help-container select{
+
+    color: black;
+}
+
 .create-help-container{
     display: flex;
     flex-direction: column;
