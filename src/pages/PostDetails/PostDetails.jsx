@@ -30,7 +30,7 @@ function PostDetails() {
     }
 
     const isVolunteer = () => {
-        console.log("user._id: ", user._id, "helpData.foundHelpPost.volunteers: ", helpData.foundHelpPost.volunteers);
+        //console.log("user._id: ", user._id, "helpData.foundHelpPost.volunteers: ", helpData.foundHelpPost.volunteers);
         if (user._id === helpData.foundHelpPost.selectedVolunteer) {
             //console.log("is selectedVolunteer");
             return true;
@@ -62,7 +62,7 @@ function PostDetails() {
             .then((fetchRes) => fetchRes.json())
             .then((resJson) => {
                 setMessage(resJson.message);
-                console.log("MESSAGE: ", resJson.message);
+                //console.log("MESSAGE: ", resJson.message);
             })
 
 
@@ -79,11 +79,11 @@ function PostDetails() {
                 setHelpData(jsonData);
                 setVolunteersArray(jsonData.foundHelpPost.volunteers)
                 setSelectedVolunteer(jsonData.foundHelpPost.selectedVolunteer)
-                console.log("jsonData", jsonData);
-                console.log("datahelp", helpData)
+                //console.log("jsonData", jsonData);
+                //console.log("datahelp", helpData)
             })
             .then(() => {
-                console.log("IS VOLUNTEER?: ", isVolunteer());
+                //console.log("IS VOLUNTEER?: ", isVolunteer());
             })
             .catch((err) => console.log(err))
 
@@ -160,7 +160,7 @@ function PostDetails() {
                         <div>
                             <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
                             {volunteersArray.map((eachVolunteer, index) => {
-                                console.log(eachVolunteer);
+                                //console.log(eachVolunteer);
                                 return (<VolunteerCard key={index} volunteer={eachVolunteer} postId={helpId} />)
                             })}
                         </div> : <p>No one volunteered yet</p>
