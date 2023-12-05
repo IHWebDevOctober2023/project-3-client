@@ -4,8 +4,22 @@
 }
 #home-content-wrapper {
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
 	gap: 25px;
 	margin-top: 30px;
 	justify-content: center;
+	align-items: center;
+	width: 400px;
+	
 }
+.home-title{
+	font-size: 30px;
+	font-weight: 300;
+	
+	text-align: center;
+}
+
+/* .posts-container{
+width: 200px;
+} */
+
