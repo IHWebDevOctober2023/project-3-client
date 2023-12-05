@@ -17,6 +17,10 @@ function Navbar() {
           <Link to="/profile">
             <button className="btn-icon"><i class="fa-solid fa-user-gear"></i></button>           
           </Link>
+
+          <Link to="/submitweek">
+            <button className="btn-icon"><i class="fa-solid fa-chart-line"></i></button>           
+          </Link>
           <button onClick={logOutUser} className="btn-icon"><i class="fa-solid fa-right-from-bracket"></i></button>
         </>
       )}

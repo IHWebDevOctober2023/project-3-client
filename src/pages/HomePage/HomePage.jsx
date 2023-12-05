@@ -72,7 +72,7 @@ function HomePage() {
           {
             user.role === "Parent" &&
           <Link to="/createtask">
-            <button className="new-task"><i class="fa-solid fa-circle-plus"></i></button>
+            <button className="add-task"><i class="fa-solid fa-circle-plus"></i></button>
           </Link>
 
           }
