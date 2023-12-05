@@ -27,7 +27,7 @@ function PostDetails() {
     }
 
     const isVolunteer = () => {
-        console.log("user._id: ",user._id, "helpData.foundHelpPost.volunteers: ", helpData.foundHelpPost.volunteers);
+        console.log("user._id: ", user._id, "helpData.foundHelpPost.volunteers: ", helpData.foundHelpPost.volunteers);
         if (user._id === helpData.foundHelpPost.selectedVolunteer) {
             console.log("is selectedVolunteer");
             return true;
@@ -56,13 +56,13 @@ function PostDetails() {
             },
             body: JSON.stringify(reqBody),
         })
-        .then((fetchRes) => fetchRes.json())
-        .then((resJson) => {
-            setMessage(resJson.message);
-            console.log("MESSAGE: ", resJson.message);
-        })
-        
-        
+            .then((fetchRes) => fetchRes.json())
+            .then((resJson) => {
+                setMessage(resJson.message);
+                console.log("MESSAGE: ", resJson.message);
+            })
+
+
     }
 
     useEffect(() => {
@@ -76,7 +76,7 @@ function PostDetails() {
                 setHelpData(jsonData);
                 console.log("datahelp", helpData)
             })
-            .then(()=> {
+            .then(() => {
                 console.log("IS VOLUNTEER?: ", isVolunteer());
             })
             .catch((err) => console.log(err))
@@ -85,43 +85,45 @@ function PostDetails() {
 
     const deleteHelp = () => {
         const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
-        fetch(`${BACKEND_ROOT}/help-post/edithelp/${helpId}`, 
+        fetch(`${BACKEND_ROOT}/help-post/edithelp/${helpId}`,
 
-        {method: "DELETE", 
+            {
+                method: "DELETE",
 
-        headers:{
-        'Content-Type': 'application/json'
-        }},
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            },
 
-        { mode: 'cors' })
+            { mode: 'cors' })
 
             .then((response) => {
-                if (response.ok){
+                if (response.ok) {
                     //throw new Error('Could not delete help')
                     navigate("/home")
                 };
             })
             .catch((err) => console.log(err))
-        
+
     }
 
     return (
         <div className="general-post-container">
-        <div className="post-details-container">
-            <div className="help-container">
-                <p className="post-details">POST DETAILS</p>
-            </div>
+            <div className="post-details-container">
+                <div className="help-container">
+                    <p className="post-details">POST DETAILS</p>
+                </div>
 
-            {
-                message && 
-                <div className="message">{message} [X]</div>
-            }
+                {
+                    message &&
+                    <div className="message">{message} [X]</div>
+                }
 
-            {helpData && <div className="info-post-container">
+                {helpData && <div className="info-post-container">
 
-                <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
+                    <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
 
-                <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
+                    <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
 
 
                     {user._id === helpData.foundHelpPost.creator._id &&
@@ -129,44 +131,45 @@ function PostDetails() {
                             <Link to={`/edithelp/${helpId}`}>
                                 <p className="edit-button">EDIT POST</p>
                             </Link>
-                           
+
                             <p onClick={deleteHelp} className="edit-button">DELETE POST</p>
-                            
+
                         </div>
+                    }
 
-                <p className="description-title">Description:</p>
-                <p className="info-description"> {helpData.foundHelpPost.description}</p>
+                    <p className="description-title">Description:</p>
+                    <p className="info-description"> {helpData.foundHelpPost.description}</p>
 
 
-                <p className="creator-title">Creator: </p>
-                <div className="post-creator-container">
-                    <p className="name-creator">{user.name}</p>
-                    <img className="creator-picture" src={helpData.foundHelpPost.creator.profilePicture} alt="" />
-                </div>
-                <p className="creator-title">Category:</p>
-                <p className="details-category"> {helpData.foundHelpPost.category}</p>
-
-                <p className="volunteer"></p>
-                <p className="details-volunteer">USER: {helpData.foundHelpPost.volunteer} volunteered!</p>
-
-                {user._id === helpData.foundHelpPost.creator._id &&
-                    <div className="edit-help-buttons">
-                        <Link to={`/edithelp/${helpId}`}>
-                    <p className="edit-button pointer">EDIT POST</p>
-                    </Link>
-                    <p className="edit-button pointer">DELETE POST</p>
+                    <p className="creator-title">Creator: </p>
+                    <div className="post-creator-container">
+                        <p className="name-creator">{user.name}</p>
+                        <img className="creator-picture" src={helpData.foundHelpPost.creator.profilePicture} alt="" />
                     </div>
-                }
+                    <p className="creator-title">Category:</p>
+                    <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
-                { (!isCreator() && !isVolunteer()) &&
-                    <p className="I-can-help pointer" onClick={onIcanHelp}>I CAN HELP</p>
-                }
-                {`user._id: ${user._id}, helpData.foundHelpPost.selectedVolunteer: ${helpData.foundHelpPost.volunteers[0]}`}
-                { (isVolunteer()) &&
-                    <p>YOU ARE VOLUNTEER HERE</p>
-                }
-            </div>}
-        </div>
+                    <p className="volunteer"></p>
+                    <p className="details-volunteer">USER: {helpData.foundHelpPost.volunteer} volunteered!</p>
+
+                    {user._id === helpData.foundHelpPost.creator._id &&
+                        <div className="edit-help-buttons">
+                            <Link to={`/edithelp/${helpId}`}>
+                                <p className="edit-button pointer">EDIT POST</p>
+                            </Link>
+                            <p className="edit-button pointer">DELETE POST</p>
+                        </div>
+                    }
+
+                    {(!isCreator() && !isVolunteer()) &&
+                        <p className="I-can-help pointer" onClick={onIcanHelp}>I CAN HELP</p>
+                    }
+                    {`user._id: ${user._id}, helpData.foundHelpPost.selectedVolunteer: ${helpData.foundHelpPost.volunteers[0]}`}
+                    {(isVolunteer()) &&
+                        <p>YOU ARE VOLUNTEER HERE</p>
+                    }
+                </div>}
+            </div>
         </div>
     );
 }
