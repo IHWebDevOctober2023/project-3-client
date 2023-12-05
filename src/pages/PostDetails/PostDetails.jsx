@@ -51,7 +51,7 @@ function PostDetails() {
             volunteerId: user._id,
             postId: helpData.foundHelpPost._id
         }
-        
+
         fetch(`${BACKEND_ROOT}/help-post/addvolunteer`, {
             method: "POST",
             mode: "cors",
@@ -70,7 +70,7 @@ function PostDetails() {
     }
 
     useEffect(() => {
-        
+
         fetch(`${BACKEND_ROOT}/help-post/${helpId}`, { mode: 'cors' })
             .then((response) => {
                 return response.json();
@@ -91,7 +91,7 @@ function PostDetails() {
     }, [])
 
     const deleteHelp = () => {
-        
+
         fetch(`${BACKEND_ROOT}/help-post/edithelp/${helpId}`,
 
             {
@@ -133,16 +133,6 @@ function PostDetails() {
                     <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
 
 
-                    {user._id === helpData.foundHelpPost.creator._id &&
-                        <div className="edit-help-buttons">
-                            <Link to={`/edithelp/${helpId}`}>
-                                <p className="edit-button">EDIT POST</p>
-                            </Link>
-
-                            <p onClick={deleteHelp} className="edit-button">DELETE POST</p>
-
-                        </div>
-                    }
 
                     <p className="description-title">Description:</p>
                     <p className="info-description"> {helpData.foundHelpPost.description}</p>
@@ -155,6 +145,17 @@ function PostDetails() {
                     </div>
                     <p className="creator-title">Category:</p>
                     <p className="details-category"> {helpData.foundHelpPost.category}</p>
+
+                    {user._id === helpData.foundHelpPost.creator._id &&
+                        <div className="edit-help-buttons">
+                            <Link to={`/edithelp/${helpId}`}>
+                                <p className="edit-button">EDIT POST</p>
+                            </Link>
+
+                            <p onClick={deleteHelp} className="edit-button">DELETE POST</p>
+
+                        </div>
+                    }
 
                     <p className="volunteer"></p>
                     {volunteersArray.length > 0 ?

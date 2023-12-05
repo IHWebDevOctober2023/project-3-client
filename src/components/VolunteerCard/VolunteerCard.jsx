@@ -5,7 +5,7 @@ import "./VolunteerCard.css";
 const VolunteerCard = (props) => {
     const { _id, location, email, name, profilePicture } = props.volunteer;
     const postId = props.helpId;
-    console.log(_id);
+    //console.log(_id);
 
 
     const chooseVolunter = () => {
