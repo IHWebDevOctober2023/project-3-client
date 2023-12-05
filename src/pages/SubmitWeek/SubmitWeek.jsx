@@ -31,10 +31,54 @@ const getTasksbyFamily = async () => {
   }
 }
 
+const CalculateKpiFamily = async () =>{
+  try{
+    const kpiFamily = (tasksDoneByFamily / tasksByFamily) * 100;
+    const roundedKpiFamily = kpiFamily.toFixed(2);
+    console.log("kpi", kpiFamily)
+    setkpiByFamily(roundedKpiFamily)
+
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
+
 useEffect(() => {
+  CalculateKpiFamily();
   getTasksbyFamily();
 }, []);
-  // GET the route to calculate TASKS DONE by Family  
+
+    return (
+        <>
+            <h2>🎓 Weekly Score 🎓</h2>
+           <br></br>
+            {<img width="60px" src={family.familyPicture} alt="Family" />}
+            <br></br>
+            <p> <i class="fa-solid fa-chart-simple"></i> {family.familyName} family performance : </p>
+            <br></br>
+            <p> <i class="fa-solid fa-clipboard"></i> {tasksByFamily} Tasks weekly</p>
+            <p> <i class="fa-solid fa-check"></i> {tasksDoneByFamily} tasks done</p>
+            <p> <i class="fa-solid fa-hourglass"></i> {tasksPendingByFamily} tasks pending</p>
+           <p> <i class="fa-solid fa-gauge"></i> Family KPI: {kpiByFamily} %</p>
+           <br></br>
+           <br></br>
+           <img width="60px" src={user.userPicture} alt={user.name} />
+            <p> <i class="fa-solid fa-chart-simple"></i> {user.name}, your personal score: </p>
+            <br></br>
+            <p> <i class="fa-solid fa-check"></i> {tasksDoneByUser} tasks done</p>
+            <p> <i class="fa-solid fa-hourglass"></i> {tasksPendingByUser} tasks pending</p>
+            <p> <i class="fa-solid fa-gauge"></i>  User KPI: {kpiByUser} %</p>
+
+            {/*<button>Reset Week</button>*/}
+        </>
+    );
+}
+
+export default SubmitWeek;
+
+
+ // GET the route to calculate TASKS DONE by Family  
  /*  const getTasksDonebyFamily = async () => {
     try {
       const tasksDoneResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/tasks/${family._id}/tasksDoneByFamily`);
@@ -78,26 +122,3 @@ useEffect(() => {
     console.error(error);
   }
 } */
-
-
-
-    return (
-        <>
-            <h2>🎓 Weekly Score 🎓</h2>
-            {<img width="60px" src={family.familyPicture} alt="Family" />}
-            <p> 📈 {family.familyName} performance : </p>
-            <p> {tasksByFamily} tasks weekly</p>
-            <p> <i class="fa-solid fa-check"></i> {tasksDoneByFamily} tasks done by Family</p>
-            <p> {tasksPendingByFamily} tasks pending by Family</p>
-           {/*  <p> Your team perfomance: {kpiByFamily} %</p>
-            <p> Hello {user.name}, this is your personal score: </p>
-            <p> {tasksDoneByUser} tasks done by User</p>
-            <p> {tasksPendingByUser} tasks pending by User</p>
-            <p> Your perfomance: {kpiByUser} %</p> */}
-
-            {/*<button>Reset Week</button>*/}
-        </>
-    );
-}
-
-export default SubmitWeek;
