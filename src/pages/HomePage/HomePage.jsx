@@ -62,9 +62,13 @@ function HomePage() {
               )
             })}
           </div>
+          {
+            user.role === "Parent" &&
           <Link to="/createtask">
             <button className="new-task"><i class="fa-solid fa-circle-plus"></i></button>
           </Link>
+
+          }
         </div >
         : <Navigate to="/createfamily" />
 
