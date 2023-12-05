@@ -18,10 +18,17 @@ function HomePage() {
   const [task, setTask] = useState([])
   const [dayName, setDayName] = useState(daysOfWeek[dayOfWeek])
   console.log(family);
-  const nextday = () => {
+  const nextDay = () => {
     const indexOfTheDay = daysOfWeek.indexOf(dayName)
     setDayName(daysOfWeek[(indexOfTheDay + 1) % daysOfWeek.length])
   }
+
+  const prevDay = () => {
+    const indexOfTheDay = daysOfWeek.indexOf(dayName)
+    setDayName(daysOfWeek[(indexOfTheDay - 1 + daysOfWeek.length) % daysOfWeek.length])
+  }
+
+
   const getTasks = async (event) => {
     try {
       const getTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks/${family._id}/${dayName}`)
@@ -40,9 +47,9 @@ function HomePage() {
       {(user.family || family) ?
         <div className="body-homepage">
           <div className="homepage-upper-container">
-          <button onClick={nextday}><i class="fa-solid fa-arrow-left-long"></i></button>
+          <button onClick={prevDay}><i class="fa-solid fa-arrow-left-long"></i></button>
             <h2 className="app-name"> {dayName} </h2>
-            <button onClick={nextday}><i class="fa-solid fa-arrow-right-long"></i></button>
+            <button onClick={nextDay}><i class="fa-solid fa-arrow-right-long"></i></button>
           </div>
           {/* <h3>{user.family.familyName}</h3> import the family name from backend */}
           <div className="task-container">{/* maybe we dont need this div if we keep the next one */}
