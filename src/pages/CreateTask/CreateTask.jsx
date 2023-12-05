@@ -70,14 +70,16 @@ function CreateTask() {
     }
 
     return (
-        <>
             <form className="form-createtask-container" onSubmit={handleSubmitTask}>
                 {/*  falta and task icon, falta taskindone, falta assigned to, falta taskImgUploaded, falta task comments  */}
-                <label className="label-createtask">To do:</label>
-                <input className="input" id="content" name="description" required onChange={handleTaskDescription}></input>
+                <h2 className="task-title">NEW TASK</h2>
+                <br/>
+                {/*<label className="label-createtask">To do:</label>*/}
+                <input className="input-create-task" placeholder="Name of the task" name="description" required onChange={handleTaskDescription}></input>
                 <br />
-                <label className="label-createtask" HtmlFor="dayMoment"><b>When? Choose a timing interval to finish the task</b></label>
-                <select className="select-createtask" id="timing-interval" name="timingInterval" onChange={handleTaskTime}>
+               {/* <label className="label-createtask" HtmlFor="dayMoment"><b>When? Choose a timing interval to finish the task</b></label>*/}
+                <select className="input-create-task"  name="timingInterval" onChange={handleTaskTime}>
+                <option value="Time interval">Time interval</option>
                     <option value="On Wake Up">On Wake Up</option>
                     <option value="Before Breakfast">Before Breakfast</option>
                     <option value="After Breakfast">After Breakfast</option>
@@ -89,9 +91,9 @@ function CreateTask() {
                     <option value="Before Sleep">Before Sleep</option>
                 </select>
                 <br />
-                <label className="label-createtask" htmlFor="dayMoment"><b>Choose a day of the week</b></label>
-                <select className="select-createtask" id="day-moment" name="dayMoment" onChange={handleTaskWeekDay}>
-                    <option value="Everyday">Everyday</option>
+                {/*<label className="label-createtask" htmlFor="dayMoment"><b>Choose a day of the week</b></label>*/}
+                <select className="input-create-task" id="day-moment" name="dayMoment" onChange={handleTaskWeekDay}>
+                    <option value="Everyday">Day of the week</option>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
@@ -101,8 +103,9 @@ function CreateTask() {
                     <option value="Sunday">Sunday</option>
                 </select>
                 <br />
-                <label htmlFor="personAssigned"><b>Chose a person of the family to assign the task:</b></label>
-                <select id="person-assigned" name="personAssigned" onChange={handleTaskAssignedTo}>
+                {/*<label htmlFor="personAssigned"><b>Chose a person of the family to assign the task:</b></label>*/}
+                <select className="input-create-task" name="personAssigned" onChange={handleTaskAssignedTo}>
+                <option value="empty">Family member</option>
                     {familyMember?.map((eachFamilyMember, index) => {
                         return (<option value={eachFamilyMember._id}>{eachFamilyMember.name}</option>)
                     })
@@ -111,7 +114,6 @@ function CreateTask() {
                 <br></br>
                 <button type="submit" className="add-task"><i class="fa-solid fa-circle-plus"></i></button>
             </form>
-        </>
       );
     }
     
