@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from "../../context/auth.context";
+import Navbar from '../../components/Navbar/Navbar';
 
 function SubmitWeek() {
   const { user, family, setUser } = useContext(AuthContext);   
@@ -52,6 +53,7 @@ useEffect(() => {
 
     return (
         <>
+        <Navbar/>
             <h2>🎓 Weekly Score 🎓</h2>
            <br></br>
            <br></br>
