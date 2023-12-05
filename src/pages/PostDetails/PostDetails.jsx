@@ -33,19 +33,52 @@ function PostDetails() {
     }
 
     const isVolunteer = () => {
-        //console.log("user._id: ", user._id, "helpData.foundHelpPost.volunteers: ", helpData.foundHelpPost.volunteers);
-        if (user._id === helpData.foundHelpPost.selectedVolunteer) {
-            //console.log("is selectedVolunteer");
-            return true;
-        }
-        else if (helpData.foundHelpPost.volunteers.includes(user._id)) {
+		//console.log("VOLUNTEERS: ", helpData.foundHelpPost.volunteers, "USERID: ", user._id );
+        if (helpData.foundHelpPost.volunteers.find( element => element._id === user._id)) {
             //console.log("is volunteer");
             return true;
         }
         else {
+			//console.log("is NOT volunteer");
             return false;
         }
     };
+
+	const isSelectedVolunteer = () => {
+		console.log("SELECTEDVOLUNTEER\nuser._id: ", user._id, "helpData.foundHelpPost.volunteers: ", helpData.foundHelpPost.selectedVolunteer);
+        if (helpData.foundHelpPost.selectedVolunteer && user._id === helpData.foundHelpPost.selectedVolunteer._id) {
+            console.log("is selectedVolunteer");
+            return true;
+        }
+		else {
+			console.log("is NOT selectedVolunteer");
+			return false;
+		}
+	}
+
+	const isCompleted = () => {
+		console.log("ISCOMPLETED: ", helpData.foundHelpPost.isCompleted);
+		return helpData.foundHelpPost.isCompleted;
+	}
+
+	const setStuff = () =>{
+		fetch(`${BACKEND_ROOT}/help-post/${helpId}`, { mode: 'cors' })
+				.then((response) => {
+					return response.json();
+				})
+				.then((jsonData) => {
+					console.log("jsondata",jsonData);
+					setHelpData(jsonData);
+					setVolunteersArray(jsonData.foundHelpPost.volunteers)
+					setSelectedVolunteer(jsonData.foundHelpPost.selectedVolunteer)
+					//console.log("jsonData", jsonData);
+					//console.log("datahelp", helpData)
+				})
+				.then(() => {
+					//console.log("IS VOLUNTEER?: ", isVolunteer());
+				})
+				.catch((err) => console.log(err))
+	}
 
     const onIcanHelp = () => {
         // put the user into the post volunteers[]
@@ -65,47 +98,24 @@ function PostDetails() {
             .then((fetchRes) => fetchRes.json())
             .then((resJson) => {
                 setMessage(resJson.message);
+				setStuff();
                 //console.log("MESSAGE: ", resJson.message);
             })
     }
-
-const setStuff = () =>{
-    fetch(`${BACKEND_ROOT}/help-post/${helpId}`, { mode: 'cors' })
-            .then((response) => {
-                return response.json();
-            })
-            .then((jsonData) => {
-                console.log("jsondata",jsonData);
-                setHelpData(jsonData);
-                setVolunteersArray(jsonData.foundHelpPost.volunteers)
-                setSelectedVolunteer(jsonData.foundHelpPost.selectedVolunteer)
-                //console.log("jsonData", jsonData);
-                //console.log("datahelp", helpData)
-            })
-            .then(() => {
-                //console.log("IS VOLUNTEER?: ", isVolunteer());
-            })
-            .catch((err) => console.log(err))
-}
 
     useEffect(() => {
         setStuff()
     }, [])
 
     const deleteHelp = () => {
-
         fetch(`${BACKEND_ROOT}/help-post/edithelp/${helpId}`,
-
             {
                 method: "DELETE",
-
+				mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            },
-
-            { mode: 'cors' })
-
+            })
             .then((response) => {
                 if (response.ok) {
                     //throw new Error('Could not delete help')
@@ -117,17 +127,20 @@ const setStuff = () =>{
 
     const complete = () => {
         const reqBody = {
-            volunteerId: _id,
-            postId
-        }
-        fetch(`${BACKEND_ROOT}/help-post/selectvolunteer`, {
-            method: "POST",
+			volunteerId: user._id,
+            postId: helpData.foundHelpPost._id
+        };
+		console.log("COMPLETE BTN", user._id, helpData.foundHelpPost._id);
+        fetch(`${BACKEND_ROOT}/help-post/setcompleted`, {
+            method: "PUT",
             mode: "cors",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(reqBody),
         })
+		.then(() => setStuff())
+		.catch((err) => console.error(err));
     }
 
     return (
@@ -162,7 +175,7 @@ const setStuff = () =>{
                     <p className="creator-title">Category:</p>
                     <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
-                    {user._id === helpData.foundHelpPost.creator._id &&
+                    {(isCreator() && !isCompleted()) &&
                         <div className="edit-help-buttons">
                             <Link to={`/edithelp/${helpId}`}>
                                 <p className="edit-button">EDIT POST</p>
@@ -174,7 +187,7 @@ const setStuff = () =>{
                     }
 
                     <p className="volunteer"></p>
-                    {volunteersArray.length > 0 ?
+                    {(volunteersArray.length > 0 && isCreator()) ?
                         <div>
                             <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
                             {volunteersArray.map((eachVolunteer, index) => {
@@ -187,15 +200,25 @@ const setStuff = () =>{
 
                     { 
                         selectedVolunteer === null ?
-                            <p></p> :
-                            <>
-                            <p>{`The user ${selectedVolunteer.name} was chosen`}</p>
-                            <button onClick={complete}>Complete Task!</button>
+                            <p></p> : ( <>
+                            {(isCreator() && !isCompleted())&&
+							<>
+                            	<p>{`The user ${selectedVolunteer.name} was chosen`}</p>
+                            	<button onClick={complete}>Complete Task!</button>
                             </>
+							}
+							{isSelectedVolunteer() &&
+                            	<p>You were chosen to help. Thanks!</p>
+							}
+							</>)
                     }
 
+					{
+						isCompleted() && 
+						<p>THIS HELP IS ALREADY COMPLETED</p>
+					}
 
-                    {(!isCreator() && !isVolunteer()) &&
+                    {(!isCreator() && !isVolunteer() && !isSelectedVolunteer()) &&
                         <p className="I-can-help pointer" onClick={onIcanHelp}>I CAN HELP</p>
                     }
                     {(isVolunteer()) &&
