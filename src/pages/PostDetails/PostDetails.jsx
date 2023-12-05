@@ -1,6 +1,6 @@
 import "./PostDetails.css";
 import { useEffect, useState } from "react";
-import { Link, Navigate, redirect, useParams } from "react-router-dom";
+import { Link, useNavigate, redirect, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 
@@ -8,8 +8,11 @@ function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
+
+    const navigate = useNavigate()
+
     const [message, setMessage] = useState();
-    // console.log("user", user)
+
 
     const isCreator = () => {
         // console.log ("isCreator: ", user._id === helpData.foundHelpPost.creator._id, user._id, helpData.foundHelpPost.creator._id);
@@ -80,6 +83,28 @@ function PostDetails() {
 
     }, [])
 
+    const deleteHelp = () => {
+        const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
+        fetch(`${BACKEND_ROOT}/help-post/edithelp/${helpId}`, 
+
+        {method: "DELETE", 
+
+        headers:{
+        'Content-Type': 'application/json'
+        }},
+
+        { mode: 'cors' })
+
+            .then((response) => {
+                if (response.ok){
+                    //throw new Error('Could not delete help')
+                    navigate("/home")
+                };
+            })
+            .catch((err) => console.log(err))
+        
+    }
+
     return (
         <div className="general-post-container">
         <div className="post-details-container">
@@ -98,8 +123,20 @@ function PostDetails() {
 
                 <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
 
+
+                    {user._id === helpData.foundHelpPost.creator._id &&
+                        <div className="edit-help-buttons">
+                            <Link to={`/edithelp/${helpId}`}>
+                                <p className="edit-button">EDIT POST</p>
+                            </Link>
+                           
+                            <p onClick={deleteHelp} className="edit-button">DELETE POST</p>
+                            
+                        </div>
+
                 <p className="description-title">Description:</p>
                 <p className="info-description"> {helpData.foundHelpPost.description}</p>
+
 
                 <p className="creator-title">Creator: </p>
                 <div className="post-creator-container">
