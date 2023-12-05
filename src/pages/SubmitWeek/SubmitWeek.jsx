@@ -47,8 +47,8 @@ const CalculateKpiFamily = async () =>{
 }
 
 useEffect(() => {
-  CalculateKpiFamily();
   getTasksbyFamily();
+  CalculateKpiFamily();
 }, []);
 
     return (

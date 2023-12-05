@@ -48,34 +48,38 @@ function ProfilePage() {
 
 
   return (
-    <div>
+    <div className="form-createtask-container">
       <Navbar/>
-      {console.log(user, family)}
+      <div className="user-profile-container">
+
       <h2 className="text-profile">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
-      
+      <p>Mail: {user.email} </p>
+      <p>Age: {user.age} </p>
+      <p>Role: {user.role} </p>
       <img src={user.userPicture} alt={user.name} />
-      <h3 className="text-profile">These are the members of the {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h3>
-      <div className="profile-page-container">
-      {console.log("text", user.userPicture)}
-      <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
-      <img src={imageUrl} alt={user.name} />
       <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
-      <h1> {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h1>
-      <p> Your Family Code: {family.familyCode} </p>
-      <img width="150px" src={family.familyPicture} alt="Family" />
-      <div className="family-member-container">
+      </div>
+      <div className="family-container">
+      <p> 🤫 {family.familyName} Secret Code: {family.familyCode} </p>
+      <p>ℹ️ Send this code to join new member</p>
+      { <img src={family.familyPicture} alt="Family" /> }
+      <h2 className="text-profile">Your {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} parents: </h2>
+      <div className="family-members-container">
         {familyMember.map((eachFamilyMember, index) => {
           return (
             <FamilyMember
-              key={eachFamilyMember._id}
-              img={eachFamilyMember.userPicture}
-              name={eachFamilyMember.name}
-              age={eachFamilyMember.age}
+            key={eachFamilyMember._id}
+            img={eachFamilyMember.userPicture}
+            name={eachFamilyMember.name}
+            age={eachFamilyMember.age}
+            role={eachFamilyMember.role}
+
             />)
-        })
+          })
         }
+        </div>
       </div>
-    </div>
+    
     </div>
     )
       }
