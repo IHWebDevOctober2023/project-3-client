@@ -1,0 +1,29 @@
+.help-post-link {
+	width: 100%;
+    background-color: antiquewhite;
+    border-radius: 8px;
+    padding: 14px;
+	display: flex;
+	margin-bottom: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+
+
+
+.help-post-home .title {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.help-post-home .location {
+
+	margin-bottom: 10px;
+}
+
+.help-post-home .description {
+	font-style: italic;
+
+}

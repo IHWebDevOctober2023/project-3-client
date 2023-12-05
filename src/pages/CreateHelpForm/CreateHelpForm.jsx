@@ -28,7 +28,7 @@ function CreateHelpForm() {
             volunteers,
             isCompleted
         };
-        console.log(helpPosts);
+        //console.log(helpPosts);
     
         try {
             const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
