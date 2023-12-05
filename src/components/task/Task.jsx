@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { useState, useEffect } from "react";
 
+
 function Task(props) {
   const { family } = useContext(AuthContext);
   const [taskIsDone, setTaskIsDone] = useState(props.taskIsDone)
@@ -21,12 +22,12 @@ function Task(props) {
   useEffect(() => {
     getFamilyId()
   }, [])
+
   useEffect(() => {
     checkbox()
   }, [taskIsDone])
-  useEffect(() =>{
-    findDeleteTask()
-  },[])
+
+
   /* DELETE PART */
   const findDeleteTask = async (event) => {
     try {
@@ -39,6 +40,7 @@ function Task(props) {
       const deleteTask = await deleteTaskResponse.json()
 
       setDeleteTask(deleteTask)
+      props.getTasks()
     } catch (error) { console.log("this is the error : ", error); }
   }
   /*checkBox */

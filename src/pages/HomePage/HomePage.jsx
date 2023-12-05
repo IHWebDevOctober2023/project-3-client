@@ -52,6 +52,7 @@ function HomePage() {
                   taskComments={eachTask.taskComments}
                   taskIsDone={eachTask.taskIsDone}
                   taskId={eachTask._id}
+                  getTasks={getTasks}
                 />
               )
             })}
