@@ -13,3 +13,13 @@ nav{
     padding: 12px;
     background-color: transparent;
 }
+
+@media only screen and (min-width:25em) {
+    nav{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        width: 900px;
+    }
+
+}
