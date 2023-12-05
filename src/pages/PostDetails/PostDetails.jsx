@@ -81,53 +81,49 @@ function PostDetails() {
     }, [])
 
     return (
-        <div className="post-details-container">
-            <div className="help-container">
-                <p className="post-details">POST DETAILS</p>
-            </div>
-
-            {
-                message && 
-                <div className="message">{message} [X]</div>
-            }
-
-            {helpData && <div className="info-post-container">
-
-                <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
-
-                <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
-
-                <p className="description-title">Description:</p>
-                <p className="info-description"> {helpData.foundHelpPost.description}</p>
-
-                <p className="creator-title">Creator: </p>
-                <div className="post-creator-container">
-                    <p className="name-creator">{user.name}</p>
-                    <img className="creator-picture" src={helpData.foundHelpPost.creator.profilePicture} alt="" />
+        <div className="general-post-container">
+            <div className="post-details-container">
+                <div className="help-container">
+                    <p className="post-details">POST DETAILS</p>
                 </div>
-                <p className="creator-title">Category:</p>
-                <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
-                <p className="volunteer"></p>
-                <p className="details-volunteer">USER: {helpData.foundHelpPost.volunteer} volunteered!</p>
+                {helpData && <div className="info-post-container">
+                    <img className="help-image" src={helpData.foundHelpPost.helpImageUrl} alt="" />
+                    <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
 
-                {user._id === helpData.foundHelpPost.creator._id &&
-                    <div className="edit-help-buttons">
-                        <Link to={`/edithelp/${helpId}`}>
-                    <p className="edit-button pointer">EDIT POST</p>
-                    </Link>
-                    <p className="edit-button pointer">DELETE POST</p>
+                    <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
+
+                    <p className="description-title">Description:</p>
+                    <p className="info-description"> {helpData.foundHelpPost.description}</p>
+
+                    <p className="creator-title">Creator: </p>
+                    <div className="post-creator-container">
+                        <p className="name-creator">{user.name}</p>
+                        <img className="creator-picture" src={helpData.foundHelpPost.creator.profilePicture} alt="" />
                     </div>
-                }
+                    <p className="creator-title">Category:</p>
+                    <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
-                { (!isCreator() && !isVolunteer()) &&
-                    <p className="I-can-help pointer" onClick={onIcanHelp}>I CAN HELP</p>
-                }
-                {`user._id: ${user._id}, helpData.foundHelpPost.selectedVolunteer: ${helpData.foundHelpPost.volunteers[0]}`}
-                { (isVolunteer()) &&
-                    <p>YOU ARE VOLUNTEER HERE</p>
-                }
-            </div>}
+                    <p className="volunteer"></p>
+                    <p className="details-volunteer">USER: {helpData.foundHelpPost.volunteer} volunteered!</p>
+
+                    {user._id === helpData.foundHelpPost.creator._id &&
+                        <div className="edit-help-buttons">
+                            <Link to={`/edithelp/${helpId}`}>
+                                <p className="edit-button">EDIT POST</p>
+                            </Link>
+                            <p className="edit-button">DELETE POST</p>
+                        </div>
+
+                    }
+
+                    {user._id !== helpData.foundHelpPost.creator._id &&
+
+                        <p className="I-can-help">I CAN HELP</p>
+
+                    }
+                </div>}
+            </div>
         </div>
     );
 }

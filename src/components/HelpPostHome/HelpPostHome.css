@@ -1,8 +1,9 @@
 .help-post-home {
-	width: 360px;
-    background-color: antiquewhite;
+	width: 300px;
+	height: 300px;
     border-radius: 8px;
-    padding: 14px;
+    padding: 24px;
+	background-color: rgb(41, 41, 107);
 }
 
 .help-post-home .title {
@@ -19,4 +20,8 @@
 .help-post-home .description {
 	font-style: italic;
 
+
 }
+
+
+
