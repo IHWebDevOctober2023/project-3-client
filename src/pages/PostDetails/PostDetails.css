@@ -11,7 +11,7 @@
     padding: 10px;
     border-radius: 15px;
     
-    background: linear-gradient(180deg, rgb(220, 140, 10) 0%, rgb(30, 46, 78) 75%, rgb(23, 90, 86) 89%, rgb(175, 100, 66) 100%);
+    background: linear-gradient(180deg, rgb(220, 140, 10) 0%, rgb(43, 68, 117) 75%, rgb(23, 90, 86) 89%, rgb(175, 100, 66) 100%);
     
     
 }
@@ -93,7 +93,9 @@
     
 }
 .creator-picture{
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
 }
 
 .I-can-help{
