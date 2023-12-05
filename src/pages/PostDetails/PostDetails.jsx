@@ -127,8 +127,8 @@ function PostDetails() {
 
                 {helpData && <div className="info-post-container">
 
+                    <img className="help-image" src={helpData.foundHelpPost.helpImageUrl} alt={helpData.foundHelpPost.title} />
                     <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
-
                     <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
 
 
@@ -156,19 +156,19 @@ function PostDetails() {
                     <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
                     <p className="volunteer"></p>
-                    {volunteersArray.length > 0 ? 
-                    <div>
-                    <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
-                    {volunteersArray.map((eachPost, index)=>{
-                        console.log(eachPost);
-                        return (<VolunteerCard key={index} post={eachPost} />)
-                    })} 
-                    </div>:<p>No one volunteered yet</p>
+                    {volunteersArray.length > 0 ?
+                        <div>
+                            <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
+                            {volunteersArray.map((eachPost, index) => {
+                                console.log(eachPost);
+                                return (<VolunteerCard key={index} post={eachPost} />)
+                            })}
+                        </div> : <p>No one volunteered yet</p>
                     }
 
                     {
-                        selectedVolunteer === null? 
-                            <p></p>:
+                        selectedVolunteer === null ?
+                            <p></p> :
                             <p>`The user ${selectedVolunteer} was chosen`</p>
                     }
 
@@ -184,7 +184,6 @@ function PostDetails() {
                     {(!isCreator() && !isVolunteer()) &&
                         <p className="I-can-help pointer" onClick={onIcanHelp}>I CAN HELP</p>
                     }
-                    {`user._id: ${user._id}, helpData.foundHelpPost.selectedVolunteer: ${helpData.foundHelpPost.volunteers[0]}`}
                     {(isVolunteer()) &&
                         <p>YOU ARE VOLUNTEER HERE</p>
                     }
