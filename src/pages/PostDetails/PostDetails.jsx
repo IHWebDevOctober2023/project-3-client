@@ -32,11 +32,11 @@ function PostDetails() {
     const isVolunteer = () => {
         console.log("user._id: ", user._id, "helpData.foundHelpPost.volunteers: ", helpData.foundHelpPost.volunteers);
         if (user._id === helpData.foundHelpPost.selectedVolunteer) {
-            console.log("is selectedVolunteer");
+            //console.log("is selectedVolunteer");
             return true;
         }
         else if (helpData.foundHelpPost.volunteers.includes(user._id)) {
-            console.log("is volunteer");
+            //console.log("is volunteer");
             return true;
         }
         else {
@@ -159,9 +159,9 @@ function PostDetails() {
                     {volunteersArray.length > 0 ?
                         <div>
                             <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
-                            {volunteersArray.map((eachPost, index) => {
-                                console.log(eachPost);
-                                return (<VolunteerCard key={index} post={eachPost} />)
+                            {volunteersArray.map((eachVolunteer, index) => {
+                                console.log(eachVolunteer);
+                                return (<VolunteerCard key={index} volunteer={eachVolunteer} postId={helpId} />)
                             })}
                         </div> : <p>No one volunteered yet</p>
                     }
@@ -172,14 +172,6 @@ function PostDetails() {
                             <p>`The user ${selectedVolunteer} was chosen`</p>
                     }
 
-                    {user._id === helpData.foundHelpPost.creator._id &&
-                        <div className="edit-help-buttons">
-                            <Link to={`/edithelp/${helpId}`}>
-                                <p className="edit-button pointer">EDIT POST</p>
-                            </Link>
-                            <p className="edit-button pointer">DELETE POST</p>
-                        </div>
-                    }
 
                     {(!isCreator() && !isVolunteer()) &&
                         <p className="I-can-help pointer" onClick={onIcanHelp}>I CAN HELP</p>

@@ -4,6 +4,7 @@
     border-radius: 8px;
     padding: 14px;
 	display: flex;
+    flex-direction: column;
 	margin-bottom: 20px;
 	text-decoration: none;
 	color: black;
