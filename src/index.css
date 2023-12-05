@@ -55,7 +55,7 @@ button:focus-visible {
   font-size: 30px;
 }
 .text-p{
-  font-size: 14px;
+  font-size: 12px;
   color: rgb(0, 0, 0);
   font-family: 'Ephesis', cursive;
 }
@@ -82,5 +82,18 @@ button:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .text-p{
+    font-size: 16px;
+    color: rgb(246, 0, 0);
+  }
+  .text-h2{
+    margin: 10px;
+    color: #4e0c00;
+    font-size: 40px;
+  }
+  .text-h3{
+    color: #4e0c00;
+    font-size: 24px;
   }
 }

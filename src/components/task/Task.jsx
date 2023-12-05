@@ -87,7 +87,8 @@ function Task(props) {
 
 
       <p>{props.taskComments}</p>
-    </div>)
+    </div>
+    )
 }
 export default Task
 

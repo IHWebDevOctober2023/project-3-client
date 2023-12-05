@@ -32,4 +32,14 @@ img{
 
     color: blue;
 }
-
+.upload > input[type-file]{
+    background-color: blue;
+}
+input[type=file]::file-selector-button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #1408c2;
+    color: white;
+    transition: 1s;
+  }

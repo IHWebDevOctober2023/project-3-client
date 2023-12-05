@@ -54,16 +54,16 @@ function CreateFamily() {
     return (
         <>
             <Navbar />
-            <br></br>
-            <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
-            <h2>Welcome to <span className="app-name">Kiddie tasks hero</span>!</h2>
-            <br></br>
-            <h2>Now you can:</h2>
-            <br></br>
+            <div className="form-createtask-container">
+            <h2 className="text-h2">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
+            <h3 className="text-h3">Welcome to <span className="app-name">Kiddie tasks hero</span>!</h3>
+
+            <h3 className="text-h3">Now you can:</h3>
+
             {
                 (user.role === "Parent") && /* with this "middleware" we can avoid users under 18 to create a new family */
                 <form onSubmit={familySubmit} className="form-container">
-                    <h2>Create a new family:</h2>
+                    <h3 className="text-h3">Create a new family:</h3>
                     <input className="input" type="text" placeholder="Type your family name" name="familyName" onChange={(event) => setFamilyName(event.target.value)} />
 
                     {/*             <label htmlFor="familyPicture">family pic</label>
@@ -76,10 +76,11 @@ function CreateFamily() {
             <br></br>
             <form onSubmit={joinFamily} className="form-container">
                 <label htmlFor=""></label>
-                <h2>Join an existing family:</h2>
+                <h3 className="text-h3">Join an existing family:</h3>
                 <input className="input" type="number" placeholder="type your family code here" name="familyCode" value={familyCode} onChange={(event) => setFamilyCode(event.target.value)} />
                 <button className="btn-icon1"><i class="fa-solid fa-people-roof"></i></button>
             </form>
+            </div>
         </>
     )
 }
