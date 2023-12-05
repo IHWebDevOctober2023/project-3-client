@@ -1,3 +1,8 @@
+
+.SignupPage input{
+    color: black;
+}
+
 .SignupPage {
     display:flex;
     flex-direction: column;
@@ -16,4 +21,5 @@
 
 .submitbutton {
     margin-top: 20px;
+
 }

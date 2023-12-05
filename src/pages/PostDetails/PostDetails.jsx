@@ -75,7 +75,7 @@ function PostDetails() {
                 return response.json();
             })
             .then((jsonData) => {
-                //console.log("jsondata",jsonData);
+                console.log("jsondata",jsonData);
                 setHelpData(jsonData);
                 setVolunteersArray(jsonData.foundHelpPost.volunteers)
                 setSelectedVolunteer(jsonData.foundHelpPost.selectedVolunteer)

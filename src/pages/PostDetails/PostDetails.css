@@ -84,11 +84,7 @@
 .info-description{
     font-size: 16px;
 }
-.post-creator-container{
-    display: flex;
-    gap: 15px;
-    
-}
+
 .creator-picture{
     width: 40px;
     height: 40px;
