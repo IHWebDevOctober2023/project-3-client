@@ -87,7 +87,7 @@ useEffect(() => {
             {<img width="60px" src={family.familyPicture} alt="Family" />}
             <p> 📈 {family.familyName} performance : </p>
             <p> {tasksByFamily} tasks weekly</p>
-            <p> {tasksDoneByFamily} tasks done by Family</p>
+            <p> <i class="fa-solid fa-check"></i> {tasksDoneByFamily} tasks done by Family</p>
             <p> {tasksPendingByFamily} tasks pending by Family</p>
            {/*  <p> Your team perfomance: {kpiByFamily} %</p>
             <p> Hello {user.name}, this is your personal score: </p>
