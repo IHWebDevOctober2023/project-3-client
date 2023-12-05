@@ -70,7 +70,6 @@ const getTasksbyFamily = async () => {
     console.error(error);
   }
 }
- 
 
 useEffect(() => {
   getTasksbyFamily();
