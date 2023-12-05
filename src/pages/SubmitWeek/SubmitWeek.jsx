@@ -54,6 +54,7 @@ useEffect(() => {
     return (
         <>
         <Navbar/>
+        <div className='form-createtask-container'>
             <h2 className='text-h2'>🎓 Weekly Score 🎓</h2>
            <br></br>
            <br></br>
@@ -75,6 +76,7 @@ useEffect(() => {
             <p className="text-p"> <i class="fa-solid fa-gauge"></i>  User KPI: {kpiByUser} %</p>
 
             {/*<button>Reset Week</button>*/}
+            </div>
         </>
     );
 }

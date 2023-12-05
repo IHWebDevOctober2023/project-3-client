@@ -1,27 +1,16 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  width: 400px;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #d80909;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 
 body {
   background-color: #E7E5FF;
   color: #593EFF;
   padding-bottom: 60px;
   display: flex;
+  align-items: center;
   justify-content: center;
   place-items: start;
   width: 400px;
   height: 100%;
-
+  font-family: 'Ephesis', cursive;
 }
 
 h1 {
@@ -59,6 +48,17 @@ button:focus-visible {
   color: #593EFF;
 }
 
+/* UNIVERSAL */
+.text-h2{
+  margin: 10px;
+  color: #FF6C52;
+  font-size: 30px;
+}
+.text-p{
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  font-family: 'Ephesis', cursive;
+}
 .input {
   background-color: #09CC85;
   border: none;
@@ -75,18 +75,12 @@ button:focus-visible {
 }
 
 @media only screen and (min-width:400px) { 
-  :root {
-    margin: 0;
-    padding: 0;
-    background-color: #593EFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-  }
+  
   body{
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
