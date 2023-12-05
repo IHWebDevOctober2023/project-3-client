@@ -18,7 +18,7 @@ function PostDetails() {
     const [message, setMessage] = useState();
     const [volunteersArray, setVolunteersArray] = useState([])
     const [selectedVolunteer, setSelectedVolunteer] = useState(null)
-    // console.log("user", user)
+    console.log(selectedVolunteer)
 
     const isCreator = () => {
         // console.log ("isCreator: ", user._id === helpData.foundHelpPost.creator._id, user._id, helpData.foundHelpPost.creator._id);
@@ -179,17 +179,17 @@ const setStuff = () =>{
                             <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
                             {volunteersArray.map((eachVolunteer, index) => {
                                 //console.log(eachVolunteer);
-                                console.log(helpId)
+                                //console.log(helpId)
                                 return (<VolunteerCard key={index} volunteer={eachVolunteer} postId={helpId} setStuff={setStuff} />)
                             })}
-                        </div> : <p>No one volunteered yet</p>
+                        </div> : <p></p>
                     }
 
-                    {
+                    { 
                         selectedVolunteer === null ?
                             <p></p> :
                             <>
-                            <p>{`The user ${selectedVolunteer} was chosen`}</p>
+                            <p>{`The user ${selectedVolunteer.name} was chosen`}</p>
                             <button onClick={complete}>Complete Task!</button>
                             </>
                     }
