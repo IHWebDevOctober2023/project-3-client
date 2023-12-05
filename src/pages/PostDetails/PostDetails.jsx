@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import { Link, Navigate, redirect, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
+import VolunteerCard from "../../components/VolunteerCard/VolunteerCard";
 
 function PostDetails() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const { helpId } = useParams();
     const [helpData, setHelpData] = useState('')
     const [message, setMessage] = useState();
+    const [volunteersArray, setVolunteersArray] = useState([])
+    const [selectedVolunteer, setSelectedVolunteer] = useState(null)
     // console.log("user", user)
 
     const isCreator = () => {
@@ -71,6 +74,9 @@ function PostDetails() {
             .then((jsonData) => {
                 //console.log("jsondata",jsonData);
                 setHelpData(jsonData);
+                setVolunteersArray(jsonData.foundHelpPost.volunteers)
+                setSelectedVolunteer(jsonData.foundHelpPost.selectedVolunteer)
+                console.log("jsonData", jsonData);
                 console.log("datahelp", helpData)
             })
             .then(()=> {
@@ -98,14 +104,28 @@ function PostDetails() {
 
                     <p className="creator-title">Creator: </p>
                     <div className="post-creator-container">
-                        <p className="name-creator">{user.name}</p>
+                        <p className="name-creator">{helpData.foundHelpPost.creator.name}</p>
                         <img className="creator-picture" src={helpData.foundHelpPost.creator.profilePicture} alt="" />
                     </div>
                     <p className="creator-title">Category:</p>
                     <p className="details-category"> {helpData.foundHelpPost.category}</p>
 
                     <p className="volunteer"></p>
-                    <p className="details-volunteer">USER: {helpData.foundHelpPost.volunteer} volunteered!</p>
+                    {volunteersArray.length > 0 ? 
+                    <div>
+                    <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
+                    {volunteersArray.map((eachPost, index)=>{
+                        console.log(eachPost);
+                        return (<VolunteerCard key={index} post={eachPost} />)
+                    })} 
+                    </div>:<p>No one volunteered yet</p>
+                    }
+
+                    {
+                        selectedVolunteer === null? 
+                            <p></p>:
+                            <p>`The user ${selectedVolunteer} was chosen`</p>
+                    }
 
                     {user._id === helpData.foundHelpPost.creator._id &&
                         <div className="edit-help-buttons">
