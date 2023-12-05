@@ -12,7 +12,7 @@ function MyProfile() {
 
     const [userData, setUserData] = useState('')
     const [helpPostsArray, setHelpPostsArray] = useState([])
-    
+
     const [HelpPostIVolunteered, setHelpPostIVolunteered] = useState([])
     const [HelpPostIHaveBeenChosen, setHelpPostIHaveBeenChosen] = useState([])
     //console.log(userPosts);
@@ -77,8 +77,8 @@ function MyProfile() {
                             {/* show all posts you have created */}
                             {helpPostsArray.length > 0 ?
                                 <div>
-                                    <div>
-                                        <h3>My posts:</h3>
+                                    <h3>My posts:</h3>
+                                    <div className="cards-container">
                                         {
                                             helpPostsArray.map((eachPost, index) => {
                                                 return (<PostCard key={index} post={eachPost} />);

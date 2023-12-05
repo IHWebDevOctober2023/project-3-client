@@ -1,14 +1,39 @@
-.help-post-link {
-	width: 100%;
-    background-color: antiquewhite;
-    border-radius: 8px;
-    padding: 14px;
+
+
+.post-card-container{
 	display: flex;
-	margin-bottom: 20px;
-	text-decoration: none;
-	color: black;
+	flex-direction: row;
+	gap: 15px;
+	margin-top: 10px;
+	
 }
 
+.help-post-card{
+	background-color: rgb(36, 72, 99);
+	width: 150px;
+	height: 100px;
+	color: black;
+	border-radius: 8px;
+	padding: 5px;
+	border: 0.2px solid whitesmoke;
+	box-shadow: 2px 2px 3px rgb(45, 45, 45);
+	line-height: 25px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+}
+
+.location{
+	border-top: 1px solid whitesmoke;
+
+}
+
+.title {
+	font-weight: 400;
+	font-size: 16px;
+}
 
 
 
