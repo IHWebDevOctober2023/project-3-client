@@ -19,7 +19,7 @@ function SubmitWeek() {
 // GET a route to calculate TASKS by Family  
 const getTasksbyFamily = async () => {
   try {
-    const familyTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/tasks/${family._id}`);
+    const familyTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/tasks/${family._id}/taskByFamily`);
     const tasksByFamily = await familyTasksResponse.json();
     setTasksByFamily(tasksByFamily.length);
   } catch (error) {
@@ -48,7 +48,7 @@ const getTasksbyFamily = async () => {
   }
 
   
-////////////////////// MANAGING USER PERFORMANCE ////////////////////////
+//////////////////////// MANAGING USER PERFORMANCE ////////////////////////
   // GET the route to calculate TASKS DONE by User 
   const getTasksDonebyUser = async () => {
     try {
@@ -70,7 +70,6 @@ const getTasksbyFamily = async () => {
     console.error(error);
   }
 }
- 
 
 useEffect(() => {
   getTasksbyFamily();
@@ -95,7 +94,7 @@ useEffect(() => {
             <p> {tasksPendingByUser} tasks pending by User</p>
             <p> Your perfomance: {kpiByUser} %</p>
 
-            <button>Reset Week</button>
+            {/*<button>Reset Week</button>*/}
         </>
     );
 }
