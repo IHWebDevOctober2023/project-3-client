@@ -8,26 +8,44 @@
 
 .post-details-container {
     line-height: 25px;
+    padding: 10px;
+    border-radius: 15px;
+    
+    background: linear-gradient(180deg, rgb(220, 140, 10) 0%, rgb(43, 68, 117) 75%, rgb(23, 90, 86) 89%, rgb(175, 100, 66) 100%);
     
     
 }
 
+.general-post-container{
+    padding: 15px;
+}
+
+.help-image{
+    border-radius: 10px;
+    width: 80vw;
+    height: 30vh;
+    object-fit: cover;
+}
+
 .help-container {
-    background-image: url("	https://cdn.gopili.com/default/map_journeys/map-22900_1-21780_1.jpg"); 
+    
     background-position: center;
     background-size: cover;
-    height: 40vh;
+   
     width: 100vw;
-    margin-bottom: 15px;
+    
 
 }
 
 .post-details {
     font-size: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: rgb(250, 242, 242);
     
-    color: rgb(20, 20, 20);
-    box-shadow: 2px 2px 1px rgb(40, 40, 40);
-    background-color: rgba(0, 0, 0, 0.3);
+    
+    text-shadow: 2px 2px 2px rgba(40, 40, 40, 0.3); ;
+    width: 220px;
 }
 
 .info-post-container{
@@ -75,7 +93,9 @@
     
 }
 .creator-picture{
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
 }
 
 .I-can-help{
