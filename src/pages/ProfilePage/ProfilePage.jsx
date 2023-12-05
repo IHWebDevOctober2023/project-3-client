@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import { useEffect } from "react";
 import service from "../../services/file-upload.service";
+import Navbar from "../../components/Navbar/Navbar";
 
 function ProfilePage() {
   const [familyMember, setfamilyMember] = useState([])
@@ -48,6 +49,7 @@ function ProfilePage() {
 
   return (
     <div>
+      <Navbar/>
       {console.log(user, family)}
       <h2 className="text-profile">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
       

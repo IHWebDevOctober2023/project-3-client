@@ -5,6 +5,13 @@
 .task-container{
     margin-top: 20px;
 }
+.homepage-upper-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
 /* .family-member-card {
     background-color: blue;
     width: 100px;

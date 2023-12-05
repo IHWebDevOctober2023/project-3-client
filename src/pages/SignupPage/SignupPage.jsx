@@ -58,10 +58,11 @@ function SignupPage() {
 
       <form className="form-container" onSubmit={handleSignupSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input className="input" type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
         <input
+        className="input"
           type="password"
           name="password"
           value={password}
@@ -69,13 +70,13 @@ function SignupPage() {
         />
 
         <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <input className="input" type="text" name="name" value={name} onChange={handleName} />
 
         {/*         <label>Upload Photo:</label>
         <input type='file' name="userPicture" value={name} onChange={handlePic} /> */}
 
         <label>Age:</label>
-        <input type='number' name="age" value={age} onChange={handleAge} />
+        <input className="input" type='number' name="age" value={age} onChange={handleAge} />
 
 
         {/*          <label>Role:</label>
@@ -90,7 +91,7 @@ function SignupPage() {
 
 
 
-        <button type="submit" className="btn-navbar"><i class="fa-solid fa-door-open"></i></button>
+        <button type="submit" className="btn-icon"><i class="fa-solid fa-user-plus"></i></button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

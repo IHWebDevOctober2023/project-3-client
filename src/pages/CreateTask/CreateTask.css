@@ -24,9 +24,7 @@
     font-size: 50px;
     padding: 0 5px;
 }
-input{
-    background-color: rgb(124, 100, 234);
-    border: none; 
-    padding: 10px;
-    border-radius: 10px;
+
+.app-name{
+color: #FF6C52;
 }

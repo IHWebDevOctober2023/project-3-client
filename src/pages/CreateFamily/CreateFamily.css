@@ -1,0 +1,14 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-icon1 {
+    font-size: 30px;
+    padding: 12px;
+    background-color: transparent;
+    width: 65px;
+    color: #593EFF;
+  }

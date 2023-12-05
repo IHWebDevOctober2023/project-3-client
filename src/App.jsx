@@ -17,7 +17,6 @@ import SubmitWeek from"./pages/SubmitWeek/SubmitWeek";
 function App() {
   return (
     <div className="App">
-      <Navbar />
 
       <Routes>
 

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react"
 import { AuthContext } from "../../context/auth.context";
 import { useEffect } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 
@@ -70,6 +71,7 @@ function CreateTask() {
 
     return (
         <>
+            <Navbar />
             <form className="form-createtask-container" onSubmit={handleSubmitTask}>
                 {/*  falta and task icon, falta taskindone, falta assigned to, falta taskImgUploaded, falta task comments  */}
                 <label className="label-createtask">To do:</label>

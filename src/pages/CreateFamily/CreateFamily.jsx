@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/auth.context";
 import "./CreateFamily.css";
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 function CreateFamily() {
@@ -26,8 +27,8 @@ function CreateFamily() {
             const jsonFamily = await family.json()
             setFamily(jsonFamily)
             navigate("/")
-            
-            
+
+
         } catch (error) {
             console.log(error)
         }
@@ -52,23 +53,32 @@ function CreateFamily() {
 
     return (
         <>
+            <Navbar />
+            <br></br>
+            <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
+            <h2>Welcome to <span className="app-name">Kiddie tasks hero</span>!</h2>
+            <br></br>
+            <h2>Now you can:</h2>
+            <br></br>
             {
                 (user.role === "Parent") && /* with this "middleware" we can avoid users under 18 to create a new family */
-                <form onSubmit={familySubmit}>
-                    <button>Create family</button>
-                    <input type="text" placeholder="choose a name" name="familyName" onChange={(event) => setFamilyName(event.target.value)} /><br></br>
+                <form onSubmit={familySubmit} className="form-container">
+                    <h2>Create a new family:</h2>
+                    <input className="input" type="text" placeholder="Type your family name" name="familyName" onChange={(event) => setFamilyName(event.target.value)} />
 
                     {/*             <label htmlFor="familyPicture">family pic</label>
             <input type="text" /> */}
-
+                    <button className="btn-icon1"><i class="fa-solid fa-people-group"></i></button>
 
                 </form>
             }
             {/* create a new form for the user to be part os a family */}
-            <form onSubmit={joinFamily}>
+            <br></br>
+            <form onSubmit={joinFamily} className="form-container">
                 <label htmlFor=""></label>
-                <button>Join family</button>
-                <input type="number" placeholder="type your code family" name="familyCode" value={familyCode} onChange={(event) => setFamilyCode(event.target.value)} />
+                <h2>Join an existing family:</h2>
+                <input className="input" type="number" placeholder="type your family code here" name="familyCode" value={familyCode} onChange={(event) => setFamilyCode(event.target.value)} />
+                <button className="btn-icon1"><i class="fa-solid fa-people-roof"></i></button>
             </form>
         </>
     )

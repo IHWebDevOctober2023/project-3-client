@@ -5,6 +5,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/auth.context";
 import Task from "../../components/Task/Task";
 import FamilyMember from "../../components/FamilyMember/FamilyMember";
+import Navbar from "../../components/Navbar/Navbar";
 
 function HomePage() {
   const currentDate = new Date();
@@ -17,8 +18,9 @@ function HomePage() {
   const [task, setTask] = useState([])
   const [dayName, setDayName] = useState(daysOfWeek[dayOfWeek])
   console.log(family);
-  const nextday = () => { const indexOfTheDay=daysOfWeek.indexOf(dayName)
-    setDayName(daysOfWeek[(indexOfTheDay+1)% daysOfWeek.length]) 
+  const nextday = () => {
+    const indexOfTheDay = daysOfWeek.indexOf(dayName)
+    setDayName(daysOfWeek[(indexOfTheDay + 1) % daysOfWeek.length])
   }
   const getTasks = async (event) => {
     try {
@@ -34,17 +36,20 @@ function HomePage() {
 
   return (
     <>
+      <Navbar />
       {(user.family || family) ?
         <div className="body-homepage">
-
-          <h2>Today is: {dayName} </h2>
-          <button onClick={nextday}>tomorrow</button>
+          <div className="homepage-upper-container">
+          <button onClick={nextday}><i class="fa-solid fa-arrow-left-long"></i></button>
+            <h2 className="app-name"> {dayName} </h2>
+            <button onClick={nextday}><i class="fa-solid fa-arrow-right-long"></i></button>
+          </div>
           {/* <h3>{user.family.familyName}</h3> import the family name from backend */}
           <div className="task-container">{/* maybe we dont need this div if we keep the next one */}
             {task?.map((eachTask, index) => {
               return (
                 <Task
-                key={eachTask.taskId}
+                  key={eachTask.taskId}
                   taskDescription={eachTask.taskDescription}
                   taskTime={eachTask.taskTime}
                   taskWeekDay={eachTask.taskWeekDay}
