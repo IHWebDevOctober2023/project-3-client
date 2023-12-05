@@ -50,6 +50,7 @@ function HomePage() {
                   taskWeekDay={eachTask.taskWeekDay}
                   taskAssignedTo={eachTask.taskAssignedTo}
                   taskComments={eachTask.taskComments}
+                  taskIsDone={eachTask.taskIsDone}
                   taskId={eachTask._id}
                 />
               )
