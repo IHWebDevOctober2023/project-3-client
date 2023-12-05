@@ -36,6 +36,7 @@ const CalculateKpiFamily = async () =>{
     const kpiFamily = (tasksDoneByFamily / tasksByFamily) * 100;
     const roundedKpiFamily = kpiFamily.toFixed(2);
     console.log("kpi", kpiFamily)
+
     setkpiByFamily(roundedKpiFamily)
 
   }
