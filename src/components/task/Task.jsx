@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 
 function Task(props) {
   const { family } = useContext(AuthContext);
-  // console.log("test task to see:",task);
+  const [taskIsDone, setTaskIsDone] = useState(props.taskIsDone)
   const [deleteTask, setDeleteTask] = useState([])
   const [familyMember, setfamilyMember] = useState([])
   const [taskAssignedTo, setTaskAssignedTo] = useState("");
   const handleTaskAssignedTo = (e) => setTaskAssignedTo(e.target.value);
+
   const getFamilyId = async (event) => {
     try {
       const familyMembersResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/familymembers/${family._id}`)
@@ -20,21 +21,46 @@ function Task(props) {
   useEffect(() => {
     getFamilyId()
   }, [])
-
+  useEffect(() => {
+    checkbox()
+  }, [taskIsDone])
+  useEffect(() =>{
+    findDeleteTask()
+  },[])
   /* DELETE PART */
   const findDeleteTask = async (event) => {
     try {
       const deleteTaskResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/deletetask/${props.taskId}`, {
         method: 'delete',
         headers: {
-            'Content-type': 'application/json'
-        }})
+          'Content-type': 'application/json'
+        }
+      })
       const deleteTask = await deleteTaskResponse.json()
 
       setDeleteTask(deleteTask)
-    } catch (error) { console.log("this is the error : ",error); }
+    } catch (error) { console.log("this is the error : ", error); }
   }
- 
+  /*checkBox */
+
+  const checkbox = async (event) => {
+    try {
+      const taskIsDoneResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/taskisdone/${props.taskId}`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ taskIsDone })
+      })
+      const getTaskIsDone = await taskIsDoneResponse.json()
+      //setTaskIsDone(getTaskIsDone)
+    } catch (error) { console.log("this is the error taskIsDone: ", error); }
+  }
+
+  const handleChange = (event) => {
+    setTaskIsDone(!taskIsDone)
+    console.log(event.target.checked);
+  }
 
 
   return (
@@ -42,8 +68,9 @@ function Task(props) {
       <p className="description">{props.taskDescription}</p>
       <p className="time">{props.taskTime}</p>
       <p className="weekday">{props.taskWeekDay}</p>
-     
-        <button onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
+      <input type="checkbox" checked={taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
+
+      <button onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
 
 
 

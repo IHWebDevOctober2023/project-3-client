@@ -75,7 +75,7 @@ function CreateTask() {
             <label className="label-createtask">To do:</label>
             <input id="content" name="description" required onChange={handleTaskDescription}></input>
             <br/>
-            <label className="label-createtask" HtmlFor="dayMoment"><b>When? Choose a timing interval to finish the task</b></label>
+            <label className="label-createtask" htmlFor="dayMoment"><b>When? Choose a timing interval to finish the task</b></label>
             <select className="select-createtask" id="timing-interval" name="timingInterval" onChange={handleTaskTime}>
                 <option value="On Wake Up">On Wake Up</option>
                 <option value="Before Breakfast">Before Breakfast</option>
@@ -103,7 +103,13 @@ function CreateTask() {
             <label htmlFor="personAssigned"><b>Chose a person of the family to assign the task:</b></label>
                 <select id="person-assigned" name="personAssigned" onChange={handleTaskAssignedTo}>
                     {familyMember?.map((eachFamilyMember, index) => {
-                        return (<option value={eachFamilyMember.name}>{eachFamilyMember.name}</option>)
+                        return (
+                        <option 
+                        key={eachFamilyMember._id} 
+                        value={eachFamilyMember.name}>
+                            {eachFamilyMember.name}
+                            </option>
+                        )
                     })
                     }
                 </select>
