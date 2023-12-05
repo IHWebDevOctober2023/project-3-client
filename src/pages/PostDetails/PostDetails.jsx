@@ -127,7 +127,7 @@ function PostDetails() {
 
     const complete = () => {
         const reqBody = {
-			volunteerId: user._id,
+			volunteerId: helpData.foundHelpPost.selectedVolunteer._id,
             postId: helpData.foundHelpPost._id
         };
 		console.log("COMPLETE BTN", user._id, helpData.foundHelpPost._id);
