@@ -89,22 +89,23 @@ function MyProfile() {
 
                             {/* show all post that you have been chosen as volunteer */}
                             {HelpPostIHaveBeenChosen.length > 0 ?
-                                <div>
-                                    <div>
-                                        <h3>I have've been chosen as volunteered:</h3>
+                                <div >
+                                    <h3>I have've been chosen as volunteered:</h3>
+                                    <div className="cards-container">
                                         {
                                             HelpPostIHaveBeenChosen.map((eachPost, index) => {
                                                 return (<PostCard key={index} post={eachPost} />);
                                             })
                                         }
                                     </div>
-                                </div> : <p>You have not been chosen for volunteer yet</p>}
+                                </div> : <p>You have not been selected to volunteer yet</p>}
+
 
                             {/* show all post you have volunteered to do */}
                             {HelpPostIVolunteered.length > 0 ?
                                 <div>
-                                    <div>
                                         <h3>I have volunteered to:</h3>
+                                    <div className="cards-container">
                                         {
                                             HelpPostIVolunteered.map((eachPost, index) => {
                                                 //console.log("post ", eachPost);

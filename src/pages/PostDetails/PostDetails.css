@@ -83,6 +83,7 @@
     width: 40px;
     height: 40px;
     border-radius: 25px;
+    object-fit: cover;
 }
 
 .I-can-help{
