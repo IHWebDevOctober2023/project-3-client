@@ -44,6 +44,7 @@ function HomePage() {
 		<div className="home-page-container">
 
 			<div id="home-content-wrapper">
+
 				<div className="home-head">
 					<p className="home-title">How can you help today?</p>
 					<br />
@@ -51,15 +52,17 @@ function HomePage() {
 						<input onChange={(event) => handleSearch(event.target.value)} type="text" name="search-input" id="search-input" />
 						<span> {''} {''}   <i class="fa fa-search"></i></span>
 
+
+
 					</div>
 				</div>
 				{
 					helpPostsArr.map((eachPost, index) => {
 						console.log("post ", eachPost);
 						return (
-							<div className="posts-container">
+							<div key={index} className="posts-container">
 
-								<HelpPostHome key={index} post={eachPost} />
+								<HelpPostHome  post={eachPost} />
 							</div>
 						);
 					})
