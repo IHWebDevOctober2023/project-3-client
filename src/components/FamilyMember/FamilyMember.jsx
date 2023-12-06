@@ -5,9 +5,9 @@ function FamilyMember(props) {
     <section className="container-family-member">
       <div className="family-member-card">
         <img className="family-member-img" src={props.img} alt={props.name} />
-        <h2>{props.name}</h2>
-        <p>{props.age} years</p>
-        <p>{props.role} </p>
+        <h3 className="text-h3">{props.name}</h3>
+        <p className="text-p">{props.age} years</p>
+        <p className="text-p">{props.role} </p>
       </div>
     </section>
   )

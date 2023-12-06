@@ -1,18 +1,38 @@
-.signup-page{
+.signup-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 0;
+    padding: 20px 0;
+    width: 380px;
+
 }
-.form-container{
+
+.form-container {
     display: flex;
     flex-direction: column;
     margin: 15px 0;
 }
-label{
+
+label {
     margin: 5px 0;
 }
-input{
-    margin-bottom: 5px;
+
+@media only screen and (min-width:400px) {
+    .signup-page {
+        display: flex;
+        height: 100%;
+        width: 800px;
+
+    }
+
+    .form-container {
+        margin: 15px 0;
+        width: 600px;
+    }
+    .input{
+        width: 300px;
+    }
+
 }

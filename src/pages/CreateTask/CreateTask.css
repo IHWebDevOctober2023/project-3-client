@@ -35,9 +35,24 @@
     padding: 10px;
     border-radius: 10px;
     width: 85%;
+    margin-bottom: 20px;
   }
 .task-title{
     color: #FF6C52;
     font-size: 30px;
+
+}
+
+@media only screen and (min-width:400px) { 
+	.form-createtask-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        width: 800px;
+        padding: 30px;
+        border-radius: 30px;
+    }
 
 }

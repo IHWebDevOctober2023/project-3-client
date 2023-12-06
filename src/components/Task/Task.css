@@ -5,10 +5,12 @@
     border: none;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+}
+span{
+    margin: 0 2px;
 }
 /*.task:hover{
     background-color: rgb(65, 25, 125);

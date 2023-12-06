@@ -1,13 +1,14 @@
+/* THIS CAN BE DELETED */
+
 import "./Permission.css";
 import { Link } from "react-router-dom";
 
 function Permission() {
     return (
-        <div className="Permission-buttons-container">
+        <div className="form-createtask-container">
             <Link to="/CreateFamily">
-                <button>Create a new Family</button>
+                <button>Create a newnbbbb Family</button>
             </Link>
-            <br/>
             <Link to="/">
                 <button>Join a family</button>
             </Link>
