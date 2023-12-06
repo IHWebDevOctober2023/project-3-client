@@ -41,14 +41,14 @@ function CreateTestimonyPage() {
     }
 
     return (
-        <div>
-            <h1>Create Testimony Page</h1>
+        <div className="form-page">
+            <h1>Create Testimony</h1>
             <form onSubmit={(event) => postData(event)}>
                 <label htmlFor="text">Text</label>
-                <input placeholder="Do you like our app?" value={text} onChange={(event) => setText(event.target.value)} type="text" name="text" />
+                <input placeholder="Do you like our app?" value={text} onChange={(event) => setText(event.target.value)} type="text" name="text" id="text"/>
                 <label htmlFor="rating">Rating</label>
-                <input value={rating} onChange={(event) => setRating(event.target.value)} type="number" name="rating" />
-                <button type="submit">Send</button>
+                <input value={rating} onChange={(event) => setRating(event.target.value)} type="number" name="rating" id="rating" />
+                <button className="submitbutton" type="submit">Send</button>
             </form>
         </div>
     );
