@@ -19,6 +19,7 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import PostDetails from "./pages/PostDetails/PostDetails";
 import EditHelpForm from "./pages/EditHelpPage/EditHelpPage";
 import TestimonialPage from "./pages/TestimonialPage/TestimonialPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
@@ -115,6 +116,12 @@ function App() {
             <IsPrivate>
               <EditHelpForm />
             </IsPrivate>
+          }
+        />
+        <Route
+          path="/*"
+          element={
+              <NotFoundPage />
           }
         />
       </Routes>
