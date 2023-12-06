@@ -11,10 +11,7 @@ function EditHelpForm() {
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
     const [helpImageUrl, setHelpImage] = useState('')
-    const [category, setCategory] = useState('')
-
     const [isCompleted, setIsCompleted] = useState('')
-
     const { helpId } = useParams()
     const navigate = useNavigate();
 
@@ -27,12 +24,11 @@ function EditHelpForm() {
                 return response.json();
             })
             .then((responseJson) => {
-                const { location, helpImageUrl, title, description, category } = responseJson.foundHelpPost
+                const { location, helpImageUrl, title, description } = responseJson.foundHelpPost
                 setLocation(location)
                 setHelpImage(helpImageUrl)
                 setTitle(title)
                 setDescription(description)
-                setCategory(category)
                 //console.log("este es el responseJson", responseJson.foundHelpPost)
             })
             .catch((err) => console.log(err))
@@ -46,7 +42,6 @@ function EditHelpForm() {
             location,
             description,
             helpImageUrl,
-            category,
             isCompleted
         };
         //console.log(helpPut);
@@ -95,27 +90,9 @@ function EditHelpForm() {
                     <label htmlFor="helpImageUrl">Image</label>
                     <textarea value={helpImageUrl} onChange={(event) => setHelpImage(event.target.value)} type="text" name="helpImageUrl" />
 
-
-
-                    <label htmlFor="category">Category</label>
-                    <select value={category} onChange={(event) => setCategory(event.target.value)} type="text" name="category" >
-                        <option value="learning">Learning</option>
-                        <option value="transport">Transport</option>
-                        <option value="tech">Tech</option>
-                        <option value="house-chores">House-chores</option>
-                        <option value="furniture">Furniture</option>
-                        <option value="house-repairs">House-repairs</option>
-                        <option value="chat-sessions">Chat-sessions</option>
-
-                    </select>
-
-                 
-                        <p onClick={(event) => putHelp(event)} className="create-help-button" type="submit">SAVE CHANGES</p>
-                   
+                    <p onClick={(event) => putHelp(event)} className="create-help-button" type="submit">SAVE CHANGES</p>
                 </form>
             </div>
-
-
         </div>
     );
 }
