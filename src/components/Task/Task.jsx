@@ -73,7 +73,7 @@ function Task(props) {
       <span>|</span>
       <p className="text-p">{props.taskTime}</p>
       <span>|</span>
-      <p className="text-p">{props.taskWeekDay}</p>
+      <p className="text-p">{props.taskAssignedTo.name}</p>
 
       
       {//user.role === "Parent" &&
@@ -82,10 +82,6 @@ function Task(props) {
       <button class="btn-icon" onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
       </>
       }
-
-
-
-
       <p>{props.taskComments}</p>
     </div>
     )
