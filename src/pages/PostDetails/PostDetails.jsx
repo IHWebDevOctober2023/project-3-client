@@ -1,20 +1,16 @@
 import "./PostDetails.css";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, redirect, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import VolunteerCard from "../../components/VolunteerCard/VolunteerCard";
 
 function PostDetails() {
-    const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const { helpId } = useParams();
-    const [helpData, setHelpData] = useState('')
-    const [reload, setReload] = useState();
     const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
-    
-
     const navigate = useNavigate()
-
+    const [helpData, setHelpData] = useState('')
     const [message, setMessage] = useState();
     const [volunteersArray, setVolunteersArray] = useState([])
     const [selectedVolunteer, setSelectedVolunteer] = useState(null)
@@ -120,7 +116,7 @@ function PostDetails() {
                 if (response.ok) {
                     //throw new Error('Could not delete help')
                     navigate("/home")
-                };
+                }
             })
             .catch((err) => console.log(err))
     }
@@ -156,17 +152,11 @@ function PostDetails() {
                 }
 
                 {helpData && <div className="info-post-container">
-
                     <img className="help-image" src={helpData.foundHelpPost.helpImageUrl} alt={helpData.foundHelpPost.title} />
                     <h3 className="info-title">{helpData.foundHelpPost.title}</h3>
                     <p className="details-location">{helpData.foundHelpPost.location}      <i className="fa fa-map-marker"></i></p>
-
-
-
                     <p className="description-title">Description:</p>
                     <p className="info-description"> {helpData.foundHelpPost.description}</p>
-
-
                     <p className="creator-title">Creator: </p>
                     <div className="post-creator-container">
                         <p className="name-creator">{helpData.foundHelpPost.creator.name}</p>
@@ -203,12 +193,12 @@ function PostDetails() {
                             <p></p> : ( <>
                             {(isCreator() && !isCompleted())&&
 							<>
-                            	<p>{`The user ${selectedVolunteer.name} was chosen`}</p>
-                            	<button onClick={complete}>Complete Task!</button>
+                                <p>{`The user ${selectedVolunteer.name} was chosen`}</p>
+                                <button onClick={complete}>Complete Task!</button>
                             </>
 							}
 							{isSelectedVolunteer() &&
-                            	<p>You were chosen to help. Thanks!</p>
+                                <p>You were chosen to help. Thanks!</p>
 							}
 							</>)
                     }
@@ -221,6 +211,7 @@ function PostDetails() {
                     {(!isCreator() && !isVolunteer() && !isSelectedVolunteer()) &&
                         <p className="I-can-help pointer" onClick={onIcanHelp}>I CAN HELP</p>
                     }
+                    
                     {(isVolunteer()) &&
                         <p>YOU ARE VOLUNTEER HERE</p>
                     }
