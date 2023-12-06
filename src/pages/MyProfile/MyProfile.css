@@ -9,21 +9,19 @@
 } */
 
 .profile-card {
-    width: 80vw;
+   
     padding: 10px;
     border-radius: 15px;
     margin: 15px;
     background: linear-gradient(180deg, rgb(1, 0, 26) 0%, rgb(30, 38, 78) 75%, rgb(23, 90, 86) 89%, rgb(175, 119, 66) 100%);
 }
 
-.user-profilepicture{
-    max-width: 70vw;
-}
 
 .profile-picture-container {
+    text-align: center;
     margin-top: 15px;
     margin-bottom: 15px;
-    width: 80vw;
+    
     max-height: 250px;
     display: flex;
     justify-content: center;
@@ -73,7 +71,10 @@
 .cards-container{
     display: flex;
     gap: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     overflow-x: scroll; /* Enable horizontal scrolling */
     
+}
+.cards-container::-webkit-scrollbar{
+    display: none;
 }

@@ -42,11 +42,13 @@ function HomePage() {
 
 	return (
 		<div className="home-page-container">
+				
 			<div id="home-content-wrapper">
-				<p className="home-title">How can I help today?</p>
+				<p className="home-title">How can you help today?</p>
+				 <br />
 				<div className="search-bar">
 					<input onChange={(event) => handleSearch(event.target.value)} type="text" name="search-input" id="search-input" />
-					<span> {''} {''}   🔍</span>
+					<span> {''} {''}   <i class="fa fa-search"></i></span>
 
 				</div>
 				{

@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    box-shadow: 1px 1px 7px rgb(71, 71, 71);
+    /* box-shadow: 1px 1px 7px rgb(71, 71, 71); */
 }
 
 .navbar .sidebar {
@@ -119,6 +119,7 @@ nav .home {
     width: 30px;
     height: 30px;
     margin-top: 5px;
+    object-fit: cover;
 
 }
 
@@ -153,5 +154,10 @@ nav .home {
 
 .center div {
     transform: scale(0);
+    
+}
+
+@media (min-width: 1000px) {
+
     
 }
