@@ -49,6 +49,11 @@ function Navbar() {
                     </Link>
                   </li>
                   <li >
+                    <Link to="/editprofile">
+                      <p onClick={handleSidebar} className="side-element">Edit profile</p>
+                    </Link>
+                  </li>
+                  <li >
                     <Link to="/createhelp">
                       <p onClick={handleSidebar} className="side-element">Create Help request</p>
                     </Link>
@@ -59,8 +64,8 @@ function Navbar() {
                     </Link>
                   </li>
                   <li >
-                    <Link to="/editprofile">
-                      <p onClick={handleSidebar} className="side-element">Edit profile</p>
+                    <Link to="/createtestimony">
+                      <p onClick={handleSidebar} className="side-element">Create testimony</p>
                     </Link>
                   </li>
                   <li >
