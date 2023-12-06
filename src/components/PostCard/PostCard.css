@@ -1,0 +1,62 @@
+
+
+.post-card-container{
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	margin-top: 10px;
+	
+}
+
+.help-post-card-small{
+	background-color: rgba(255, 77, 77, 0.2);
+	width: 150px;
+	height: 100px;
+	color: rgb(255, 255, 255);
+	border-radius: 8px;
+	padding: 5px;
+	border: 0.2px solid whitesmoke;
+	box-shadow: 2px 2px 3px rgba(45, 45, 45);
+	line-height: 25px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	/* justify-content: space-between; */
+
+}
+
+.help-post-card-small .location{
+	border-top: 1px solid white;
+
+}
+.help-post-card-small .title{
+	border: 0;
+	
+
+}
+
+
+.title {
+	font-weight: 400;
+	border-bottom: 1px solid whitesmoke;
+	font-size: 16px;
+}
+
+
+
+.help-post-home .title {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.help-post-home .location {
+
+	margin-bottom: 10px;
+}
+
+.help-post-home .description {
+	font-style: italic;
+
+}

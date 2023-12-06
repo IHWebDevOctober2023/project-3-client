@@ -1,0 +1,120 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.post-details-container {
+    line-height: 25px;
+    padding: 10px;
+    border-radius: 15px;
+  
+    background: linear-gradient(180deg, rgb(220, 140, 10) 0%, rgb(43, 68, 117) 75%, rgb(23, 90, 86) 89%, rgb(175, 100, 66) 100%);
+}
+
+.general-post-container{
+    padding: 15px;
+}
+
+.help-image{
+    border-radius: 10px;
+    width: 80vw;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.help-container {
+    
+    background-position: center;
+    background-size: cover;
+   
+    width: 100%;
+    
+
+}
+
+.post-details {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: rgb(250, 242, 242);
+    
+    
+    text-shadow: 2px 2px 2px rgba(40, 40, 40, 0.3); ;
+    width: 220px;
+}
+
+.info-post-container{
+    padding: 20px;
+}
+
+.details-location{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.description-title{
+    font-size: 20px;
+}
+
+.info-title{
+    margin-bottom: 30px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.name-creator{
+    font-size: 18px;
+}
+
+.creator-title{
+    margin-top: 10px;
+    font: 20px;
+}
+
+.volunteer{
+    font-size: 30px;
+}
+
+.info-description{
+    font-size: 16px;
+}
+
+.creator-picture{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.I-can-help{
+    color: rgb(240, 243, 247);
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    width: 120px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 0 auto;
+}
+
+.edit-help-buttons{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit-button{
+    color: rgb(240, 243, 247);
+    outline: 1px solid whitesmoke;
+    padding: 2px;
+    width: 130px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 0 auto;
+}
+

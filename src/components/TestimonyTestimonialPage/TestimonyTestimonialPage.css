@@ -1,0 +1,38 @@
+.testimony-testimonial {
+    width: 75%;
+    background-color: rgb(245, 176, 85);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.testimony-creator-testimonial {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimony-creator-testimonial img{
+    width:50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+.testimony-testimonial .quote-testimonial {
+padding-bottom: 10px;
+}
+
+.testimony-testimonial .quote::before {
+content: '\201C';
+}
+
+.testimony-testimonial .quote::after {
+content: '\201D';
+}
+
+.testimony-rating-testimonial {
+	color: darkgoldenrod;
+}
+

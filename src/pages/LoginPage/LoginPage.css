@@ -1,0 +1,28 @@
+.LoginPage input{
+    color: black;
+}
+
+.LoginPage button{
+    color: black;
+}
+
+
+.LoginPage {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginPage * {
+    max-width: 350px;
+}
+
+.LoginPage > form {
+    width: 350px;
+    display:flex;
+    flex-direction: column;  
+}
+
+.submitbutton {
+    margin-top: 20px;
+}

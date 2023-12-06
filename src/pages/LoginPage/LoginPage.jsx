@@ -35,7 +35,6 @@ function LoginPage() {
         // and at last navigate to the home page
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state
@@ -60,7 +59,7 @@ function LoginPage() {
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <button className="submitbutton" type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

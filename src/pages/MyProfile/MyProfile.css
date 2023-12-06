@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .profile-container{
+    width: 100%;
+} */
+
+.profile-card {
+   
+    padding: 10px;
+    border-radius: 15px;
+    margin: 15px;
+    background: linear-gradient(180deg, rgb(1, 0, 26) 0%, rgb(30, 38, 78) 75%, rgb(23, 90, 86) 89%, rgb(175, 119, 66) 100%);
+}
+
+
+.profile-picture-container {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+    max-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.user-profilepicture {
+    border-radius: 10px;
+    width: 80vw;
+    height: 30vh;
+    object-fit: cover;
+
+
+}
+
+
+.user-details-container {
+    padding: 15px;
+    line-height: 30px;
+}
+
+.location-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.skills-container {
+    margin-bottom: 15px;
+    border-top: 1px solid whitesmoke;
+}
+
+.tokens-container {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.tokens-number {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cards-container{
+    display: flex;
+    gap: 10px;
+    /* overflow: hidden; */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    
+}
+
+.cards-container-volunteer{
+    display: flex;
+}
+.cards-container::-webkit-scrollbar{
+    display: none;
+}
+
+h3{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}

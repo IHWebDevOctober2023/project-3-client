@@ -1,0 +1,19 @@
+.form-page {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-page * {
+    max-width: 350px;
+}
+
+.form-page > form {
+    width: 350px;
+    display:flex;
+    flex-direction: column;  
+}
+
+.form-page .submitbutton, .form-page label{
+    margin-top: 20px;
+}
