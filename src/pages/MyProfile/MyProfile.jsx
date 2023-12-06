@@ -56,24 +56,31 @@ function MyProfile() {
             {userData ?
                 <div className="profile-container">
                     <div className="profile-card">
-                        <div className="profile-picture-container">
-                            <img className="user-profilepicture" src={userData.profilePicture} alt={userData.name} />
+
+                        <div className="user-details-picture-responsive">
+                            <div className="profile-picture-container">
+                                <img className="user-profilepicture" src={userData.profilePicture} alt={userData.name} />
+                            </div>
+                            <div className="user-details-container">
+                                <div className="user-details-responsive">
+
+                                    <h2>{userData.name}</h2>
+                                    <div className="location-container">
+                                        <h4>Location:</h4>
+                                        <p>{userData.location}    <i className="fa fa-map-marker"></i></p>
+                                    </div>
+                                    <div className="skills-container">
+                                        <h4 className="skills-title">Skills:</h4>
+                                        <p> {userData.skills}</p>
+                                    </div>
+                                    <div className="tokens-container">
+                                        <p>Number of tokens: </p>
+                                        <p className="tokens-number">{userData.tokens}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="user-details-container">
-                            <h2>{userData.name}</h2>
-                            <div className="location-container">
-                                <h4>Location:</h4>
-                                <p>{userData.location}    <i className="fa fa-map-marker"></i></p>
-                            </div>
-                            <div className="skills-container">
-                                <h4 className="skills-title">Skills:</h4>
-                                <p> {userData.skills}</p>
-                            </div>
-                            <div className="tokens-container">
-                                <p>Number of tokens: </p>
-                                <p className="tokens-number">{userData.tokens}</p>
-                            </div>
-
                             {/* show all posts you have created */}
                             {helpPostsArray.length > 0 ?
                                 <div>
@@ -104,7 +111,7 @@ function MyProfile() {
                             {/* show all post you have volunteered to do */}
                             {HelpPostIVolunteered.length > 0 ?
                                 <div>
-                                        <h3>I have volunteered to:</h3>
+                                    <h3>I have volunteered to:</h3>
                                     <div className="cards-container">
                                         {
                                             HelpPostIVolunteered.map((eachPost, index) => {

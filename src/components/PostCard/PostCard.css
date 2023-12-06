@@ -14,7 +14,7 @@
 	height: 100px;
 	color: rgb(255, 255, 255);
 	border-radius: 8px;
-	padding: 5px;
+	padding: 10px;
 	border: 0.2px solid whitesmoke;
 	box-shadow: 2px 2px 3px rgba(45, 45, 45);
 	line-height: 25px;
@@ -59,4 +59,11 @@
 .help-post-home .description {
 	font-style: italic;
 
+}
+
+@media (min-width: 1000px) {
+	.help-post-card-small{
+
+		width: 300px;
+	}
 }
