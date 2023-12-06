@@ -39,10 +39,12 @@
 
 
 }
-
+.user-name{
+    margin-top: 15px;
+}
 
 .user-details-container {
-    padding: 15px;
+    padding: 15px 15px 0 15px;
     line-height: 30px;
 }
 
@@ -59,6 +61,8 @@
 }
 
 .tokens-container {
+    border-top: 1px solid whitesmoke;
+
     display: flex;
     
     justify-content: space-between;

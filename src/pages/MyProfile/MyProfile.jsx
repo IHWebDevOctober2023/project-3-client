@@ -53,7 +53,7 @@ function MyProfile() {
                             <div className="user-details-container">
                                 <div className="user-details-responsive">
 
-                                    <h2>{userData.name}</h2>
+                                    <h2 className="user-name">{userData.name}</h2>
                                     <div className="location-container">
                                         <h4>Location:</h4>
                                         <p>{userData.location}    <i className="fa fa-map-marker"></i></p>
