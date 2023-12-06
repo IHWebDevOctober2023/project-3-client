@@ -9,20 +9,14 @@ import PostCard from "../../components/PostCard/PostCard";
 function MyProfile() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const userIdFromAuth = user._id
-
     const [userData, setUserData] = useState('')
     const [helpPostsArray, setHelpPostsArray] = useState([])
-
     const [HelpPostIVolunteered, setHelpPostIVolunteered] = useState([])
     const [HelpPostIHaveBeenChosen, setHelpPostIHaveBeenChosen] = useState([])
-    //console.log(userPosts);
-    //let HelpPostIVolunteeredArray = userPosts.allHelpPostsIVolunteered
-    //let HelpPostIHaveBeenChosenArray = userPosts.allHelpPostsIWasChosen
-
-
+    const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
 
     useEffect(() => {
-        fetch(`http://localhost:5005/user/${userIdFromAuth}`)
+        fetch(`${BACKEND_ROOT}/user/${userIdFromAuth}`)
             .then((response) => {
                 return response.json();
             })
@@ -34,22 +28,16 @@ function MyProfile() {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5005/help-post/volunteered/${userIdFromAuth}`)
+        fetch(`${BACKEND_ROOT}/help-post/volunteered/${userIdFromAuth}`)
             .then((response2) => {
                 return response2.json();
             })
             .then((jsonData2) => {
-                //console.log(jsonData2);
                 setHelpPostIVolunteered(jsonData2.allHelpPostsIVolunteered)
                 setHelpPostIHaveBeenChosen(jsonData2.allHelpPostsIWasChosen)
-
-                //console.log('Este es el jsonData2',jsonData2);
-                //console.log(userPosts.allHelpPostsIVolunteered[0]);
-                //console.log(userPosts.allHelpPostsIWasChosen);
             })
             .catch((err) => console.log(err))
     }, []);
-
 
     return (
         <>
@@ -61,6 +49,7 @@ function MyProfile() {
                             <div className="profile-picture-container">
                                 <img className="user-profilepicture" src={userData.profilePicture} alt={userData.name} />
                             </div>
+
                             <div className="user-details-container">
                                 <div className="user-details-responsive">
 
@@ -81,6 +70,7 @@ function MyProfile() {
                             </div>
                         </div>
                         <div className="user-details-container">
+
                             {/* show all posts you have created */}
                             {helpPostsArray.length > 0 ?
                                 <div>
@@ -93,7 +83,6 @@ function MyProfile() {
                                         }
                                     </div>
                                 </div> : <p>You have no posts yet</p>}
-
                             {/* show all post that you have been chosen as volunteer */}
                             {HelpPostIHaveBeenChosen.length > 0 ?
                                 <div >
@@ -106,8 +95,6 @@ function MyProfile() {
                                         }
                                     </div>
                                 </div> : <p>You have not been selected to volunteer yet</p>}
-
-
                             {/* show all post you have volunteered to do */}
                             {HelpPostIVolunteered.length > 0 ?
                                 <div>
@@ -115,7 +102,6 @@ function MyProfile() {
                                     <div className="cards-container">
                                         {
                                             HelpPostIVolunteered.map((eachPost, index) => {
-                                                //console.log("post ", eachPost);
                                                 return (<PostCard key={index} post={eachPost} />);
                                             })
                                         }
