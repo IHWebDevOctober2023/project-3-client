@@ -15,7 +15,7 @@ function HomePage() {
 	const handleSearch = (searchValue) => {
 		const helpPostsUpdated = helpPostsArr.filter((eachHelpPost) => {
 			console.log(eachHelpPost.title)
-			 return eachHelpPost.title.includes(searchValue)
+			return eachHelpPost.title.includes(searchValue)
 		})
 		if (searchValue === "") {
 			const BACKEND_ROOT = import.meta.env.VITE_SERVER_URL;
@@ -45,19 +45,19 @@ function HomePage() {
 				
 			<div id="home-content-wrapper">
 				<p className="home-title">How can you help today?</p>
-				 <br />
+				<br />
 				<div className="search-bar">
 					<input onChange={(event) => handleSearch(event.target.value)} type="text" name="search-input" id="search-input" />
-					<span> {''} {''}   <i class="fa fa-search"></i></span>
+					<span> {''} {''}   <i className="fa fa-search"></i></span>
 
 				</div>
 				{
 					helpPostsArr.map((eachPost, index) => {
 						console.log("post ", eachPost);
 						return (
-							<div className="posts-container">
+							<div key={index} className="posts-container">
 
-								<HelpPostHome key={index} post={eachPost} />
+								<HelpPostHome  post={eachPost} />
 							</div>
 						);
 					})
