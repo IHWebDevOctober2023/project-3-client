@@ -11,9 +11,25 @@
 } */
 
 
-
+.volunteerCard-card{
+	margin-top: 5px;
+	background-color: rgba(255, 77, 77, 0.2);
+	width: 150px;
+	height: 100px;
+	color: rgb(255, 255, 255);
+	border-radius: 8px;
+	padding: 10px;
+	border: 0.2px solid whitesmoke;
+	box-shadow: 2px 2px 3px rgba(45, 45, 45);
+	line-height: 25px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
 
 .title-volunteerCard {
+	margin-top: 10px;
 	font-size: 1.2em;
 	font-weight: bold;
 	margin-bottom: 10px;
@@ -29,6 +45,9 @@
 
 }
 
-/* .image-volunteerCard{
-    width: 60px;
-} */
+.image-volunteerCard{
+	width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    object-fit: cover;
+}

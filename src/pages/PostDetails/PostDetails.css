@@ -86,6 +86,10 @@
     object-fit: cover;
 }
 
+.details-volunteer{
+    margin-top: 10px;
+}
+
 .I-can-help{
     color: rgb(240, 243, 247);
     outline: 1px solid whitesmoke;
@@ -118,3 +122,13 @@
     margin-left: 0 auto;
 }
 
+@media (min-width: 1000px) {
+    .help-image{
+        border-radius: 10px;
+        width: 50vw;
+        height: 30vh;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+}

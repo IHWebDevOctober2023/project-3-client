@@ -179,7 +179,7 @@ function PostDetails() {
                     <p className="volunteer"></p>
                     {(volunteersArray.length > 0 && isCreator()) ?
                         <div>
-                            <p className="details-volunteer">  {`${volunteersArray.length}`} users volunteered: </p>
+                            <p className="details-volunteer">  Volunteers: </p>
                             {volunteersArray.map((eachVolunteer, index) => {
                                 //console.log(eachVolunteer);
                                 //console.log(helpId)

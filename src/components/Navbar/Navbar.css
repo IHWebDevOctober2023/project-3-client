@@ -114,7 +114,8 @@ nav .home {
 
 .right-button {
     color: white;
-
+    background-color: aliceblue;
+cursor: pointer;
     border-radius: 15px;
     margin-right: 10px;
     width: 30px;

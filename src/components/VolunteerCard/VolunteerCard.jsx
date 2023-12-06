@@ -48,10 +48,10 @@ const VolunteerCard = (props) => {
             <div className="volunteerCard-link">
                 <Link to={`/user/${_id}`} >
                     <div className="volunteerCard-card" >
+                        <img className="image-volunteerCard" src={profilePicture} alt="" />
                         <p className="email-volunteerCard">Email: {email}</p>
                         {location === undefined ? <p></p> : <p className="location-volunteerCard">Location: {location}</p>}
                         <p className="name-volunteerCard">Name: {name}</p>
-                        <img className="image-volunteerCard" src={profilePicture} alt="" />
                     </div>
                 </Link>
                 <button onClick={chooseVolunteer}>Choose this volunteer!!</button>

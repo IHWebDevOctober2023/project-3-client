@@ -6,6 +6,7 @@
 	background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(36, 48, 73) 15%, rgba(37, 58, 101) 40%, rgb(82, 118, 188) 95%);
 	box-shadow: 1px 1px 10px rgba(171, 171, 217, 0.3);
 	color: rgb(246, 246, 246);
+	overflow: hidden;
 }
 
 .help-post-home .title {
@@ -17,12 +18,13 @@
 
 .help-post-home .location {
 
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .help-post-home .description {
 	font-style: italic;
-	margin-top: 20px;
+	margin-top: 10px;
+	padding: 5px;
 
 
 }
@@ -31,6 +33,7 @@
 	width: 40px;
 	height: 40px;
 	border-radius: 25px;
+	object-fit: cover;
 }
 
 .image-location-container {
