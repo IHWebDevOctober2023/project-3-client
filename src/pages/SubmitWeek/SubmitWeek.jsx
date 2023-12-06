@@ -15,26 +15,19 @@ function SubmitWeek() {
 
   const [taskAssignedTo, setTaskAssignedTo] = useState("");
   const handleTaskAssignedTo = (e) => setTaskAssignedTo(e.target.value);
-  const getTasksbyFamily = async () => {
-    try {
-      const familyTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks/${family._id}/tasksByFamily`);
-      const familyTasksResponseJson = await familyTasksResponse.json()
-      setTasksByFamily(familyTasksResponseJson.tasksByFamily)
-      setTasksDoneByFamily(familyTasksResponseJson.tasksDoneByFamily)
-      setTasksPendingByFamily(familyTasksResponseJson.tasksPendingByFamily)
-
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   const CalculateKpiFamily = async () => {
     try {
-      const kpiFamily = (tasksDoneByFamily / tasksByFamily) * 100;
-      const roundedKpiFamily = kpiFamily.toFixed(2);
-
-
-      setkpiByFamily(roundedKpiFamily)
+      if(tasksDoneByFamily || tasksByFamily){
+        const kpiFamily = (tasksDoneByFamily / tasksByFamily) * 100;
+        const roundedKpiFamily = kpiFamily.toFixed(2);
+  
+  
+        setkpiByFamily(roundedKpiFamily)
+        
+      }else{
+        setkpiByFamily("loading")
+      }
 
     }
     catch (error) {
@@ -42,10 +35,28 @@ function SubmitWeek() {
     }
   }
 
+  const getTasksbyFamily = async () => {
+    try {
+      const familyTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks/${family._id}/tasksByFamily`);
+      const familyTasksResponseJson = await familyTasksResponse.json()
+      setTasksByFamily(familyTasksResponseJson.tasksByFamily)
+      setTasksDoneByFamily(familyTasksResponseJson.tasksDoneByFamily)
+      setTasksPendingByFamily(familyTasksResponseJson.tasksPendingByFamily)
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+  
   useEffect(() => {
     getTasksbyFamily();
-    CalculateKpiFamily();
   }, []);
+
+  useEffect(() => {
+    CalculateKpiFamily();
+    
+  }, [tasksDoneByFamily,tasksByFamily]);
 
   return (
     <>

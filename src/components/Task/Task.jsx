@@ -55,6 +55,7 @@ function Task(props) {
         body: JSON.stringify({ taskIsDone })
       })
       const getTaskIsDone = await taskIsDoneResponse.json()
+      props.getTasks()
       //setTaskIsDone(getTaskIsDone)
     } catch (error) { console.log("this is the error taskIsDone: ", error); }
   }
@@ -67,7 +68,7 @@ function Task(props) {
 
   return (
     <div className="task">
-      <input type="checkbox" checked={taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
+      <input type="checkbox" checked={props.taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
       <span>|</span>
       <p className="text-p">{props.taskDescription}</p>
       <span>|</span>
