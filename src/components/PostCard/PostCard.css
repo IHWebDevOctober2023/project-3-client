@@ -8,7 +8,7 @@
 	
 }
 
-.help-post-card{
+.help-post-card-small{
 	background-color: rgb(36, 72, 99);
 	width: 150px;
 	height: 100px;
@@ -21,15 +21,24 @@
 	font-size: 14px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	/* justify-content: space-between; */
 
 }
 
+.help-post-card-small .location{
+	border-top: 1px solid white;
+
+}
+.help-post-card-small .title{
+	border: 0;
+
+}
 
 
 .title {
-	border-bottom: 1px solid whitesmoke;
 	font-weight: 400;
+	border-bottom: 1px solid whitesmoke;
 	font-size: 16px;
 }
 
