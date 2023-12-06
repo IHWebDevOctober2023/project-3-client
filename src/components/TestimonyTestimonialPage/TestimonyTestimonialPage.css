@@ -1,23 +1,38 @@
 .testimony-testimonial {
     width: 75%;
-    background-color: rgb(245, 176, 85);
+	background: linear-gradient(180deg, rgb(152, 70, 155) 0%,  rgb(82, 118, 188) 95%);
     border-radius: 8px;
-    padding: 14px;
-    display: flex;
-    flex-direction: column-reverse;
+    padding: 10px;
+    
+    height: 140px;
     justify-content: space-between;
     align-items: flex-start;
 }
 
 .testimony-creator-testimonial {
+    
     display: flex;
-    flex-direction: column;
+   align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid whitesmoke;
+    padding: 5px;
+    
+    
+}
+
+.quote-testimonial{
+    margin-left: 5px;
 }
 
 .testimony-creator-testimonial img{
-    width:50px;
-    max-height: 50px;
+    width:30px;
+    max-height: 30px;
     border-radius: 50%;
+}
+
+.creator-name{
+    font-weight: 600;
 }
 
 .testimony-testimonial .quote-testimonial {

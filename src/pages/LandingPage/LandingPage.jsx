@@ -19,13 +19,22 @@ const LandingPage = () => {
     return (
         <div className="landing-wrapper">
             <section id="landing-upper">
+                <div id="video-container">
+                    <video autoPlay muted loop>
+                        <source className="landing-video" src="./images/3d-hug-video.mp4" type="video/mp4"></source>
+                    </video>
+
+                </div>
+                <h2 className="first-title">Do you need help with anything? </h2>
                 <div id="landing-cta">
-                    <h2>Do you need help? 3 helps for you are on us.</h2>
-                    <Link to="/signup"><button className="cta-click">Get my free helps!</button></Link>
+                    <h3>3 helps for you are on us.</h3>
+                    <Link to="/signup">
+                        <p className="get-help-button">Get my free helps!</p>
+                    </Link>
                 </div>
             </section>
             <section className="features-section">
-                <p>Share what you need one token at a time</p>
+                <p >Share what you need one token at a time</p>
                 <p>Sign in and get your first 3 tokens for free</p>
                 <p>Earn more tokens by helping others</p>
             </section>

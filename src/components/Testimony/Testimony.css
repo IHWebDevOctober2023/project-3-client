@@ -1,6 +1,7 @@
 .testimony {
-    width: 160px;
-    background-color: antiquewhite;
+    width: 210px;
+    background: linear-gradient(180deg, rgb(152, 70, 155) 0%, rgb(82, 118, 188) 95%);
+    min-height: 250px;
     border-radius: 8px;
     padding: 14px;
     display: flex;
@@ -14,25 +15,26 @@
     flex-direction: column;
 }
 
-.testimony-creator img{
-    width:50px;
+.testimony-creator img {
+    width: 50px;
     max-height: 50px;
     border-radius: 50%;
 }
 
 .testimony .quote {
-padding-bottom: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 .testimony .quote::before {
-content: '\201C';
+    content: '\201C';
 }
 
 .testimony .quote::after {
-content: '\201D';
+    content: '\201D';
 }
 
 .testimony-rating {
-	color: darkgoldenrod;
+    color: darkgoldenrod;
 }
-
