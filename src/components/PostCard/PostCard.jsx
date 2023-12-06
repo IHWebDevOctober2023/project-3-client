@@ -7,7 +7,7 @@ const PostCard = (props) => {
 
 	return (
 		
-		<Link to={`/help-post/${_id}`} className="post-card-container">
+		<Link to={`/help-post/${_id}`} /* className="post-card-container" */>
 		<div className="help-post-card-small" >
 			<p className="title">{title}</p>
 			<p className="location">{location} <i className="fa fa-map-marker"></i></p>

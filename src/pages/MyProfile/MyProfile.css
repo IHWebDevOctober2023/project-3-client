@@ -75,6 +75,15 @@
     overflow-x: scroll; /* Enable horizontal scrolling */
     
 }
+
+.cards-container-volunteer{
+    display: flex;
+}
 .cards-container::-webkit-scrollbar{
     display: none;
+}
+
+h3{
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
