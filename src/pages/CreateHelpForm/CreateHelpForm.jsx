@@ -11,7 +11,6 @@ function CreateHelpForm() {
     const [description, setDescription] = useState('')
     const [helpImageUrl, setHelpImage] = useState('')
     const [creator, setCreator] = useState('')
-    const [category, setCategory] = useState('')
     const [volunteers, setVolunteers] = useState('')
     const [isCompleted, setIsCompleted] = useState('')
     const navigate = useNavigate();
@@ -24,7 +23,6 @@ function CreateHelpForm() {
             description,
             helpImageUrl,
             creator: user._id,
-            category,
             volunteers,
             isCompleted
         };
@@ -65,16 +63,6 @@ function CreateHelpForm() {
                 <label htmlFor="helpImageUrl">Image</label>
                 <input value={helpImageUrl} onChange={(event) => setHelpImage(event.target.value)} type="text" name="helpImageUrl" id="helpImageUrl"/>
 
-                <label htmlFor="category">Category</label>
-                <select value={category} onChange={(event) => setCategory(event.target.value)} type="text" name="category" id="category">
-                    <option value="learning">Learning</option>
-                    <option value="transport">Transport</option>
-                    <option value="tech">Tech</option>
-                    <option value="house-chores">House-chores</option>
-                    <option value="furniture">Furniture</option>
-                    <option value="house-repairs">House-repairs</option>
-                    <option value="chat-sessions">Chat-sessions</option>
-                </select>
                 <p onClick={(event) => postHelp(event)} className="create-help-button">CREATE</p>
             </form>
             </div>
