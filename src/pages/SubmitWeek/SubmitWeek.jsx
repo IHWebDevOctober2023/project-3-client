@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from "../../context/auth.context";
 import Navbar from '../../components/Navbar/Navbar';
-
+import Footer from '../../components/Footer/Footer';
 function SubmitWeek() {
   const { user, family, setUser } = useContext(AuthContext);
   const [familyMember, setFamilyMember] = useState([]);
@@ -82,6 +82,7 @@ function SubmitWeek() {
 
 
       </div>
+      <Footer/>
     </>
   );
 }
