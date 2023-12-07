@@ -41,6 +41,7 @@
 	height: 40px;
 	border-radius: 25px;
 	object-fit: cover;
+	background-color: aliceblue;
 }
 
 .image-location-container {
